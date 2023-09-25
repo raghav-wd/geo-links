@@ -58,7 +58,7 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-const card = (
+const CardBlock = ({ data }) => (
   <React.Fragment>
     <CardContent>
       <Grid container>
@@ -68,13 +68,13 @@ const card = (
         <Grid xs={11} pl={1}>
           <Box style={{ display: "flex" }}>
             <Typography pr={1} gutterBottom>
-              Google
+              {data.name}
             </Typography>
             <ModeEditOutlineOutlined fontSize="small" />
           </Box>
           <Box style={{ display: "flex" }}>
             <Typography pr={1} gutterBottom>
-              https://google.com
+              {data.link}
             </Typography>
             <ModeEditOutlineOutlined fontSize="small" />
           </Box>
@@ -134,53 +134,52 @@ const card = (
   </React.Fragment>
 );
 
-const EditLink = memo(function EditLink({ id, text, moveCard, findCard }) {
+const EditLink = memo(function EditLink({ id, moveCard, findCard, data }) {
   const style = {
-    border: "1px dashed gray",
-    padding: "0.5rem 1rem",
-    marginBottom: ".5rem",
-    backgroundColor: "white",
     cursor: "move",
   };
-  // const originalIndex = findCard(id).index;
-  // const [{ isDragging }, drag] = useDrag(
-  //   () => ({
-  //     type: "Card",
-  //     item: { id, originalIndex },
-  //     collect: (monitor) => ({
-  //       isDragging: monitor.isDragging(),
-  //     }),
-  //     end: (item, monitor) => {
-  //       const { id: droppedId, originalIndex } = item;
-  //       const didDrop = monitor.didDrop();
-  //       if (!didDrop) {
-  //         moveCard(droppedId, originalIndex);
-  //       }
-  //     },
-  //   }),
-  //   [id, originalIndex, moveCard]
-  // );
-  // const [, drop] = useDrop(
-  //   () => ({
-  //     accept: "Card",
-  //     hover({ id: draggedId }) {
-  //       if (draggedId !== id) {
-  //         const { index: overIndex } = findCard(id);
-  //         moveCard(draggedId, overIndex);
-  //       }
-  //     },
-  //   }),
-  //   [findCard, moveCard]
-  // );
-  // const opacity = isDragging ? 0 : 1;
+  const originalIndex = findCard(id).index;
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: "Card",
+      item: { id, originalIndex },
+      collect: (monitor) => ({
+        isDragging: monitor.isDragging(),
+      }),
+      end: (item, monitor) => {
+        const { id: droppedId, originalIndex } = item;
+        const didDrop = monitor.didDrop();
+        if (!didDrop) {
+          moveCard(droppedId, originalIndex);
+        }
+      },
+    }),
+    [id, originalIndex, moveCard]
+  );
+  const [, drop] = useDrop(
+    () => ({
+      accept: "Card",
+      hover({ id: draggedId }) {
+        if (draggedId !== id) {
+          const { index: overIndex } = findCard(id);
+          moveCard(draggedId, overIndex);
+        }
+      },
+    }),
+    [findCard, moveCard]
+  );
+  const opacity = isDragging ? 0 : 1;
 
   return (
     <Box
       sx={{ minWidth: 275 }}
-      // ref={(node) => drag(drop(node))}
-      // style={{ ...style, opacity }}
+      ref={(node) => drag(drop(node))}
+      style={{ ...style, opacity }}
+      my={1}
     >
-      <Card variant="outlined">{card}</Card>
+      <Card variant="outlined">
+        <CardBlock data={data} />
+      </Card>
     </Box>
   );
 });

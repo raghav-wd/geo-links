@@ -15,7 +15,7 @@ const TopNav = () => {
   function handleClick(e) {
     switch (e) {
       case 0:
-        navigate("/");
+        navigate("");
         return;
       case 1:
         navigate("/appearance");

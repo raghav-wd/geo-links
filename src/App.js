@@ -32,7 +32,7 @@ export default function App() {
       <TopNav />
       <Box p={1}>
         <Routes>
-          <Route index path="/" element={<Links />} />
+          <Route index element={<Links />} />
           <Route path="/appearance" element={<Appearance />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/more" element={<More />} />

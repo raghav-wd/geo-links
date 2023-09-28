@@ -2,12 +2,13 @@ import * as React from "react";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import TopNav from "./components/TopNav";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Links from "./container/Links";
 import Appearance from "./container/Appearance";
 import Insights from "./container/Insights";
 import More from "./container/More";
 import { Box } from "@mui/material";
+import Login from "./container/Login";
 
 export default function App() {
   const theme = createTheme({
@@ -26,11 +27,21 @@ export default function App() {
       },
     },
   });
-
+  const location = useLocation();
+  const renderTopnav = () => {
+    if (
+      ["/", "/appearance", "/insights", "/more"].indexOf(location.pathname) > -1
+    )
+      return <TopNav />;
+  };
   return (
     <ThemeProvider theme={theme}>
-      <TopNav />
-      <Box p={1}>
+      <Routes>
+        <Route path="/signup" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      {renderTopnav()}
+      <Box px={1}>
         <Routes>
           <Route index element={<Links />} />
           <Route path="/appearance" element={<Appearance />} />

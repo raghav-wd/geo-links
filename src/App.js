@@ -27,11 +27,11 @@ export default function App() {
       },
     },
   });
-  const location = useLocation();
+  // const location = useLocation();
   const renderTopnav = () => {
-    if (
-      ["/", "/appearance", "/insights", "/more"].indexOf(location.pathname) > -1
-    )
+    // if (
+    //   ["/", "/appearance", "/insights", "/more"].indexOf(location.pathname) > -1
+    // )
       return <TopNav />;
   };
   return (
@@ -43,7 +43,7 @@ export default function App() {
       {renderTopnav()}
       <Box px={1}>
         <Routes>
-          <Route index element={<Links />} />
+          <Route path="/" index element={<Links />} />
           <Route path="/appearance" element={<Appearance />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/more" element={<More />} />

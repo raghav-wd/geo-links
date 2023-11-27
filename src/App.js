@@ -9,6 +9,8 @@ import Insights from "./container/Insights";
 import More from "./container/More";
 import { Box } from "@mui/material";
 import Login from "./container/Login";
+import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
+import { Render } from "./container/Render";
 
 export default function App() {
   const theme = createTheme({
@@ -27,26 +29,26 @@ export default function App() {
       },
     },
   });
-  // const location = useLocation();
+  const location = useLocation();
   const renderTopnav = () => {
-    // if (
-    //   ["/", "/appearance", "/insights", "/more"].indexOf(location.pathname) > -1
-    // )
+    if (
+      ["/", "/appearance", "/insights", "/more"].indexOf(location.pathname) > -1
+    )
       return <TopNav />;
   };
   return (
     <ThemeProvider theme={theme}>
-      <Routes>
-        <Route path="/signup" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
       {renderTopnav()}
+      <IosShareRoundedIcon/>
       <Box px={1}>
         <Routes>
-          <Route path="/" index element={<Links />} />
+          <Route index element={<Links />} />
           <Route path="/appearance" element={<Appearance />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/more" element={<More />} />
+          <Route path="/signup" element={<Login />} />
+          <Route path="/render" element={<Render/>} />
+          <Route path="*" element={<Login />} />
         </Routes>
       </Box>
     </ThemeProvider>

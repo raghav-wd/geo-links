@@ -9,7 +9,6 @@ import Insights from "./container/Insights";
 import More from "./container/More";
 import { Box } from "@mui/material";
 import Login from "./container/Login";
-import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import { Render } from "./container/Render";
 
 export default function App() {
@@ -39,7 +38,6 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       {renderTopnav()}
-      <IosShareRoundedIcon/>
       <Box px={1}>
         <Routes>
           <Route index element={<Links />} />
@@ -47,7 +45,7 @@ export default function App() {
           <Route path="/insights" element={<Insights />} />
           <Route path="/more" element={<More />} />
           <Route path="/signup" element={<Login />} />
-          <Route path="/render" element={<Render/>} />
+          <Route path="/render" element={<Render />} />
           <Route path="*" element={<Login />} />
         </Routes>
       </Box>

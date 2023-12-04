@@ -1,0 +1,17 @@
+.clipped-img {
+  height: 340px;
+  position: absolute;
+  clip-path: url(#clippp);
+}
+
+.wavy {
+  width: 240px;
+  height: 240px;
+}
+
+.graphic {
+  margin: 60px auto;
+  width: 240px;
+  clear: left;
+  transform: scale(-0.383);
+}

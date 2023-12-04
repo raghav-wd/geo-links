@@ -4,7 +4,7 @@ import { LogoutOutlined } from "@mui/icons-material";
 
 const More = () => {
   return (
-    <>
+    <Box mx={1}>
       <MoreTopBar />
       <Box my={1}>
         <Card variant="outlined">
@@ -15,7 +15,7 @@ const More = () => {
           </CardContent>
         </Card>
       </Box>
-    </>
+    </Box>
   );
 };
 

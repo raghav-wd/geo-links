@@ -4,9 +4,7 @@ import { memo, useCallback, useState } from "react";
 import { useDrop } from "react-dnd";
 
 const LinksView = memo(function LinksView() {
-  const style = {
-    // width: 400,
-  };
+  const style = {};
   const ITEMS = [
     {
       id: 1,

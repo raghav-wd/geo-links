@@ -1,5 +1,8 @@
 body {
-  margin: 0;
+  margin: 0px;
+  background-color: #f8f5ec;
+  color: #212121;
+  font-family: aktiv-grotesk, sans-serif;
 }
 
 .input,
@@ -8,4 +11,8 @@ body {
   font-family: inherit;
   font-size: inherit;
   padding: 1px 6px;
+}
+
+.content {
+  margin: "0 8px";
 }

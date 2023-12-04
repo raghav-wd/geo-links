@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { Visibility } from "@mui/icons-material";
 import { Box } from "@mui/material";
+import { Render } from "../../Render";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -47,7 +48,11 @@ export default function PreviewButton() {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: "relative" }}>
+        <AppBar
+          sx={{
+            position: "relative",
+          }}
+        >
           <Toolbar>
             <IconButton
               edge="start"
@@ -65,18 +70,7 @@ export default function PreviewButton() {
             </Button> */}
           </Toolbar>
         </AppBar>
-        <List>
-          <ListItem button>
-            <ListItemText primary="Phone ringtone" secondary="Titania" />
-          </ListItem>
-          <Divider />
-          <ListItem button>
-            <ListItemText
-              primary="Default notification ringtone"
-              secondary="Tethys"
-            />
-          </ListItem>
-        </List>
+        <Render />
       </Dialog>
     </React.Fragment>
   );

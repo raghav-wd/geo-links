@@ -1,9 +1,12 @@
 import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Box } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
 import { AddLink, Insights, MoreHoriz, Palette } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import RestoreIcon from "@mui/icons-material/Restore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const TopNav = () => {
   const [value, setValue] = React.useState(0);
@@ -66,6 +69,17 @@ const TopNav = () => {
           onClick={() => handleClick(3)}
         />
       </Tabs>
+      {/* <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      >
+        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      </BottomNavigation> */}
     </Box>
   );
 };

@@ -31,6 +31,7 @@ import {
   PushPinOutlined,
   Schedule,
   Terrain,
+  Visibility,
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 
@@ -143,7 +144,7 @@ const CardBlock = ({ data }) => {
                 )}
               </Box>
             </ClickAwayListener>
-            {/* <FormControl sx={{ m: 0.4 }} variant="standard">
+            {/* <FormControl xs={{ m: 0.4 }} variant="standard">
             <Input
               id="standard-adornment-password"
               type="text"
@@ -157,7 +158,7 @@ const CardBlock = ({ data }) => {
               }
             />
           </FormControl>
-          <FormControl sx={{ m: 0.4 }} variant="standard">
+          <FormControl xs={{ m: 0.4 }} variant="standard">
             <Input
               id="standard-adornment-password"
               type="text"
@@ -175,7 +176,7 @@ const CardBlock = ({ data }) => {
         </Grid>
       </CardContent>
       <CardActions>
-        <Grid container spacing={3} sx={{ flexGrow: 1 }} pb={1}>
+        <Grid container spacing={3} xs={{ flexGrow: 1 }} pb={1}>
           <Grid xs={1} />
           <Grid xs={9}>
             <IconButton
@@ -197,7 +198,19 @@ const CardBlock = ({ data }) => {
               <DeleteOutline />
             </IconButton>
           </Grid>
-          <Grid xs={2} display="flex" style={{ justifyContent: "right" }}>
+          <Grid
+            xs={2}
+            display="flex"
+            style={{
+              justifyContent: "right",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Visibility color="disabled" />
+            <Typography variant="subtitle2" color={"rgba(0, 0, 0, 0.26)"}>
+              12.3k
+            </Typography>
             <Android12Switch defaultChecked />
           </Grid>
         </Grid>
@@ -208,7 +221,7 @@ const CardBlock = ({ data }) => {
           transition: "all 0.1s linear",
         }}
       >
-        <Grid container spacing={3} sx={{ flexGrow: 1 }}>
+        <Grid container spacing={3} xs={{ flexGrow: 1 }}>
           <Grid xs={1} />
           <Grid
             xs={9}
@@ -240,7 +253,7 @@ const CardBlock = ({ data }) => {
                 display: editViewType == "geo-location" ? "block" : "none",
               }}
             >
-              <Stack spacing={5} sx={{ width: 300 }}>
+              <Stack spacing={5} xs={{ width: 300 }}>
                 <CountrySelect />
               </Stack>
             </div>
@@ -306,12 +319,12 @@ const EditLink = memo(function EditLink({ id, moveCard, findCard, data }) {
 
   return (
     <Box
-      sx={{ minWidth: 275 }}
+      xs={{ minWidth: 275 }}
       ref={(node) => drag(drop(node))}
       style={{ ...style, opacity }}
-      my={1}
+      my={0.4}
     >
-      <Card variant="outlined" style={{}}>
+      <Card variant="">
         <CardBlock data={data} />
       </Card>
     </Box>

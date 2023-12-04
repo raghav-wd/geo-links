@@ -1,0 +1,12 @@
+.login.icon {
+  animation: rotate 0.7s ease-out;
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

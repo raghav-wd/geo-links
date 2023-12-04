@@ -10,7 +10,13 @@ import Link from "@mui/material/Link";
 import Appearance from "../../container/Appearance";
 import * as React from "react";
 import PropTypes from "prop-types";
-import { AddLink, Insights, MoreHoriz, Palette } from "@mui/icons-material";
+import {
+  AddLink,
+  Insights,
+  MoreHoriz,
+  Palette,
+  RocketLaunchRounded,
+} from "@mui/icons-material";
 import {
   Link as RouterLink,
   MemoryRouter,
@@ -67,8 +73,17 @@ const Sidebar = ({ setTopBar }) => {
                     <Avatar src="./login-bg-3.png" />
                   </Grid>
                   <Grid xs={8}>
+                    <Grid container>
+                      <RocketLaunchRounded
+                        fontSize="small"
+                        style={{ color: "green" }}
+                      />
+                      <Typography fontSize="small" color="green">
+                        Pro
+                      </Typography>
+                    </Grid>
                     <Typography>Pilot User</Typography>
-                    <Typography>estring.in/pilotuser</Typography>
+                    {/* <Typography>estring.in/pilotuser</Typography> */}
                   </Grid>
                 </Grid>
               </Box>
@@ -126,13 +141,23 @@ const Sidebar = ({ setTopBar }) => {
       </Grid>
       {desktop ? (
         <Box style={{ position: "absolute", bottom: 0 }} p={1}>
-          <Grid container>
+          <Grid container spacing={2}>
             <Grid xs={4}>
               <Avatar src="./login-bg-3.png" />
             </Grid>
             <Grid xs={8}>
+              <Grid container flexDirection="column">
+                <Grid container>
+                  <RocketLaunchRounded
+                    fontSize="small"
+                    style={{ color: "green" }}
+                  />
+                  <Typography fontSize="small" color="green">
+                    Pro
+                  </Typography>
+                </Grid>
+              </Grid>
               <Typography>Pilot User</Typography>
-              <Typography>estring.in/pilotuser</Typography>
             </Grid>
           </Grid>
         </Box>

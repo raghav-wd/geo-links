@@ -1,11 +1,46 @@
 import { Card, CardContent, Typography } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Link = ({ title }) => {
+  const style = useSelector((state) => state.style);
+  const dispatch = useDispatch();
+  let opacity = 0;
+  if (style.button.transparency == 0) opacity = "FF";
+  else if (style.button.transparency == 20) opacity = "50";
+  else if (style.button.transparency == 50) opacity = "80";
+  else opacity = "C0";
+
+  let borderRadius = 0;
+  if (style.button.border == "square") borderRadius = ".5rem";
+  if (style.button.border == "round") borderRadius = "9999px";
+
   return (
     <div className="r-link">
-      <Card sx={{ minWidth: 275 }}>
+      <Card
+        sx={{
+          minWidth: 275,
+          borderRadius,
+          border: `1px solid ${style.button.color}`,
+          boxShadow: style.button.shadow
+            ? "5px 5px 3px 0 rgba(0,0,0,.25)"
+            : "none",
+          backgroundColor:
+            style.button.fill || style.button.shadow
+              ? style.button.color + opacity
+              : "#00000000",
+        }}
+      >
         <CardContent>
-          <Typography variant="body2">{title}</Typography>
+          <Typography
+            variant="body2"
+            style={{
+              fontFamily: style.text.fontFamily,
+              color: style.text.color,
+            }}
+          >
+            {title}
+          </Typography>
         </CardContent>
       </Card>
     </div>

@@ -10,7 +10,18 @@ const More = () => {
         <Card variant="outlined">
           <CardContent>
             <Typography display="flex">
-              <LogoutOutlined /> <Typography pl={2}>Sign Out</Typography>
+              {/* <LogoutOutlined />{" "} */}
+              <Typography>Purchases and membership</Typography>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Box>
+      <Box my={1}>
+        <Card variant="outlined">
+          <CardContent>
+            <Typography display="flex">
+              {/* <LogoutOutlined />  */}
+              <Typography>Sign Out</Typography>
             </Typography>
           </CardContent>
         </Card>

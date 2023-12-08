@@ -14,6 +14,7 @@ import Appearance from "./container/Appearance";
 import Insights from "./container/Insights";
 import More from "./container/More";
 import AdbIcon from "@mui/icons-material/Adb";
+import NavigationIcon from "@mui/icons-material/Navigation";
 
 import {
   AppBar,
@@ -21,6 +22,7 @@ import {
   Box,
   Button,
   Container,
+  Fab,
   IconButton,
   Menu,
   MenuItem,
@@ -38,6 +40,8 @@ import { useShouldStructure } from "./hooks/useShouldStructure";
 import Sidebar from "./components/Sidebar";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Topbar } from "./components/Topbar";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 export default function App() {
   const navigate = useNavigate();
@@ -52,6 +56,7 @@ export default function App() {
         light: "#000",
         main: "#515151",
         dark: "#002884",
+        green: "green",
       },
       secondary: {
         light: "#000",
@@ -97,27 +102,44 @@ export default function App() {
         </Grid>
         <Grid xs={12} md={10}>
           <Outlet />
+          {!desktop ? (
+            <Fab
+              variant="extended"
+              style={{
+                position: "fixed",
+                bottom: 20,
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+              onClick={() => navigate("/render")}
+            >
+              <NavigationIcon sx={{ mr: 1 }} />
+              Preview
+            </Fab>
+          ) : null}
         </Grid>
       </Grid>
     );
   };
   return (
-    <ThemeProvider theme={theme}>
-      <Box>
-        <Routes>
-          <Route path="/">
-            <Route path="signup" element={<Login />} />
-            <Route path="login" element={<Login />} />
-          </Route>
-          <Route path="/" element={<Dashboard />}>
-            <Route index element={<Links />} />
-            <Route path="appearance" element={<Appearance />} />
-            <Route path="insights" element={<Insights />} />
-            <Route path="more" element={<More />} />
-            <Route path="render" element={<Render />} />
-          </Route>
-        </Routes>
-      </Box>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Box>
+          <Routes>
+            <Route path="/">
+              <Route path="signup" element={<Login />} />
+              <Route path="login" element={<Login />} />
+              <Route path="render" element={<Render />} />
+            </Route>
+            <Route path="/" element={<Dashboard />}>
+              <Route index element={<Links />} />
+              <Route path="appearance" element={<Appearance />} />
+              <Route path="insights" element={<Insights />} />
+              <Route path="more" element={<More />} />
+            </Route>
+          </Routes>
+        </Box>
+      </ThemeProvider>
+    </Provider>
   );
 }

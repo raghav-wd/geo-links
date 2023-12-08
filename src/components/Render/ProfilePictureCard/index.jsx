@@ -4,13 +4,13 @@ import { Wavy } from "./Wavy";
 export const ProfilePictureCard = () => {
   return (
     <>
-      {/* <Avatar
+      <Avatar
         alt="Remy Sharp"
         src="https://ugc.production.linktr.ee/9e3a8815-6f31-4334-9188-4991541f1d34_untitled.png"
         sx={{ width: 92, height: 92 }}
-      /> */}
+      />
       {/* <Wavy src="https://images2.alphacoders.com/129/1298546.jpg" /> */}
-      <svg
+      {/* <svg
         class="x"
         viewBox="0 0 1366 768"
         width="100%"
@@ -394,7 +394,7 @@ export const ProfilePictureCard = () => {
           width="1366"
           style={{ clipPath: "url(#svgPath)", objectFit: "scale-down" }}
         />
-      </svg>
+      </svg> */}
     </>
   );
 };

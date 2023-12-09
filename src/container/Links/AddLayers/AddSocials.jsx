@@ -21,7 +21,7 @@ const AddSocials = ({ handleClose }) => {
       <DialogTitle
         style={{ borderBottom: "1px solid #515151" }}
         mx={1}
-        width={400}
+        sx={{ minWidth: { lg: "400px" } }}
       >
         Add socials
         <IconButton

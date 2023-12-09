@@ -19,13 +19,20 @@ import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import SelectLayers from "../AddLayers/SelectLayers";
 import AddSocials from "../AddLayers/AddSocials";
+import screenLayer from "../../../constants/screen-layers";
+import AddLayers from "../AddLayers";
+import { useDispatch, useSelector } from "react-redux";
+import { addLayerScreen } from "../../../redux/reducers/app";
 
 export default function NewLink() {
+  const app = useSelector((state) => state.app);
+  const dispatch = useDispatch();
   const desktop = useMediaQuery("(min-width:600px)");
 
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    dispatch(addLayerScreen(screenLayer.SELECT));
     setOpen(true);
   };
 
@@ -45,7 +52,7 @@ export default function NewLink() {
       </Button>
       {desktop ? (
         <Dialog open={open} onClose={handleClose} maxWidth="xl">
-          <AddSocials handleClose={handleClose} />
+          <AddLayers handleClose={handleClose} />
         </Dialog>
       ) : (
         <FullScreenDialog open={open} setOpen={setOpen} />
@@ -59,7 +66,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function FullScreenDialog({ open, setOpen }) {
-  // const [open, setOpen] = React.useState(false);
+  const app = useSelector((state) => state.app);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -77,7 +84,7 @@ function FullScreenDialog({ open, setOpen }) {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <SelectLayers handleClose={handleClose} />
+        <AddLayers handleClose={handleClose} />
       </Dialog>
     </React.Fragment>
   );

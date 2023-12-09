@@ -5,8 +5,13 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { Add, CloseRounded } from "@mui/icons-material";
 import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { useDispatch, useSelector } from "react-redux";
+import screenLayer from "../../../constants/screen-layers";
+import { addLayerScreen } from "../../../redux/reducers/app";
 
 const SelectLayers = ({ handleClose }) => {
+  const app = useSelector((state) => state.app);
+  const dispatch = useDispatch();
   return (
     <>
       <DialogTitle style={{ borderBottom: "1px solid #515151" }} mx={1}>
@@ -32,6 +37,7 @@ const SelectLayers = ({ handleClose }) => {
             <Button
               variant="none"
               // startIcon={<Add />}
+              onClick={() => dispatch(addLayerScreen(screenLayer.LINK))}
               style={{ color: "green" }}
             >
               Add
@@ -52,6 +58,7 @@ const SelectLayers = ({ handleClose }) => {
                 variant="none"
                 // startIcon={<Add />}
                 style={{ color: "green" }}
+                onClick={() => dispatch(addLayerScreen(screenLayer.SOCIAL))}
               >
                 Add
               </Button>
@@ -68,6 +75,7 @@ const SelectLayers = ({ handleClose }) => {
               <Button
                 variant="none"
                 // startIcon={<Add />}
+                onClick={() => dispatch(addLayerScreen(screenLayer.QUOTE))}
                 style={{ color: "green" }}
               >
                 Add
@@ -88,6 +96,9 @@ const SelectLayers = ({ handleClose }) => {
               <Button
                 variant="none"
                 // startIcon={<Add />}
+                onClick={() =>
+                  dispatch(addLayerScreen(screenLayer.EXCLUSIVEDMS))
+                }
                 style={{ color: "green" }}
               >
                 Add

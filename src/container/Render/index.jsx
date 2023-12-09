@@ -4,6 +4,8 @@ import { ProfilePictureCard } from "../../components/Render/ProfilePictureCard";
 import Enroute from "./Enroute";
 import { CloseRounded } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export const Render = () => {
   return <Model />;
@@ -11,6 +13,8 @@ export const Render = () => {
 
 const Model = () => {
   const navigate = useNavigate();
+  const link = useSelector((state) => state.link);
+  const dispatch = useDispatch();
   return (
     <div>
       <Button
@@ -43,7 +47,9 @@ const Model = () => {
         </div>
       </div>
       <div className="pf-body">
-        <Link title={"Hey"} />
+        {link.list.map((item) => (
+          <Link title={item.name} link={item.link} />
+        ))}
       </div>
     </div>
   );

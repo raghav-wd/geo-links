@@ -1,84 +1,24 @@
-const AddLayers = () => {
-  return (
-    <>
-      <SelectLayers />
-      <DialogContent>
-        <Grid container alignItems="center" spacing={0} my={1}>
-          <Grid xs={10} lg={11}>
-            <Typography fontWeight="bold">URL Layer</Typography>
-            <Typography color="#515151">
-              Link anywhere and everywhere. Add a single URL block to your page
-              e.g. affiliate link
-            </Typography>
-          </Grid>
-          <Grid xs={2} lg={1}>
-            <Button
-              variant="none"
-              // startIcon={<Add />}
-              style={{ color: "green" }}
-            >
-              Add
-            </Button>
-          </Grid>
-        </Grid>
-        <Box>
-          <Grid container alignItems="center" spacing={0} my={1}>
-            <Grid xs={10}>
-              <Typography fontWeight="bold">Link Your Socials</Typography>
-              <Typography color="#515151">
-                Link your socials so your followers can easily find all of your
-                content
-              </Typography>
-            </Grid>
-            <Grid xs={2}>
-              <Button
-                variant="none"
-                // startIcon={<Add />}
-                style={{ color: "green" }}
-              >
-                Add
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid container alignItems="center" spacing={0} my={1}>
-            <Grid xs={10}>
-              <Typography fontWeight="bold">Quote</Typography>
-              <Typography color="#515151">
-                Blend in a wise expression.
-              </Typography>
-            </Grid>
-            <Grid xs={2}>
-              <Button
-                variant="none"
-                // startIcon={<Add />}
-                style={{ color: "green" }}
-              >
-                Add
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid container alignItems="center" spacing={0} my={1}>
-            <Grid xs={10}>
-              <Typography fontWeight="bold">
-                Exclusive Direct Messages
-              </Typography>
-              <Typography color="#515151">
-                Enable your audience to message you, pose questions, seek
-                advice, and engage in further interaction.
-              </Typography>
-            </Grid>
-            <Grid xs={2}>
-              <Button
-                variant="none"
-                // startIcon={<Add />}
-                style={{ color: "green" }}
-              >
-                Add
-              </Button>
-            </Grid>
-          </Grid>
-        </Box>
-      </DialogContent>
-    </>
-  );
+import { useDispatch, useSelector } from "react-redux";
+import SelectLayers from "./SelectLayers";
+import screenLayer from "../../../constants/screen-layers";
+import AddSocials from "./AddSocials";
+import AddExclusiveDM from "./AddExclusiveDM";
+import AddLink from "./AddLink";
+import AddQuote from "./AddQuote";
+
+const AddLayers = ({ handleClose }) => {
+  const app = useSelector((state) => state.app);
+  if (app.addLayerScreenType == screenLayer.SELECT)
+    return <SelectLayers handleClose={handleClose} />;
+  if (app.addLayerScreenType == screenLayer.SOCIAL)
+    return <AddSocials handleClose={handleClose} />;
+  if (app.addLayerScreenType == screenLayer.QUOTE)
+    return <AddQuote handleClose={handleClose} />;
+  if (app.addLayerScreenType == screenLayer.LINK)
+    return <AddLink handleClose={handleClose} />;
+  if (app.addLayerScreenType == screenLayer.EXCLUSIVEDMS)
+    return <AddExclusiveDM handleClose={handleClose} />;
+  return <>404 Not Found</>;
 };
+
+export default AddLayers;

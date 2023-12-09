@@ -16,9 +16,7 @@ const Links = () => {
         <Grid xs={12} md={8} height="100vh">
           <AddLinkButton />
           <Box height="100%" style={{ background: "white" }}>
-            <DndProvider backend={HTML5Backend}>
-              <LinksView />
-            </DndProvider>
+            <LinksView />
           </Box>
         </Grid>
         <Grid

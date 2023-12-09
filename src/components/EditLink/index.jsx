@@ -4,6 +4,8 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Unstable_Grid2";
+import { v4 as uuid } from "uuid";
+
 import { memo } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -34,6 +36,7 @@ import {
   Visibility,
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
+import { Draggable } from "react-beautiful-dnd";
 
 const Android12Switch = styled(Switch)(({ theme }) => ({
   padding: 8,
@@ -281,55 +284,25 @@ function CountrySelect() {
   );
 }
 
-const EditLink = memo(function EditLink({ id, moveCard, findCard, data }) {
-  const style = {
-    cursor: "move",
-  };
-  const originalIndex = findCard(id).index;
-  const [{ isDragging }, drag] = useDrag(
-    () => ({
-      type: "Card",
-      item: { id, originalIndex },
-      collect: (monitor) => ({
-        isDragging: monitor.isDragging(),
-      }),
-      end: (item, monitor) => {
-        const { id: droppedId, originalIndex } = item;
-        const didDrop = monitor.didDrop();
-        if (!didDrop) {
-          moveCard(droppedId, originalIndex);
-        }
-      },
-    }),
-    [id, originalIndex, moveCard]
-  );
-  const [, drop] = useDrop(
-    () => ({
-      accept: "Card",
-      hover({ id: draggedId }) {
-        if (draggedId !== id) {
-          const { index: overIndex } = findCard(id);
-          moveCard(draggedId, overIndex);
-        }
-      },
-    }),
-    [findCard, moveCard]
-  );
-  const opacity = isDragging ? 0 : 1;
-
+const EditLink = ({ data, index }) => {
   return (
-    <Box
-      xs={{ minWidth: 275 }}
-      ref={(node) => drag(drop(node))}
-      style={{ ...style, opacity }}
-      my={0.4}
-    >
-      <Card variant="">
-        <CardBlock data={data} />
-      </Card>
-    </Box>
+    <Draggable draggableId={"x" + index} index={index} key={index}>
+      {(provided) => (
+        <Box
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          xs={{ minWidth: 275 }}
+          my={0.4}
+        >
+          <Card variant="">
+            <CardBlock data={data} />
+          </Card>
+        </Box>
+      )}
+    </Draggable>
   );
-});
+};
 
 const countries = [
   { code: "AD", label: "Andorra", phone: "376" },

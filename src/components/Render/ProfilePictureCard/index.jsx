@@ -7,7 +7,7 @@ export const ProfilePictureCard = () => {
       <Avatar
         alt="Remy Sharp"
         src="https://ugc.production.linktr.ee/9e3a8815-6f31-4334-9188-4991541f1d34_untitled.png"
-        sx={{ width: 92, height: 92 }}
+        sx={{ width: 72, height: 72 }}
       />
       {/* <Wavy src="https://images2.alphacoders.com/129/1298546.jpg" /> */}
       {/* <svg

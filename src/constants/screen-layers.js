@@ -4,6 +4,7 @@ const screenLayer = {
   QUOTE: "quote",
   SELECT: "select",
   SOCIAL: "social",
+  SOCIALSLINK: "socialslink",
 };
 
 export default screenLayer;

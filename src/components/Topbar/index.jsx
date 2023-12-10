@@ -38,7 +38,11 @@ export const Topbar = ({ setTopBar }) => {
   return (
     <AppBar
       position="static"
-      style={{ background: "#f8f5ec", boxShadow: "none" }}
+      style={{
+        background: "#f8f5ec",
+        boxShadow: "none",
+        borderBottom: "1px solid #51515122",
+      }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>

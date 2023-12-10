@@ -2,10 +2,11 @@ import { Add } from "@mui/icons-material";
 import LinksView from "../../components/LinksView";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { AddLinkButton } from "./AddLinkButton";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Render } from "../Render";
+import SocialIcons from "../../components/SocialIcons";
 
 const Links = () => {
   const desktop = useMediaQuery("(min-width:600px)");
@@ -13,29 +14,35 @@ const Links = () => {
   return (
     <Box mx={1}>
       <Grid container spacing={1}>
-        <Grid xs={12} md={8} height="100vh">
+        <Grid xs={12} md={8} height="100vh" style={{ overflowY: "scroll" }}>
           <AddLinkButton />
-          <Box height="100%" style={{ background: "white" }}>
+          <Box height="100%">
             <LinksView />
           </Box>
         </Grid>
         <Grid
           xs={0}
           md={4}
+          container
+          justifyContent="center"
+          alignContent="center"
           style={{
-            background: "white",
-            position: "fixed",
             height: "100vh",
-            width: "inherit",
-            right: 0,
           }}
         >
-          {desktop ? <Render /> : null}
-          {/* <iframe
-            src="/render"
-            style={{ width: "100%", height: "96vh" }}
-            title="Estring renderer"
-          ></iframe> */}
+          {desktop ? (
+            <Box
+              style={{
+                border: "10px solid black",
+                borderRadius: "20px",
+                height: "70%",
+                width: "300px",
+                overflowY: "scroll",
+              }}
+            >
+              <Render />
+            </Box>
+          ) : null}
         </Grid>
       </Grid>
     </Box>

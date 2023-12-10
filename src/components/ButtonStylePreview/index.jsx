@@ -23,7 +23,9 @@ const ButtonStylePreview = ({ fill = false, shadow = false, active }) => {
           <Button
             style={{
               backgroundColor:
-                active && style.button.border == "none" ? "#ebc86c" : null,
+                active && style.button.border == "none"
+                  ? "rgb(200, 200, 200, 0.5)"
+                  : null,
             }}
             onClick={() => {
               dispatch(styleFillButton(fill));

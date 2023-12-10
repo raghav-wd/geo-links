@@ -147,34 +147,6 @@ const CardBlock = ({ data }) => {
                 )}
               </Box>
             </ClickAwayListener>
-            {/* <FormControl xs={{ m: 0.4 }} variant="standard">
-            <Input
-              id="standard-adornment-password"
-              type="text"
-              defaultValue="Google"
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton aria-label="toggle password visibility">
-                    <ModeEditOutlineOutlined />
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-          <FormControl xs={{ m: 0.4 }} variant="standard">
-            <Input
-              id="standard-adornment-password"
-              type="text"
-              defaultValue="https://google.com"
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton aria-label="toggle password visibility">
-                    <ModeEditOutlineOutlined />
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl> */}
           </Grid>
         </Grid>
       </CardContent>
@@ -295,7 +267,7 @@ const EditLink = ({ data, index }) => {
           xs={{ minWidth: 275 }}
           my={0.4}
         >
-          <Card variant="">
+          <Card variant="none">
             <CardBlock data={data} />
           </Card>
         </Box>

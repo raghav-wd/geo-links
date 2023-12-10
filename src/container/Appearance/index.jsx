@@ -10,12 +10,14 @@ import { ColorizeRounded } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   styleColorButton,
+  styleColorPage,
   styleColorText,
   styleFontFamily,
   styleTransparencyButton,
 } from "../../redux/reducers/style";
 import { useEffect } from "react";
 import { Render } from "../Render";
+import { themes } from "../../constants/themes";
 
 const Appearance = () => {
   const style = useSelector((state) => state.style);
@@ -37,9 +39,15 @@ const Appearance = () => {
     "Indie flower ",
   ];
   return (
-    <Box mx={1}>
+    <Box mx={1} className="appearance">
       <Grid container spacing={1}>
-        <Grid xs={12} md={8} height="100vh">
+        <Grid
+          xs={12}
+          md={8}
+          height="100vh"
+          style={{ overflowY: "scroll" }}
+          pb={10}
+        >
           <Box mx={1}>
             <Typography my={3} variant="h6">
               Profile
@@ -49,16 +57,54 @@ const Appearance = () => {
               Choose Design
             </Typography>
             <Grid container>
-              <ThemePreviewCard title="Pro" />
-              <ThemePreviewCard title="Basic" />
-              <ThemePreviewCard title="Moonlight" />
-              <ThemePreviewCard title="Velvet" />
+              <ThemePreviewCard
+                title="Custom"
+                image="customization.jpg"
+                theme={themes.CUSTOM}
+              />
             </Grid>
             <Typography my={3} variant="h6">
-              Page Colors
+              Page Style
             </Typography>
-            <Typography></Typography>
-            <ColorPicker onChange={() => {}} />
+            <Typography my={1}>Text</Typography>
+            <Grid container alignItems="center" mb={1}>
+              <ColorPicker
+                onChange={(color) =>
+                  color ? dispatch(styleColorPage(color)) : null
+                }
+                className="clr-picker"
+                style={{
+                  backgroundColor: style.page.color,
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "100%",
+                  border: "none",
+                }}
+              />
+              <ColorizeRounded />
+            </Grid>
+            <Grid container>
+              <ThemePreviewCard
+                title="Solid Color"
+                image="./bg-style-1.png"
+                theme={themes.STYLE}
+              />
+              <ThemePreviewCard
+                title="Cover Photo"
+                image="./bg-style-2.png"
+                theme={themes.STYLE}
+              />
+              <ThemePreviewCard
+                title="Background Photo"
+                image="./bg-style-3.png"
+                theme={themes.STYLE}
+              />
+              <ThemePreviewCard
+                title="Gradient"
+                image="./bg-style-4.png"
+                theme={themes.STYLE}
+              />
+            </Grid>
             <Typography mt={3} variant="h6">
               Button Style
             </Typography>
@@ -184,20 +230,26 @@ const Appearance = () => {
         <Grid
           xs={0}
           md={4}
+          container
+          justifyContent="center"
+          alignContent="center"
           style={{
-            background: "white",
-            position: "fixed",
             height: "100vh",
-            width: "inherit",
-            right: 0,
           }}
         >
-          {desktop ? <Render /> : null}
-          {/* <iframe
-            src="/render"
-            style={{ width: "100%", height: "96vh" }}
-            title="Estring renderer"
-          ></iframe> */}
+          {desktop ? (
+            <Box
+              style={{
+                border: "10px solid black",
+                borderRadius: "20px",
+                height: "70%",
+                width: "300px",
+                overflowY: "scroll",
+              }}
+            >
+              <Render />
+            </Box>
+          ) : null}
         </Grid>
       </Grid>
     </Box>

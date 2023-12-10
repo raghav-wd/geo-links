@@ -3,6 +3,7 @@ body {
   background-color: #f8f5ec;
   color: #212121;
   font-family: aktiv-grotesk, sans-serif;
+  overflow: hidden;
 }
 
 .input,
@@ -15,4 +16,26 @@ body {
 
 .content {
   margin: "0 8px";
+}
+
+.appearance .MuiInputBase-input {
+  padding: 16.5px 14px !important;
+}
+
+.twinkle {
+  color: orange;
+  animation: twinkle 1s linear infinite;
+}
+
+@keyframes twinkle {
+  0% {
+    color: orange;
+  }
+  50% {
+    color: #ffd700;
+  }
+}
+
+a {
+  text-decoration: none;
 }

@@ -22,7 +22,7 @@ import AddSocials from "../AddLayers/AddSocials";
 import screenLayer from "../../../constants/screen-layers";
 import AddLayers from "../AddLayers";
 import { useDispatch, useSelector } from "react-redux";
-import { addLayerScreen } from "../../../redux/reducers/app";
+import { addLayerScreen, addModalHandler } from "../../../redux/reducers/app";
 
 export default function NewLink() {
   const app = useSelector((state) => state.app);
@@ -39,16 +39,19 @@ export default function NewLink() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  React.useEffect(() => {
+    dispatch(addModalHandler(handleClickOpen));
+  }, []);
   return (
     <div>
       <Button
         variant="outlined"
         startIcon={<Add />}
+        sx={{ textTransform: "none" }}
         onClick={handleClickOpen}
         fullWidth
       >
-        Add Layer
+        Build your page and add a new block
       </Button>
       {desktop ? (
         <Dialog open={open} onClose={handleClose} maxWidth="xl">

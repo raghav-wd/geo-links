@@ -22,14 +22,13 @@ const EditProfile = () => {
           subheader="geo-link/r.a.g.h.a._v"
         />
         <CardContent>
-          <Box my={2}>
-            <TextField
-              // id="outlined-required"
-              label="Title"
-              fullWidth
-              defaultValue="r.a.g.h.a._v"
-            />
-          </Box>
+          <TextField
+            label="Title"
+            fullWidth
+            variant="outlined"
+            defaultValue="r.a.g.h.a._v"
+          />
+
           <Box my={2}>
             <TextField
               id="outlined-multiline-static"

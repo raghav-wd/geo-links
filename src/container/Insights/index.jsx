@@ -6,7 +6,7 @@ import { Socials } from "./Socials";
 
 const Insights = () => {
   return (
-    <Box mx={1}>
+    <Box px={2} style={{ overflowY: "scroll", height: "100vh" }}>
       <InsightTopBar />
       <Typography my={2} variant="h6">
         Activity

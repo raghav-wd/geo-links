@@ -1,7 +1,6 @@
 import * as React from "react";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
-import TopNav from "./components/TopNav";
 import {
   Outlet,
   Route,
@@ -42,6 +41,7 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Topbar } from "./components/Topbar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import TopNav from "./components/TopNav";
 
 export default function App() {
   const navigate = useNavigate();
@@ -101,6 +101,7 @@ export default function App() {
           <Sidebar setTopBar={setTopBar} />
         </Grid>
         <Grid xs={12} md={10}>
+          <TopNav />
           <Outlet />
           {!desktop ? (
             <Fab

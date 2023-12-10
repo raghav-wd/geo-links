@@ -4,18 +4,33 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import {
   Add,
+  DeleteOutlineRounded,
   CloseRounded,
   Email,
   Facebook,
   Instagram,
-  NavigateNextRounded,
+  AddRounded,
   Pinterest,
   YouTube,
 } from "@mui/icons-material";
-import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  DialogActions,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addSocial, removeSocial } from "../../../redux/reducers/link";
+import socials from "../../../constants/socials";
+import screenLayer from "../../../constants/screen-layers";
+import { addLayerScreen } from "../../../redux/reducers/app";
 
 const AddSocials = ({ handleClose }) => {
+  const socialsState = useSelector((state) => state.link.socials);
+  const dispatch = useDispatch();
   return (
     <>
       <DialogTitle
@@ -44,7 +59,15 @@ const AddSocials = ({ handleClose }) => {
             <Typography>Instagram</Typography>
           </Grid>
           <Grid xs={1} ml="auto">
-            <NavigateNextRounded />
+            {socialsState.instagram.selected ? (
+              <DeleteOutlineRounded
+                onClick={() => dispatch(removeSocial(socials.INSTAGRAM))}
+              />
+            ) : (
+              <AddRounded
+                onClick={() => dispatch(addSocial(socials.INSTAGRAM))}
+              />
+            )}
           </Grid>
         </Grid>
         <Grid container my={1}>
@@ -55,7 +78,15 @@ const AddSocials = ({ handleClose }) => {
             <Typography>Facebook</Typography>
           </Grid>
           <Grid xs={1} ml="auto">
-            <NavigateNextRounded />
+            {socialsState.facebook.selected ? (
+              <DeleteOutlineRounded
+                onClick={() => dispatch(removeSocial(socials.FACEBOOK))}
+              />
+            ) : (
+              <AddRounded
+                onClick={() => dispatch(addSocial(socials.FACEBOOK))}
+              />
+            )}
           </Grid>
         </Grid>
         <Grid container my={1}>
@@ -66,7 +97,15 @@ const AddSocials = ({ handleClose }) => {
             <Typography>Pinterest</Typography>
           </Grid>
           <Grid xs={1} ml="auto">
-            <NavigateNextRounded />
+            {socialsState.pinterest.selected ? (
+              <DeleteOutlineRounded
+                onClick={() => dispatch(removeSocial(socials.PINTEREST))}
+              />
+            ) : (
+              <AddRounded
+                onClick={() => dispatch(addSocial(socials.PINTEREST))}
+              />
+            )}
           </Grid>
         </Grid>
         <Grid container my={1}>
@@ -77,7 +116,15 @@ const AddSocials = ({ handleClose }) => {
             <Typography>YouTube</Typography>
           </Grid>
           <Grid xs={1} ml="auto">
-            <NavigateNextRounded />
+            {socialsState.youtube.selected ? (
+              <DeleteOutlineRounded
+                onClick={() => dispatch(removeSocial(socials.YOUTUBE))}
+              />
+            ) : (
+              <AddRounded
+                onClick={() => dispatch(addSocial(socials.YOUTUBE))}
+              />
+            )}
           </Grid>
         </Grid>
         <Grid container my={1}>
@@ -88,10 +135,23 @@ const AddSocials = ({ handleClose }) => {
             <Typography>Email</Typography>
           </Grid>
           <Grid xs={1} ml="auto">
-            <NavigateNextRounded />
+            {socialsState.email.selected ? (
+              <DeleteOutlineRounded
+                onClick={() => dispatch(removeSocial(socials.EMAIL))}
+              />
+            ) : (
+              <AddRounded onClick={() => dispatch(addSocial(socials.EMAIL))} />
+            )}
           </Grid>
         </Grid>
       </DialogContent>
+      <DialogActions>
+        <Button
+          onClick={() => dispatch(addLayerScreen(screenLayer.SOCIALSLINK))}
+        >
+          Next
+        </Button>
+      </DialogActions>
     </>
   );
 };

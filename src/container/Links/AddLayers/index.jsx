@@ -5,6 +5,7 @@ import AddSocials from "./AddSocials";
 import AddExclusiveDM from "./AddExclusiveDM";
 import AddLink from "./AddLink";
 import AddQuote from "./AddQuote";
+import AddSocialsLink from "./AddSocialsLink";
 
 const AddLayers = ({ handleClose }) => {
   const app = useSelector((state) => state.app);
@@ -18,6 +19,8 @@ const AddLayers = ({ handleClose }) => {
     return <AddLink handleClose={handleClose} />;
   if (app.addLayerScreenType == screenLayer.EXCLUSIVEDMS)
     return <AddExclusiveDM handleClose={handleClose} />;
+  if (app.addLayerScreenType == screenLayer.SOCIALSLINK)
+    return <AddSocialsLink handleClose={handleClose} />;
   return <>404 Not Found</>;
 };
 

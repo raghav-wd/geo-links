@@ -1,87 +1,134 @@
 import * as React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
-import { AddLink, Insights, MoreHoriz, Palette } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { Box } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  ArrowForwardIosRounded,
+  ArrowOutwardRounded,
+  ContentCopyRounded,
+  LinkRounded,
+} from "@mui/icons-material";
 
 const TopNav = () => {
-  const [value, setValue] = React.useState(0);
-  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
-  function handleClick(e) {
-    switch (e) {
-      case 0:
-        navigate("");
-        return;
-      case 1:
-        navigate("/appearance");
-        return;
-      case 2:
-        navigate("/insights");
-        return;
-      case 3:
-        navigate("/more");
-        return;
-    }
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+  const navigate = useNavigate();
+  const location = useLocation();
+  let head = "";
+  switch (location.pathname) {
+    case "/":
+      head = (
+        <Grid container alignItems="center">
+          <Typography style={{ opacity: 0.6 }}>Home</Typography>
+          <ArrowForwardIosRounded fontSize="small" />
+          My Links
+        </Grid>
+      );
+      break;
+    case "/appearance":
+      head = (
+        <Grid container alignItems="center">
+          <Typography style={{ opacity: 0.6 }}>Appearance</Typography>
+          <ArrowForwardIosRounded fontSize="small" />
+          Design your page
+        </Grid>
+      );
+      break;
+    case "/insights":
+      head = (
+        <Grid container alignItems="center">
+          <Typography style={{ opacity: 0.6 }}>Insights</Typography>
+          <ArrowForwardIosRounded fontSize="small" />
+          Monitor your Estring
+        </Grid>
+      );
+      break;
+    case "/more":
+      head = (
+        <Grid container alignItems="center">
+          <Typography style={{ opacity: 0.6 }}>More</Typography>
+          <ArrowForwardIosRounded fontSize="small" />
+          See your settings
+        </Grid>
+      );
+      break;
+    default:
+      head = "Estring";
   }
   return (
-    <Box>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        centered
-        variant="fullWidth"
-        textColor="primary"
-        indicatorColor="primary"
-        aria-label="icon label tabs example"
-      >
-        <Tab
-          wrapped
-          icon={<AddLink />}
-          label="Links"
-          onClick={() => handleClick(0)}
-        />
-
-        <Tab
-          wrapped
-          icon={<Palette />}
-          label="Appearance"
-          onClick={() => handleClick(1)}
-        />
-
-        <Tab
-          wrapped
-          icon={<Insights />}
-          label="Insights"
-          onClick={() => handleClick(2)}
-        />
-        <Tab
-          wrapped
-          icon={<MoreHoriz />}
-          label="More"
-          onClick={() => handleClick(3)}
-        />
-      </Tabs>
-      {/* <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation> */}
+    <Box p={1} style={{ borderBottom: "1px solid #51515122" }}>
+      <Grid container alignItems="center">
+        <Typography>{head}</Typography>
+        <Grid ml="auto">
+          <Button
+            aria-describedby={id}
+            variant="outlined"
+            onClick={handleClick}
+          >
+            Share
+          </Button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+          >
+            <Box sx={{ padding: "4px 8px" }}>
+              <Grid display="flex" flexDirection="column">
+                <Button
+                  onClick={() => navigate("/render")}
+                  style={{ textTransform: "none" }}
+                  endIcon={<ArrowOutwardRounded />}
+                >
+                  Open your Estring
+                </Button>
+                <Button
+                  onClick={() => navigator.clipboard.writeText("hi")}
+                  style={{ textTransform: "none" }}
+                  // startIcon={<LinkRounded />}
+                  endIcon={<ContentCopyRounded />}
+                >
+                  Copy Estring
+                </Button>
+              </Grid>
+            </Box>
+          </Popover>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
+
+function copyText() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
+}
 
 export default TopNav;

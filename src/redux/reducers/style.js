@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { themes, themeType } from "../../constants/themes";
 
 const counterSlice = createSlice({
   name: "style",
@@ -14,6 +15,11 @@ const counterSlice = createSlice({
       fontFamily: "helvetica",
       color: "#000",
     },
+    page: {
+      color: "#515151",
+      backgroundColor: "orange",
+    },
+    theme: themes.CUSTOM,
   },
   reducers: {
     styleFillButton(state, action) {
@@ -37,6 +43,9 @@ const counterSlice = createSlice({
     styleFontFamily(state, action) {
       state.text.fontFamily = action.payload;
     },
+    styleColorPage(state, action) {
+      state.page.color = action.payload;
+    },
   },
 });
 
@@ -48,5 +57,6 @@ export const {
   styleColorButton,
   styleColorText,
   styleTransparencyButton,
+  styleColorPage,
 } = counterSlice.actions;
 export default counterSlice.reducer;

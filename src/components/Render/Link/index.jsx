@@ -19,7 +19,8 @@ export const Link = ({ title }) => {
     <div className="r-link">
       <Card
         sx={{
-          minWidth: 275,
+          marginBottom: "12px",
+          width: "100%",
           borderRadius,
           border: `1px solid ${style.button.color}`,
           boxShadow: style.button.shadow
@@ -31,7 +32,7 @@ export const Link = ({ title }) => {
               : "#00000000",
         }}
       >
-        <CardContent>
+        <CardContent style={{ padding: "16px" }}>
           <Typography
             variant="body2"
             style={{

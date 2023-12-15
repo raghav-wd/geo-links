@@ -1,16 +1,12 @@
-import update from "immutability-helper";
-import EditLink from "../EditLink";
+import EditLink from "../Layers/EditLink";
 import { memo, useCallback, useEffect, useState } from "react";
-import { useDrop } from "react-dnd";
 import { useDispatch, useSelector } from "react-redux";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { updateList } from "../../redux/reducers/link";
-import { v4 as uuid } from "uuid";
 import { Box, Button, Card, Grid, Typography } from "@mui/material";
-import { AddLinkButton } from "../../container/Links/AddLinkButton";
-import SocialIcons from "../SocialIcons";
-import { addLayerScreen } from "../../redux/reducers/app";
-import screenLayer from "../../constants/screen-layers";
+import SocialLayer from "../Layers/SocialLayer";
+import layerTypes from "../../constants/layerTypes";
+import TextLayer from "../Layers/TextLayer";
 
 const LinksView = memo(function LinksView() {
   const style = {};
@@ -26,6 +22,17 @@ const LinksView = memo(function LinksView() {
     dispatch(updateList(items));
   };
 
+  const switchLayer = (item, index) => {
+    switch (item.type) {
+      case layerTypes.LINK:
+        return <EditLink data={item} index={index} key={item.id} />;
+      case layerTypes.SOCIAL:
+        return <SocialLayer data={item} index={index} key={item.id} />;
+      case layerTypes.TEXT:
+        return <TextLayer data={item} index={index} key={item.id} />;
+    }
+  };
+
   return (
     <Box pb={8}>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -33,43 +40,7 @@ const LinksView = memo(function LinksView() {
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
               {console.log(link.list)}
-              {link.list.map((item, index) =>
-                item.id == "social" ? (
-                  <Draggable
-                    draggableId={"x-" + index}
-                    index={index}
-                    key={item.id}
-                  >
-                    {(provided) => (
-                      <Box
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                        xs={{ minWidth: 275 }}
-                        my={0.4}
-                      >
-                        <Card
-                          variant="none"
-                          style={{ padding: "12px 32px" }}
-                          onClick={() => {
-                            app.Modal();
-                            dispatch(addLayerScreen(screenLayer.SOCIAL));
-                          }}
-                        >
-                          <Typography fontWeight={600} color="#515151">
-                            Add social links
-                          </Typography>
-                          <Typography fontSize={14}>
-                            Instagram, Youtube, Twitter...
-                          </Typography>
-                        </Card>
-                      </Box>
-                    )}
-                  </Draggable>
-                ) : (
-                  <EditLink data={item} index={index} key={item.id} />
-                )
-              )}
+              {link.list.map((item, index) => switchLayer(item, index))}
 
               {provided.placeholder}
             </div>

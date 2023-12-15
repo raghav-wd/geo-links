@@ -35,5 +35,42 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="text/javascript">
+      window.onload = function () {
+        document.ontouchmove = function (e) {
+          e.preventDefault();
+        };
+      };
+      document.getElementsByTagName("input").onfocus = function () {
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+      };
+    </script>
+    <!-- <video
+      muted
+      playsinline
+      autoplay
+      style="
+        object-fit: cover;
+        background-size: cover;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+      "
+      class
+      loop
+      preload="auto"
+    >
+      <source
+        src="https://zeynepb.net/storage/2023/10/zeynep-bastik-wsite.mp4"
+        type="video/mp4"
+      />
+    </video> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <!-- <script src="./custom.js"></script> -->
   </body>
 </html>

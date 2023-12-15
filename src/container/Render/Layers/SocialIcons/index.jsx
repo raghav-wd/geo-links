@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 
 const SocialIcons = () => {
   const socialsState = useSelector((state) => state.link.socials);
+  const styleState = useSelector((state) => state.style);
   const icons = [];
   const fetchIcon = (name) => {
     switch (name) {
@@ -35,7 +36,9 @@ const SocialIcons = () => {
             if (socialsState[key].selected) icons.push(fetchIcon(key));
           })}
           {icons.map((icon) => (
-            <Box p={1}>{icon}</Box>
+            <Box p={1} color={styleState.page.color}>
+              {icon}
+            </Box>
           ))}
         </Grid>
       </Grid>

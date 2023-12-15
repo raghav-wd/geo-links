@@ -21,6 +21,7 @@ import { themes } from "../../constants/themes";
 
 const Appearance = () => {
   const style = useSelector((state) => state.style);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const desktop = useMediaQuery("(min-width:600px)");
 
@@ -247,7 +248,7 @@ const Appearance = () => {
                 overflowY: "scroll",
               }}
             >
-              <Render />
+              <Render emulated />
             </Box>
           ) : null}
         </Grid>

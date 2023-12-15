@@ -6,7 +6,6 @@ import { Box, Typography, useMediaQuery } from "@mui/material";
 import { AddLinkButton } from "./AddLinkButton";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Render } from "../Render";
-import SocialIcons from "../../components/SocialIcons";
 
 const Links = () => {
   const desktop = useMediaQuery("(min-width:600px)");
@@ -40,7 +39,7 @@ const Links = () => {
                 overflowY: "scroll",
               }}
             >
-              <Render />
+              <Render emulated />
             </Box>
           ) : null}
         </Grid>

@@ -7,6 +7,9 @@ const themeType = {
 const themes = {
   STYLE: { name: "Gradient", type: themeType.STYLE },
   CUSTOM: { name: "custom", type: themeType.PRO },
+  SOLID: { name: "solid", type: themeType.BASIC },
+  GRADIENT: { name: "gradient", type: themeType.BASIC },
+  COVER: { name: "cover", type: themeType.BASIC },
 };
 
 export { themeType, themes };

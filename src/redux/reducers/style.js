@@ -46,6 +46,9 @@ const counterSlice = createSlice({
     styleColorPage(state, action) {
       state.page.color = action.payload;
     },
+    setTheme(state, action) {
+      state.theme = action.payload;
+    },
   },
 });
 
@@ -58,5 +61,6 @@ export const {
   styleColorText,
   styleTransparencyButton,
   styleColorPage,
+  setTheme,
 } = counterSlice.actions;
 export default counterSlice.reducer;

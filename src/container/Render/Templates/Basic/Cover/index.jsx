@@ -1,16 +1,16 @@
 import { Box, Button, Typography } from "@mui/material";
-import { Link } from "./Layers/Link";
-import { ProfilePictureCard } from "../../components/Render/ProfilePictureCard";
+import { Link } from "../../../Layers/Link";
+import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
 import { CloseRounded } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import TextLayer from "./Layers/TextLayer";
-import layerTypes from "../../constants/layerTypes";
-import SocialIcons from "./Layers/SocialIcons";
+import TextLayer from "../../../Layers/TextLayer";
+import layerTypes from "../../../../../constants/layerTypes";
+import SocialIcons from "../../../Layers/SocialIcons";
 
-export const Rishi = () => {
+export const Cover = () => {
   return <Model />;
 };
 
@@ -56,19 +56,12 @@ const Model = () => {
         <div
           className="bg"
           style={{
-            backgroundColor: "#FDF7E4",
+            backgroundColor: "#ffd7b5",
             width: "100%",
             height: "100px",
             position: "absolute",
           }}
         >
-          <video
-            style={{ position: "absolute", zIndex: -999 }}
-            muted
-            autoPlay
-            loop
-            src="http://zeynepb.net/storage/2023/10/zeynep-bastik-wsite.mp4"
-          ></video>
           <Grid
             className="avatar"
             flexDirection="column"

@@ -88,12 +88,12 @@ const Appearance = () => {
               <ThemePreviewCard
                 title="Solid Color"
                 image="./bg-style-1.png"
-                theme={themes.STYLE}
+                theme={themes.SOLID}
               />
               <ThemePreviewCard
                 title="Cover Photo"
                 image="./bg-style-2.png"
-                theme={themes.STYLE}
+                theme={themes.COVER}
               />
               <ThemePreviewCard
                 title="Background Photo"
@@ -103,7 +103,7 @@ const Appearance = () => {
               <ThemePreviewCard
                 title="Gradient"
                 image="./bg-style-4.png"
-                theme={themes.STYLE}
+                theme={themes.GRADIENT}
               />
             </Grid>
             <Typography mt={3} variant="h6">

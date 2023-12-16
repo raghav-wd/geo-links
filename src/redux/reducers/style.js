@@ -18,8 +18,9 @@ const counterSlice = createSlice({
     page: {
       color: "#515151",
       backgroundColor: "orange",
+      backgroundImage: "linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)",
     },
-    theme: themes.CUSTOM,
+    theme: themes.SOLID,
   },
   reducers: {
     styleFillButton(state, action) {
@@ -46,6 +47,12 @@ const counterSlice = createSlice({
     styleColorPage(state, action) {
       state.page.color = action.payload;
     },
+    styleBackgroundColorPage(state, action) {
+      state.page.backgroundColor = action.payload;
+    },
+    styleBackgroundImagePage(state, action) {
+      state.page.backgroundImage = action.payload;
+    },
     setTheme(state, action) {
       state.theme = action.payload;
     },
@@ -61,6 +68,8 @@ export const {
   styleColorText,
   styleTransparencyButton,
   styleColorPage,
+  styleBackgroundColorPage,
+  styleBackgroundImagePage,
   setTheme,
 } = counterSlice.actions;
 export default counterSlice.reducer;

@@ -9,6 +9,7 @@ import ColorPicker from "material-ui-color-picker";
 import { ColorizeRounded } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  styleBackgroundColorPage,
   styleColorButton,
   styleColorPage,
   styleColorText,
@@ -18,6 +19,7 @@ import {
 import { useEffect } from "react";
 import { Render } from "../Render";
 import { themes } from "../../constants/themes";
+import BasicThemeSettings from "./BasicThemeSettings";
 
 const Appearance = () => {
   const style = useSelector((state) => state.style);
@@ -67,7 +69,6 @@ const Appearance = () => {
             <Typography my={3} variant="h6">
               Page Style
             </Typography>
-            <Typography my={1}>Text</Typography>
             <Grid container alignItems="center" mb={1}>
               <ColorPicker
                 onChange={(color) =>
@@ -82,8 +83,9 @@ const Appearance = () => {
                   border: "none",
                 }}
               />
-              <ColorizeRounded />
+              Text
             </Grid>
+            <Typography my={1}>Text</Typography>
             <Grid container>
               <ThemePreviewCard
                 title="Solid Color"
@@ -106,6 +108,7 @@ const Appearance = () => {
                 theme={themes.GRADIENT}
               />
             </Grid>
+            <BasicThemeSettings />
             <Typography mt={3} variant="h6">
               Button Style
             </Typography>

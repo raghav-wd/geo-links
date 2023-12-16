@@ -9,6 +9,7 @@ import SocialIcons from "../../../Layers/SocialIcons";
 import TextLayer from "../../../Layers/TextLayer";
 import layerTypes from "../../../../../constants/layerTypes";
 import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
+import { themes } from "../../../../../constants/themes";
 
 const Solid = ({ emulated }) => {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ const Solid = ({ emulated }) => {
       id="estring"
       style={{
         width: "inherit",
-        borderRadius: "20px",
+        height: "100%",
+        backgroundColor: style.page.backgroundColor,
       }}
     >
       <Button

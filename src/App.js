@@ -40,14 +40,15 @@ export default function App() {
         <Route path="/signup" element={<Login />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-      {renderTopnav()}
+
       <Box px={1}>
         <Routes>
-          <Route index element={<Links />} />
+          <Route path="/links" element={<Links />} />
           <Route path="/appearance" element={<Appearance />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/more" element={<More />} />
         </Routes>
+        {renderTopnav()}
       </Box>
     </ThemeProvider>
   );

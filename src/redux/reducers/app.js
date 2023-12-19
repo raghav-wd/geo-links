@@ -8,6 +8,10 @@ const counterSlice = createSlice({
     addLayerScreenType: screenLayer.SELECT,
     page: pages.LINKS,
     Modal: null,
+    snackbar: {
+      open: false,
+      message: "",
+    },
   },
   reducers: {
     addLayerScreen(state, action) {
@@ -16,8 +20,12 @@ const counterSlice = createSlice({
     addModalHandler(state, action) {
       state.Modal = action.payload;
     },
+    setSnackbar(state, action) {
+      state.snackbar = action.payload;
+    },
   },
 });
 
-export const { addLayerScreen, addModalHandler } = counterSlice.actions;
+export const { addLayerScreen, addModalHandler, setSnackbar } =
+  counterSlice.actions;
 export default counterSlice.reducer;

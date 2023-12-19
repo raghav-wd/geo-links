@@ -32,7 +32,7 @@ const Gradient = ({ emulated }) => {
       id="estring"
       style={{
         width: "inherit",
-        height: "100%",
+        height: emulated ? "100%" : "100vh",
         backgroundImage: style.page.backgroundImage,
       }}
     >

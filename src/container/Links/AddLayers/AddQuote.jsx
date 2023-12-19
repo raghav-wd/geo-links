@@ -45,6 +45,7 @@ import { useDispatch } from "react-redux";
 import { addText } from "../../../redux/reducers/link";
 import { useState } from "react";
 import ColorPicker from "material-ui-color-picker";
+import { setSnackbar } from "../../../redux/reducers/app";
 
 const AddQuote = ({ handleClose }) => {
   const link = useSelector((state) => state.link);
@@ -131,7 +132,11 @@ const AddQuote = ({ handleClose }) => {
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
         <Button
-          onClick={() => dispatch(addText({ text: field, color: textColor }))}
+          onClick={() => {
+            dispatch(addText({ text: field, color: textColor }));
+            dispatch(setSnackbar({ open: true, message: "Text added" }));
+            handleClose();
+          }}
         >
           Done
         </Button>

@@ -16,6 +16,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import NavigationIcon from "@mui/icons-material/Navigation";
 
 import {
+  Alert,
   AppBar,
   Avatar,
   Box,
@@ -26,6 +27,7 @@ import {
   Menu,
   MenuItem,
   Slide,
+  Snackbar,
   StepIcon,
   Toolbar,
   Tooltip,
@@ -42,6 +44,9 @@ import { Topbar } from "./components/Topbar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import TopNav from "./components/TopNav";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setSnackbar } from "./redux/reducers/app";
 
 export default function App() {
   const navigate = useNavigate();
@@ -70,56 +75,74 @@ export default function App() {
   const structure = useShouldStructure();
   const [topBar, setTopBar] = React.useState(false);
   const Dashboard = () => {
+    const app = useSelector((state) => state.app);
+    const dispatch = useDispatch();
     return (
-      <Grid container>
-        <Grid xs={12} sx={{ display: { md: "none" } }}>
-          {!desktop ? <Topbar setTopBar={setTopBar} /> : null}
-          <Slide
-            in={topBar}
-            easing={{
-              enter: theme.transitions.easing.easeIn,
-            }}
-            direction="down"
-            mountOnEnter
-            unmountOnExit
+      <>
+        <Grid container>
+          <Grid xs={12} sx={{ display: { md: "none" } }}>
+            {!desktop ? <Topbar setTopBar={setTopBar} /> : null}
+            <Slide
+              in={topBar}
+              easing={{
+                enter: theme.transitions.easing.easeIn,
+              }}
+              direction="down"
+              mountOnEnter
+              unmountOnExit
+            >
+              <Box
+                position={{
+                  zIndex: 9999,
+                  position: "fixed",
+                  top: 0,
+                  height: "100vh",
+                  background: "white",
+                  width: "100vw",
+                }}
+              >
+                <Sidebar setTopBar={setTopBar} />
+              </Box>
+            </Slide>
+          </Grid>
+          <Grid md={2} sx={{ display: { xs: "none", md: "block" } }}>
+            <Sidebar setTopBar={setTopBar} />
+          </Grid>
+          <Grid xs={12} md={10}>
+            <TopNav />
+            <Outlet />
+            {!desktop ? (
+              <Fab
+                variant="extended"
+                style={{
+                  position: "fixed",
+                  bottom: 20,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+                onClick={() => navigate("/render")}
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Preview
+              </Fab>
+            ) : null}
+          </Grid>
+        </Grid>
+        <Snackbar
+          open={app.snackbar.open}
+          autoHideDuration={2000}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          onClose={() => dispatch(setSnackbar({ open: false, message: "" }))}
+        >
+          <Alert
+            onClose={() => dispatch(setSnackbar({ open: false, message: "" }))}
+            severity="success"
+            sx={{ width: "100%" }}
           >
-            <Box
-              position={{
-                zIndex: 9999,
-                position: "fixed",
-                top: 0,
-                height: "100vh",
-                background: "white",
-                width: "100vw",
-              }}
-            >
-              <Sidebar setTopBar={setTopBar} />
-            </Box>
-          </Slide>
-        </Grid>
-        <Grid md={2} sx={{ display: { xs: "none", md: "block" } }}>
-          <Sidebar setTopBar={setTopBar} />
-        </Grid>
-        <Grid xs={12} md={10}>
-          <TopNav />
-          <Outlet />
-          {!desktop ? (
-            <Fab
-              variant="extended"
-              style={{
-                position: "fixed",
-                bottom: 20,
-                left: "50%",
-                transform: "translateX(-50%)",
-              }}
-              onClick={() => navigate("/render")}
-            >
-              <NavigationIcon sx={{ mr: 1 }} />
-              Preview
-            </Fab>
-          ) : null}
-        </Grid>
-      </Grid>
+            {app.snackbar.message}
+          </Alert>
+        </Snackbar>
+      </>
     );
   };
   return (

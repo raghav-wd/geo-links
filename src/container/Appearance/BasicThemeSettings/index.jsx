@@ -1,11 +1,15 @@
-import { ColorizeRounded } from "@mui/icons-material";
+import {
+  AddPhotoAlternateOutlined,
+  ColorizeRounded,
+} from "@mui/icons-material";
 import {
   styleBackgroundColorPage,
   styleBackgroundImagePage,
 } from "../../../redux/reducers/style";
 import { themes } from "../../../constants/themes";
-
-const { Box, Typography, Card } = require("@mui/material");
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import styled from "styled-components";
+const { Box, Typography, Card, Button } = require("@mui/material");
 const { default: Grid } = require("@mui/material/Unstable_Grid2/Grid2");
 const { default: ColorPicker } = require("material-ui-color-picker");
 const { useSelector } = require("react-redux");
@@ -33,6 +37,45 @@ const SolidSettings = () => {
         />
         <ColorizeRounded />
       </Grid>
+    </Box>
+  );
+};
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
+const BackgroundPhotoSettings = () => {
+  const style = useSelector((state) => state.style);
+  const dispatch = useDispatch();
+  const handlerImageUpload = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
+  return (
+    <Box>
+      <Typography py={2}>Select Background Photo</Typography>
+      <form onSubmit={handlerImageUpload}>
+        <Button
+          style={{ width: "200px", height: "80px" }}
+          component="label"
+          variant="outlined"
+          startIcon={<AddPhotoAlternateOutlined />}
+        >
+          Upload Image
+          <VisuallyHiddenInput
+            type="file"
+            onChange={(e) => handlerImageUpload(e)}
+          />
+        </Button>
+        <Button type="submit">Submit</Button>
+      </form>
     </Box>
   );
 };
@@ -80,6 +123,7 @@ const BasicThemeSettings = () => {
   return (
     <Box py={1}>
       {style.theme == themes.SOLID ? <SolidSettings /> : null}
+      {style.theme == themes.PHOTO ? <BackgroundPhotoSettings /> : null}
       {style.theme == themes.GRADIENT ? <GradientSettings /> : null}
     </Box>
   );

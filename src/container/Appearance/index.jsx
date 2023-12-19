@@ -69,6 +69,7 @@ const Appearance = () => {
             <Typography my={3} variant="h6">
               Page Style
             </Typography>
+            <Typography my={1}>Text Color</Typography>
             <Grid container alignItems="center" mb={1}>
               <ColorPicker
                 onChange={(color) =>
@@ -83,7 +84,7 @@ const Appearance = () => {
                   border: "none",
                 }}
               />
-              Text
+              <ColorizeRounded />
             </Grid>
             <Typography my={1}>Text</Typography>
             <Grid container>
@@ -100,7 +101,7 @@ const Appearance = () => {
               <ThemePreviewCard
                 title="Background Photo"
                 image="./bg-style-3.png"
-                theme={themes.STYLE}
+                theme={themes.PHOTO}
               />
               <ThemePreviewCard
                 title="Gradient"

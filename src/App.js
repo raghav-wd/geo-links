@@ -47,6 +47,7 @@ import TopNav from "./components/TopNav";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setSnackbar } from "./redux/reducers/app";
+import Anxie from "./container/Render/Templates/Custom/Anxie";
 
 export default function App() {
   const navigate = useNavigate();
@@ -154,6 +155,7 @@ export default function App() {
               <Route path="signup" element={<Login />} />
               <Route path="login" element={<Login />} />
               <Route path="render" element={<Render />} />
+              <Route path="anxie" element={<Anxie />} />
             </Route>
             <Route path="/" element={<Dashboard />}>
               <Route index element={<Links />} />

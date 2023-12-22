@@ -1,11 +1,3 @@
-body {
-  margin: 0px;
-  background-color: #f8f5ec;
-  color: #212121;
-  font-family: aktiv-grotesk, sans-serif;
-  overflow: hidden;
-}
-
 .input,
 .textarea {
   border: 1px solid #ccc;

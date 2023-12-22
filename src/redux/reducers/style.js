@@ -20,7 +20,7 @@ const counterSlice = createSlice({
       backgroundColor: "orange",
       backgroundImage: "linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)",
     },
-    theme: themes.SOLID,
+    theme: themes.GRADIENT,
   },
   reducers: {
     styleFillButton(state, action) {

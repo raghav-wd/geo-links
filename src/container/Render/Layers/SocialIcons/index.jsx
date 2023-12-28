@@ -17,15 +17,35 @@ const SocialIcons = () => {
   const fetchIcon = (name) => {
     switch (name) {
       case "facebook":
-        return <Facebook />;
+        return (
+          <Facebook
+            onClick={() => (window.location.href = socialsState[name].url)}
+          />
+        );
       case "pinterest":
-        return <Pinterest />;
+        return (
+          <Pinterest
+            onClick={() => (window.location.href = socialsState[name].url)}
+          />
+        );
       case "email":
-        return <Email />;
+        return (
+          <Email
+            onClick={() => (window.location.href = socialsState[name].url)}
+          />
+        );
       case "instagram":
-        return <Instagram />;
+        return (
+          <Instagram
+            onClick={() => (window.location.href = socialsState[name].url)}
+          />
+        );
       case "youtube":
-        return <YouTube />;
+        return (
+          <YouTube
+            onClick={() => (window.location.href = socialsState[name].url)}
+          />
+        );
     }
   };
   return (

@@ -61,11 +61,15 @@ const AddSocials = ({ handleClose }) => {
           <Grid xs={1} ml="auto">
             {socialsState.instagram.selected ? (
               <DeleteOutlineRounded
-                onClick={() => dispatch(removeSocial(socials.INSTAGRAM))}
+                onClick={() =>
+                  dispatch(removeSocial({ social: socials.INSTAGRAM, url: "" }))
+                }
               />
             ) : (
               <AddRounded
-                onClick={() => dispatch(addSocial(socials.INSTAGRAM))}
+                onClick={() =>
+                  dispatch(addSocial({ social: socials.INSTAGRAM, url: "" }))
+                }
               />
             )}
           </Grid>
@@ -80,11 +84,15 @@ const AddSocials = ({ handleClose }) => {
           <Grid xs={1} ml="auto">
             {socialsState.facebook.selected ? (
               <DeleteOutlineRounded
-                onClick={() => dispatch(removeSocial(socials.FACEBOOK))}
+                onClick={() =>
+                  dispatch(removeSocial({ social: socials.FACEBOOK, url: "" }))
+                }
               />
             ) : (
               <AddRounded
-                onClick={() => dispatch(addSocial(socials.FACEBOOK))}
+                onClick={() =>
+                  dispatch(addSocial({ social: socials.FACEBOOK, url: "" }))
+                }
               />
             )}
           </Grid>
@@ -99,11 +107,15 @@ const AddSocials = ({ handleClose }) => {
           <Grid xs={1} ml="auto">
             {socialsState.pinterest.selected ? (
               <DeleteOutlineRounded
-                onClick={() => dispatch(removeSocial(socials.PINTEREST))}
+                onClick={() =>
+                  dispatch(removeSocial({ social: socials.PINTEREST, url: "" }))
+                }
               />
             ) : (
               <AddRounded
-                onClick={() => dispatch(addSocial(socials.PINTEREST))}
+                onClick={() =>
+                  dispatch(addSocial({ social: socials.PINTEREST, url: "" }))
+                }
               />
             )}
           </Grid>
@@ -118,11 +130,15 @@ const AddSocials = ({ handleClose }) => {
           <Grid xs={1} ml="auto">
             {socialsState.youtube.selected ? (
               <DeleteOutlineRounded
-                onClick={() => dispatch(removeSocial(socials.YOUTUBE))}
+                onClick={() =>
+                  dispatch(removeSocial({ social: socials.YOUTUBE, url: "" }))
+                }
               />
             ) : (
               <AddRounded
-                onClick={() => dispatch(addSocial(socials.YOUTUBE))}
+                onClick={() =>
+                  dispatch(addSocial({ social: socials.YOUTUBE, url: "" }))
+                }
               />
             )}
           </Grid>
@@ -137,10 +153,16 @@ const AddSocials = ({ handleClose }) => {
           <Grid xs={1} ml="auto">
             {socialsState.email.selected ? (
               <DeleteOutlineRounded
-                onClick={() => dispatch(removeSocial(socials.EMAIL))}
+                onClick={() =>
+                  dispatch(removeSocial({ social: socials.EMAIL, url: "" }))
+                }
               />
             ) : (
-              <AddRounded onClick={() => dispatch(addSocial(socials.EMAIL))} />
+              <AddRounded
+                onClick={() =>
+                  dispatch(addSocial({ social: socials.EMAIL, url: "" }))
+                }
+              />
             )}
           </Grid>
         </Grid>

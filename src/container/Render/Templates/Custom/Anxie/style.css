@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Koulen&family=Meow+Script&display=swap");
-body {
+#estring {
+  background-color: #f8f5ec;
+  color: #212121;
+  font-family: aktiv-grotesk, sans-serif;
+  overflow-x: hidden;
   background-image: linear-gradient(
     to bottom,
     rgba(26, 5, 54, 1),
@@ -7,26 +11,19 @@ body {
   );
 }
 
-body {
-  margin: 0px;
-  background-color: #f8f5ec;
-  color: #212121;
-  font-family: aktiv-grotesk, sans-serif;
-  overflow-x: hidden;
-}
-
 .gungru-img {
-  background-image: url("../../../../../../public/anxie/ghungru.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.4;
-  width: 100vw;
-  height: 118.3vw;
+  width: 100%;
+  /* height: 118.3vw; */
 }
 .gungru-overlay {
   position: absolute;
-  top: 0;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .sk {
@@ -39,8 +36,9 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 133.4vw;
+  width: 100%;
+  height: 600px;
+  /* height: 133.4vw; */
   box-sizing: border-box;
   /* border-top: 4px solid white; */
   border-bottom: 4px solid white;
@@ -50,6 +48,7 @@ body {
 }
 .covers-overlay {
   position: absolute;
+  width: 100%;
   top: 0;
 }
 @keyframes hue-animation {

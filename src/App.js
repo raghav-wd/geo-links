@@ -155,7 +155,7 @@ export default function App() {
               <Route path="signup" element={<Login />} />
               <Route path="login" element={<Login />} />
               <Route path="render" element={<Render />} />
-              <Route path="anxie" element={<Anxie />} />
+              <Route path="anxie" element={<Anxie emulated={false} />} />
             </Route>
             <Route path="/" element={<Dashboard />}>
               <Route index element={<Links />} />
@@ -164,6 +164,11 @@ export default function App() {
               <Route path="more" element={<More />} />
             </Route>
           </Routes>
+          <svg>
+            <filter id="grain">
+              <feTurbulence type="turbulence" baseFrequency="0.75" />
+            </filter>
+          </svg>
         </Box>
       </ThemeProvider>
     </Provider>

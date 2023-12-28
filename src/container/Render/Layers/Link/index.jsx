@@ -1,8 +1,9 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import openInNewTab from "../../../../utils/openInNewTab";
 
-export const Link = ({ title }) => {
+export const Link = ({ title, link, hidden }) => {
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();
   let opacity = 0;
@@ -15,6 +16,7 @@ export const Link = ({ title }) => {
   if (style.button.border == "square") borderRadius = ".5rem";
   if (style.button.border == "round") borderRadius = "9999px";
 
+  if (hidden) return;
   return (
     <div className="r-link">
       <Card
@@ -31,6 +33,7 @@ export const Link = ({ title }) => {
               ? style.button.color + opacity
               : "#00000000",
         }}
+        onClick={() => openInNewTab(link)}
       >
         <CardContent style={{ padding: "16px" }}>
           <Typography

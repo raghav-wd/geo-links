@@ -23,12 +23,13 @@ import dancetoonWalkingSrc from "./assets/dancetoon_2.gif";
 import jkSittingSrc from "./assets/jk_sitting.png";
 import jkTitanicSrc from "./assets/jk_titanic.png";
 import divider from "./assets/divider.png";
+import gungruSrc from "./assets/ghungru.jpeg";
 import coverSrc from "./assets/cover.mp4";
 import soloKpopFestSrc from "./assets/img-7.png";
 import groupKpopFestSrc from "./assets/img-10.png";
 import { useEffect } from "react";
 
-const Design = () => {
+const Design = ({ simponsive }) => {
   // useEffect(() => {
   //   const section = document.querySelector(".sk");
 
@@ -59,17 +60,22 @@ const Design = () => {
         return <TextLayer text={item.text} color={item.color} />;
     }
   };
-  const navigate = useNavigate();
+
+  const renderText1 = () => {
+    const text1 = link.list.find((item) => {
+      return item.type == layerTypes.TEXT;
+    });
+    return text1 && text1.text;
+  };
+
   return (
-    <Box>
-      <Box px={2} my={4}>
+    <Box id="estring">
+      <Box px={2} my={2}>
         <Grid container justifyContent="center" alignItems="center">
-          <Typography color="white" variant="h4" fontFamily="koulen">
+          <Typography color="white" variant="h5" fontFamily="koulen">
             Anamika <span style={{ opacity: 0.8 }}>Chaurasiya</span>
           </Typography>
-          {/* <Slide in={true} direction="left"> */}
           <img src={jkSittingSrc} width="50px" className="dozzing" />
-          {/* </Slide> */}
         </Grid>
       </Box>
       <Box position="relative">
@@ -113,13 +119,17 @@ const Design = () => {
         />
       </Box>
       <Fade in={true} timeout={{ enter: 2000 }}>
-        <Typography variant="h5" color="white" px={4} fontFamily="Meow Script">
-          I am a dancer living in Lucknow, also studying my art at Bhatkhande
-          University. I have worked and trained with numerous dancers locally.
+        <Typography
+          variant={simponsive("h5", "h6")}
+          color="white"
+          px={4}
+          fontFamily="Meow Script"
+        >
+          {renderText1()}I am a dancer living in Lucknow, also studying my art
+          at Bhatkhande University. I have worked and trained with numerous
+          dancers locally.
         </Typography>
       </Fade>
-
-      {/* Covers block */}
       <Box style={{ position: "relative" }} my={14}>
         <Box className="hue-anime" />
         <Box p={3} className="covers-overlay">
@@ -135,35 +145,60 @@ const Design = () => {
           <ol style={{ color: "white", fontSize: "18px", lineHeight: "36px" }}>
             <li>
               <a href="https://www.instagram.com/reel/Cr5p-BTrffe/?utm_source=ig_web_copy_link&igsh=N2ViNmM2MDRjNw==">
-                <Typography color="white" fontSize="18px" lineHeight="36px">
+                <Typography
+                  color="white"
+                  fontSize="18px"
+                  lineHeight="36px"
+                  pr={6}
+                >
                   Tumhe Jo Maine Dekha Lyrical Video
                 </Typography>
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/reel/CtJezHbJYm5/?utm_source=ig_web_copy_link&igsh=N2ViNmM2MDRjNw==">
-                <Typography color="white" fontSize="18px" lineHeight="36px">
+                <Typography
+                  color="white"
+                  fontSize="18px"
+                  lineHeight="36px"
+                  pr={6}
+                >
                   LE SSERAFIM (르세라핌)'Eve, Psyche & The Bluebeard's wife.
                 </Typography>
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/reel/Cv152Jusjqo/?utm_source=ig_web_copy_link&igsh=N2ViNmM2MDRjNw==">
-                <Typography color="white" fontSize="18px" lineHeight="36px">
+                <Typography
+                  color="white"
+                  fontSize="18px"
+                  lineHeight="36px"
+                  pr={6}
+                >
                   Aankhon Me Meri Tera Hi Chehra Dhadakta Rahe.
                 </Typography>
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/reel/CvwvMF0pv2o/?utm_source=ig_web_copy_link&igsh=N2ViNmM2MDRjNw==">
-                <Typography color="white" fontSize="18px" lineHeight="36px">
+                <Typography
+                  color="white"
+                  fontSize="18px"
+                  lineHeight="36px"
+                  pr={6}
+                >
                   정국 (Jung Kook) 'Seven (feat. Latto)
                 </Typography>
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/reel/CsQxqsRp9JJ/?utm_source=ig_web_copy_link&igsh=N2ViNmM2MDRjNw==">
-                <Typography color="white" fontSize="18px" lineHeight="36px">
+                <Typography
+                  color="white"
+                  fontSize="18px"
+                  lineHeight="36px"
+                  pr={6}
+                >
                   Under The Moonlight | Dance Break Coachella 2023
                 </Typography>
               </a>
@@ -201,23 +236,24 @@ const Design = () => {
         </Grid>
       </Box>
       {/* footer */}
-      <Box style={{ position: "relative" }}>
-        <Box className="gungru-img" />
+      <Box style={{ position: "relative", width: "100%" }}>
+        <img src={gungruSrc} className="gungru-img" />
         <Box className="gungru-overlay">
           <Typography
             variant="h4"
             fontStyle="italic"
             color="white"
             textAlign="center"
-            style={{ position: "absolute", width: "100vw", top: "50vw" }}
+            style={{}}
           >
             Dance is the poetry of the foot.
           </Typography>
         </Box>
       </Box>
       <Box textAlign="right" style={{ transform: "translateY(-60px)" }}>
-        <img src={dancetoonWalkingSrc} width={200} style={{ opacity: 0.8 }} />
+        <img src={dancetoonWalkingSrc} width="200px" style={{ opacity: 0.8 }} />
       </Box>
+      {/* <SocialIcons /> */}
       <Box textAlign="center" py={2} color="white">
         <Grid container flexDirection="column" alignItems="center">
           <Grid container>
@@ -257,97 +293,36 @@ const Design = () => {
 };
 
 const Anxie = ({ emulated }) => {
-  const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
-  const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-
-  const renderList = (item) => {
-    switch (item.type) {
-      case layerTypes.LINK:
-        return <Link title={item.name} link={item.link} />;
-      case layerTypes.SOCIAL:
-        return <SocialIcons />;
-      case layerTypes.TEXT:
-        return <TextLayer text={item.text} color={item.color} />;
-    }
+  const simponsive = (desktop, mobile) => {
+    if (emulated) return mobile;
+    else return desktop;
   };
-  return <Design />;
-  // return (
-  //   <div
-  //     id="estring"
-  //     style={{
-  //       width: "inherit",
-  //       height: emulated ? "100%" : "100vh",
-  //       backgroundColor: "#1A0536",
-  //       overflowX: "hidden",
-  //     }}
-  //   >
-  //     <Button
-  //       onClick={() => navigate(-1)}
-  //       sx={{
-  //         transform: "translateX(-13px)",
-  //         display: { xs: "block", md: "none" },
-  //       }}
-  //     >
-  //       <CloseRounded />
-  //     </Button>
-  //     {/* <video
-  //       autoPlay
-  //       muted
-  //       src="https://scontent.cdninstagram.com/o1/v/t16/f1/m82/E9466400C54F8AF33499BB06126C10AD_video_dashinit.mp4?efg=eyJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSIsInZlbmNvZGVfdGFnIjoidnRzX3ZvZF91cmxnZW4uY2xpcHMuYzIuNzIwLmJhc2VsaW5lIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=105&vs=648370260023708_3847344136&_nc_vs=HBksFQIYT2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfcHJvZC9FOTQ2NjQwMEM1NEY4QUYzMzQ5OUJCMDYxMjZDMTBBRF92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dLc2g3aFRRd1d4d1pOb0NBTlRYcHB2T2tZZzBicV9FQUFBRhUCAsgBACgAGAAbABUAACacv%2FGYjfG3PxUCKAJDMywXQDFMzMzMzM0YEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HAA%3D%3D&ccb=9-4&oh=00_AfCQX95FE4jFLdaOcM9Jf5gv2eVMZV29p-wMfkFKrxH3aw&oe=6584B42C&_nc_sid=10d13b"
-  //       style={{
-  //         objectFit: "cover",
-  //         backgroundSize: "cover",
-  //         opacity: 1,
-  //         width: "30%",
-  //         height: "30%",
-  //         position: "absolute",
-  //         top: "0px",
-  //         left: "0px",
-  //         display: "block",
-  //       }}
-  //       loop
-  //       preload="auto"
-  //     >
-  //       <source type="video/mp4" />
-  //     </video> */}
-  //     <Box px={2}>
-  //       <Grid container>
-  //         <Grid xs={9}>
-  //           <Typography color="white" variant="h4">
-  //             Dance is the hidden language of the soul
-  //           </Typography>
-  //         </Grid>
-  //         <Grid xs={3} style={{ position: "absolute", right: "70px" }}>
-  //           <img src="./anxie/dancetoon_1.gif" width={200} />
-  //         </Grid>
-  //       </Grid>
-  //     </Box>
-  //     <Box className="hue-anime">
-  //       {/* <img src="./anxie/euphoria.png" width="100%"  /> */}
-  //     </Box>
-
-  //     <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-  //       {link.list.map((item) => renderList(item))}
-  //       <Typography
-  //         my={1}
-  //         style={{
-  //           position: "relative",
-  //           top: "20vh",
-  //           fontFamily: "monospace",
-  //           textAlign: "center",
-  //           fontWeight: "bold",
-  //           userSelect: "none",
-  //           color: style.page.color,
-  //         }}
-  //       >
-  //         Powered by <i>Estring</i>
-  //       </Typography>
-  //     </Box>
-  //   </div>
-  // );
+  const navigate = useNavigate();
+  return (
+    <div
+      style={{
+        width: "inherit",
+        height: emulated ? "100%" : "100vh",
+        backgroundColor: "white",
+        overflowX: "hidden",
+      }}
+    >
+      <Button
+        onClick={() => navigate(-1)}
+        sx={{
+          transform: "translateX(-13px)",
+          display: !emulated ? "none" : { xs: "block", md: "none" },
+        }}
+      >
+        <CloseRounded />
+      </Button>
+      <Box width="100%" display="flex" justifyContent="center">
+        <Box style={{ maxWidth: "600px" }}>
+          <Design simponsive={simponsive} />
+        </Box>
+      </Box>
+    </div>
+  );
 };
 
 export default Anxie;

@@ -20,7 +20,7 @@ const Gradient = ({ emulated }) => {
   const renderList = (item) => {
     switch (item.type) {
       case layerTypes.LINK:
-        return <Link title={item.name} link={item.link} />;
+        return <Link title={item.name} link={item.link} hidden={item.hidden} />;
       case layerTypes.SOCIAL:
         return <SocialIcons />;
       case layerTypes.TEXT:

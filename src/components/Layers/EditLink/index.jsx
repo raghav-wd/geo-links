@@ -37,6 +37,9 @@ import {
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import { Draggable } from "react-beautiful-dnd";
+import { useDispatch } from "react-redux";
+import { deleteLink, toggleHideLink } from "../../../redux/reducers/link";
+import { setSnackbar } from "../../../redux/reducers/app";
 
 const Android12Switch = styled(Switch)(({ theme }) => ({
   padding: 8,
@@ -74,6 +77,7 @@ const Android12Switch = styled(Switch)(({ theme }) => ({
 const CardBlock = ({ data }) => {
   const [isOpenEditView, setOpenEditView] = React.useState(false);
   const [editViewType, setEditViewType] = React.useState();
+  const dispatch = useDispatch();
   const openEditView = () => {
     setOpenEditView((state) => !state);
   };
@@ -85,6 +89,19 @@ const CardBlock = ({ data }) => {
   const [isEditing, setIsEditing] = React.useState();
   const editTitle = () => {
     // if(isEdit)
+  };
+  const deleteLinkHandle = () => {
+    dispatch(deleteLink(data.id));
+    dispatch(setSnackbar({ open: true, message: "Link deleted" }));
+  };
+  const toggleHideHandle = (e) => {
+    dispatch(toggleHideLink({ id: data.id, visible: e.target.checked }));
+    dispatch(
+      setSnackbar({
+        open: true,
+        message: `Link is ${e.target.checked ? "visible" : "hidden"}`,
+      })
+    );
   };
   return (
     <React.Fragment>
@@ -166,10 +183,13 @@ const CardBlock = ({ data }) => {
             >
               <Terrain />
             </IconButton>
-            <IconButton aria-label="toggle password visibility">
+            {/* <IconButton aria-label="toggle password visibility">
               <PushPinOutlined />
-            </IconButton>
-            <IconButton aria-label="toggle password visibility">
+            </IconButton> */}
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={deleteLinkHandle}
+            >
               <DeleteOutline />
             </IconButton>
           </Grid>
@@ -186,7 +206,7 @@ const CardBlock = ({ data }) => {
             <Typography variant="subtitle2" color={"rgba(0, 0, 0, 0.26)"}>
               12.3k
             </Typography>
-            <Android12Switch defaultChecked />
+            <Android12Switch defaultChecked onChange={toggleHideHandle} />
           </Grid>
         </Grid>
       </CardActions>
@@ -241,14 +261,25 @@ const CardBlock = ({ data }) => {
 };
 
 function CountrySelect() {
+  const getcities = () => {
+    fetch("http://jsonplaceholder.typicode.com/users", {
+      method: "GET",
+    })
+      .then((response) => {
+        response.json().then((jsonResponse) => {
+          console.log(jsonResponse);
+        });
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
+  };
   return (
     <Autocomplete
       id="country-customized-option-demo"
-      options={countries}
+      options={getcities}
       disableCloseOnSelect
-      getOptionLabel={(option) =>
-        `${option.label} (${option.code}) +${option.phone}`
-      }
+      getOptionLabel={(option) => `${option.name}`}
       renderInput={(params) => (
         <TextField {...params} label="Choose a country" />
       )}

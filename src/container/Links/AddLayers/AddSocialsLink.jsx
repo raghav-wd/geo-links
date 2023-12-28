@@ -16,6 +16,7 @@ import {
   Box,
   DialogActions,
   IconButton,
+  TextField,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -24,6 +25,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addLayerScreen } from "../../../redux/reducers/app";
 import screenLayer from "../../../constants/screen-layers";
+import { addSocialLink } from "../../../redux/reducers/link";
+import socials from "../../../constants/socials";
 
 const AddSocialsLink = ({ handleClose }) => {
   const socialsState = useSelector((state) => state.link.socials);
@@ -48,20 +51,138 @@ const AddSocialsLink = ({ handleClose }) => {
       </DialogTitle>
       <DialogContent>
         <Typography fontWeight="bold" my={2}>
-          {/* {Object.keys(socialsState).forEach(function (key, index) {
-            if (socialsState[key].selected) icons.push(fetchIcon(key));
-          })}
-          {icons.map((icon) => (
-            <Box p={1}>{icon}</Box>
-          ))} */}
+          {socialsState.instagram.selected ? (
+            <>
+              <Typography mt={3} mb={1}>
+                Instagram
+              </Typography>
+              <TextField
+                id="new-url"
+                label=""
+                variant="outlined"
+                fullWidth
+                defaultValue={socialsState.instagram.url}
+                onChange={(e) =>
+                  dispatch(
+                    addSocialLink({
+                      social: socials.INSTAGRAM,
+                      url: e.target.value,
+                    })
+                  )
+                }
+              />
+            </>
+          ) : (
+            ""
+          )}
+        </Typography>
+        <Typography fontWeight="bold" my={2}>
+          {socialsState.facebook.selected ? (
+            <>
+              <Typography mt={3} mb={1}>
+                Facebook
+              </Typography>
+              <TextField
+                id="new-url"
+                label=""
+                variant="outlined"
+                fullWidth
+                defaultValue={socialsState.facebook.url}
+                onChange={(e) =>
+                  dispatch(
+                    addSocialLink({
+                      social: socials.FACEBOOK,
+                      url: e.target.value,
+                    })
+                  )
+                }
+              />
+            </>
+          ) : (
+            ""
+          )}
+        </Typography>
+        <Typography fontWeight="bold" my={2}>
+          {socialsState.pinterest.selected ? (
+            <>
+              <Typography mt={3} mb={1}>
+                Pinterest
+              </Typography>
+              <TextField
+                id="new-url"
+                label=""
+                variant="outlined"
+                fullWidth
+                defaultValue={socialsState.pinterest.url}
+                onChange={(e) =>
+                  dispatch(
+                    addSocialLink({
+                      social: socials.PINTEREST,
+                      url: e.target.value,
+                    })
+                  )
+                }
+              />
+            </>
+          ) : (
+            ""
+          )}
+        </Typography>
+        <Typography fontWeight="bold" my={2}>
+          {socialsState.youtube.selected ? (
+            <>
+              <Typography mt={3} mb={1}>
+                Youtube
+              </Typography>
+              <TextField
+                id="new-url"
+                label=""
+                variant="outlined"
+                fullWidth
+                defaultValue={socialsState.youtube.url}
+                onChange={(e) =>
+                  dispatch(
+                    addSocialLink({
+                      social: socials.YOUTUBE,
+                      url: e.target.value,
+                    })
+                  )
+                }
+              />
+            </>
+          ) : (
+            ""
+          )}
+        </Typography>
+        <Typography fontWeight="bold" my={2}>
+          {socialsState.email.selected ? (
+            <>
+              <Typography mt={3} mb={1}>
+                Email
+              </Typography>
+              <TextField
+                id="new-url"
+                label=""
+                variant="outlined"
+                fullWidth
+                defaultValue={socialsState.email.url}
+                onChange={(e) =>
+                  dispatch(
+                    addSocialLink({
+                      social: socials.EMAIL,
+                      url: e.target.value,
+                    })
+                  )
+                }
+              />
+            </>
+          ) : (
+            ""
+          )}
         </Typography>
       </DialogContent>
       <DialogActions>
-        <Button
-          onClick={() => dispatch(addLayerScreen(screenLayer.SOCIALSLINK))}
-        >
-          Next
-        </Button>
+        <Button onClick={() => handleClose()}>Next</Button>
       </DialogActions>
     </>
   );

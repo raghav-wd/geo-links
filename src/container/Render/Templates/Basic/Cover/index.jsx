@@ -24,7 +24,7 @@ const Model = () => {
   const renderList = (item) => {
     switch (item.type) {
       case layerTypes.LINK:
-        return <Link title={item.name} link={item.link} />;
+        return <Link title={item.name} link={item.link} hidden={item.hidden} />;
       case layerTypes.SOCIAL:
         return <SocialIcons />;
       case layerTypes.TEXT:
@@ -37,6 +37,7 @@ const Model = () => {
       style={{
         width: "inherit",
         borderRadius: "20px",
+        backgroundImage: "none",
       }}
     >
       <link rel="stylesheet" type="text/css" href="./custom.css" />

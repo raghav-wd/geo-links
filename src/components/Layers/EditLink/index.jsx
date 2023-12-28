@@ -267,22 +267,27 @@ function CountrySelect() {
     })
       .then((response) => {
         response.json().then((jsonResponse) => {
-          console.log(jsonResponse);
+          return jsonResponse;
         });
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
   };
+  const [cities, setCities] = React.useState();
+  React.useEffect(() => {
+    setCities(getcities());
+  }, []);
+  React.useEffect(() => {
+    console.log(cities);
+  }, [cities]);
   return (
     <Autocomplete
       id="country-customized-option-demo"
-      options={getcities}
+      options={JSON.parse(sessionStorage.getItem("cities"))}
       disableCloseOnSelect
-      getOptionLabel={(option) => `${option.name}`}
-      renderInput={(params) => (
-        <TextField {...params} label="Choose a country" />
-      )}
+      getOptionLabel={(option) => `${option.name} - ${option.state}`}
+      renderInput={(params) => <TextField {...params} label="Choose a city" />}
     />
   );
 }

@@ -48,6 +48,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setSnackbar } from "./redux/reducers/app";
 import Anxie from "./container/Render/Templates/Custom/Anxie";
+import getCities from "./utils/getCities";
 
 export default function App() {
   const navigate = useNavigate();
@@ -75,6 +76,9 @@ export default function App() {
   const location = useLocation();
   const structure = useShouldStructure();
   const [topBar, setTopBar] = React.useState(false);
+  React.useEffect = () => {
+    getCities();
+  };
   const Dashboard = () => {
     const app = useSelector((state) => state.app);
     const dispatch = useDispatch();

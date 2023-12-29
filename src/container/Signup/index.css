@@ -1,6 +1,38 @@
 .login.icon {
   animation: rotate 0.7s ease-out;
 }
+.signup form {
+  display: block;
+}
+.signup form input {
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  display: block !important;
+  margin-bottom: 5px;
+  border-radius: 8px !important;
+  width: 100%;
+  border: 2px solid #d1d1d1;
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  margin-bottom: 16px;
+  height: 46px;
+  box-sizing: border-box;
+}
+.signup form input:focus {
+  outline: none;
+  border: 2px solid #515151;
+}
+.signup form input::placeholder {
+  color: #9dbcc8;
+}
+
+.signup .blue-cta {
+  font-size: 16px !important;
+  font-family: Nunito !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  width: 100%;
+}
 
 @keyframes rotate {
   50% {

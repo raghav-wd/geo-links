@@ -50,6 +50,7 @@ import { setSnackbar } from "./redux/reducers/app";
 import Anxie from "./container/Render/Templates/Custom/Anxie";
 import getCities from "./utils/getCities";
 import Landing from "./container/Landing";
+import Signup from "./container/Signup";
 
 export default function App() {
   const navigate = useNavigate();
@@ -77,9 +78,9 @@ export default function App() {
   const location = useLocation();
   const structure = useShouldStructure();
   const [topBar, setTopBar] = React.useState(false);
-  React.useEffect = () => {
+  React.useEffect(() => {
     getCities();
-  };
+  }, []);
   const Dashboard = () => {
     const app = useSelector((state) => state.app);
     const dispatch = useDispatch();
@@ -158,7 +159,7 @@ export default function App() {
           <Routes>
             <Route path="/">
               <Route index element={<Landing />} />
-              <Route path="signup" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
               <Route path="login" element={<Login />} />
               <Route path="render" element={<Render />} />
               <Route path="anxie" element={<Anxie emulated={false} />} />

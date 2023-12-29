@@ -7,16 +7,21 @@ import directStandoutSrc from "./assets/direct-standout.png";
 import { ElectricBolt, Instagram, Mail } from "@mui/icons-material";
 import openPage from "../../utils/openPage";
 import { useNavigate } from "react-router-dom";
+import { setHandle } from "../../redux/reducers/app";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Landing = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const app = useSelector((state) => state.app);
   return (
     <Box>
       <nav>
         <Button
           className="sign-up-free"
           variant="outlined"
-          onClick={() => navigate("/admin")}
+          onClick={() => navigate("/login")}
           style={{
             color: "black",
             textTransform: "none",
@@ -59,7 +64,12 @@ const Landing = () => {
           <Box mt={2}>
             <form className="claim-form">
               <span>estring.in/</span>
-              <input type="text" placeholder="yourname" />
+              <input
+                type="text"
+                placeholder="yourname"
+                value={app.handleText}
+                onChange={(e) => dispatch(setHandle(e.target.value))}
+              />
               <input
                 type="button"
                 value="Claim"

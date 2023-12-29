@@ -5,6 +5,7 @@ import pages from "../../constants/pages";
 const counterSlice = createSlice({
   name: "app",
   initialState: {
+    handleText: "",
     addLayerScreenType: screenLayer.SELECT,
     page: pages.LINKS,
     Modal: null,
@@ -14,6 +15,9 @@ const counterSlice = createSlice({
     },
   },
   reducers: {
+    setHandle(state, action) {
+      state.handleText = action.payload;
+    },
     addLayerScreen(state, action) {
       state.addLayerScreenType = action.payload;
     },
@@ -26,6 +30,6 @@ const counterSlice = createSlice({
   },
 });
 
-export const { addLayerScreen, addModalHandler, setSnackbar } =
+export const { setHandle, addLayerScreen, addModalHandler, setSnackbar } =
   counterSlice.actions;
 export default counterSlice.reducer;

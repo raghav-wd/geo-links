@@ -49,6 +49,7 @@ import { useDispatch } from "react-redux";
 import { setSnackbar } from "./redux/reducers/app";
 import Anxie from "./container/Render/Templates/Custom/Anxie";
 import getCities from "./utils/getCities";
+import Landing from "./container/Landing";
 
 export default function App() {
   const navigate = useNavigate();
@@ -156,23 +157,19 @@ export default function App() {
         <Box>
           <Routes>
             <Route path="/">
+              <Route index element={<Landing />} />
               <Route path="signup" element={<Login />} />
               <Route path="login" element={<Login />} />
               <Route path="render" element={<Render />} />
               <Route path="anxie" element={<Anxie emulated={false} />} />
             </Route>
-            <Route path="/" element={<Dashboard />}>
+            <Route path="/admin/" element={<Dashboard />}>
               <Route index element={<Links />} />
               <Route path="appearance" element={<Appearance />} />
               <Route path="insights" element={<Insights />} />
               <Route path="more" element={<More />} />
             </Route>
           </Routes>
-          <svg>
-            <filter id="grain">
-              <feTurbulence type="turbulence" baseFrequency="0.75" />
-            </filter>
-          </svg>
         </Box>
       </ThemeProvider>
     </Provider>

@@ -100,7 +100,7 @@ const Sidebar = ({ setTopBar }) => {
         ) : null}
         <Button
           component={RouterLink}
-          to="/"
+          to="/admin"
           variant="primary"
           onClick={() => setTopBar(false)}
           startIcon={<AddLink style={{ fontSize: "24px" }} />}
@@ -110,7 +110,7 @@ const Sidebar = ({ setTopBar }) => {
         </Button>
         <Button
           component={RouterLink}
-          to="/appearance"
+          to="/admin/appearance"
           variant="primary"
           onClick={() => setTopBar(false)}
           startIcon={<Palette style={{ fontSize: "24px" }} />}
@@ -120,7 +120,7 @@ const Sidebar = ({ setTopBar }) => {
         </Button>
         <Button
           component={RouterLink}
-          to="/insights"
+          to="/admin/insights"
           variant="primary"
           onClick={() => setTopBar(false)}
           startIcon={<Insights style={{ fontSize: "24px" }} />}
@@ -130,7 +130,7 @@ const Sidebar = ({ setTopBar }) => {
         </Button>
         <Button
           component={RouterLink}
-          to="/more"
+          to="/admin/more"
           variant="primary"
           onClick={() => setTopBar(false)}
           startIcon={<MoreHoriz style={{ fontSize: "24px" }} />}

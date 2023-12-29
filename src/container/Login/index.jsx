@@ -25,9 +25,12 @@ import {
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import { login } from "../../services/auth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
+  const [credentials, setCredentials] = React.useState({});
+
   const desktop = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
 
@@ -35,6 +38,22 @@ const Login = () => {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const handleCredentials = (event) => {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value });
+  };
+
+  const handleSigninAndSignup = () => {
+    console.log(credentials);
+    login(credentials)
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem("userId", res.data._id);
+          navigate("/admin");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -148,9 +167,11 @@ const Login = () => {
             <FormControl sx={{ mt: 0, width: "70%" }} variant="standard">
               <FormControl variant="standard" sx={{ my: 2 }}>
                 <InputLabel htmlFor="input-with-icon-adornment">
-                  Username
+                  Email
                 </InputLabel>
                 <Input
+                  onChange={handleCredentials}
+                  name="email"
                   id="input-with-icon-adornment"
                   startAdornment={
                     <InputAdornment position="start">
@@ -164,6 +185,8 @@ const Login = () => {
                   Password
                 </InputLabel>
                 <Input
+                  name="password"
+                  onChange={handleCredentials}
                   id="standard-adornment-password"
                   type={showPassword ? "text" : "password"}
                   startAdornment={
@@ -192,7 +215,7 @@ const Login = () => {
                   opacity: 0.6,
                   color: "white",
                 }}
-                onClick={() => navigate("/")}
+                onClick={handleSigninAndSignup}
               >
                 Login
               </Button>

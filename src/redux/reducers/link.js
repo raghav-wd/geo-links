@@ -19,7 +19,7 @@ const counterSlice = createSlice({
   reducers: {
     addLink(state, action) {
       state.list.push({
-        id: uuid(),
+        id: action.payload.linkId,
         type: layerTypes.LINK,
         name: action.payload.name,
         link: action.payload.link,

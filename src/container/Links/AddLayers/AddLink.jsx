@@ -26,12 +26,30 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useDispatch, useSelector } from "react-redux";
 import { addLink } from "../../../redux/reducers/link";
 import { setSnackbar } from "../../../redux/reducers/app";
+import layerTypes from "../../../constants/layerTypes";
+import { addLinks } from "../../../services/links";
 
 const AddLink = ({ handleClose }) => {
   const app = useSelector((state) => state.app);
   const dispatch = useDispatch();
   const [url, setURL] = React.useState("");
   const [title, setTitle] = React.useState("");
+
+  const handleAddingURL = () => {
+    addLinks({
+      user_id: localStorage.getItem("userId"),
+      url,
+      url_title: title,
+      url_type: layerTypes.LINK,
+    })
+      .then((res) => {
+        dispatch(addLink({ linkId: res.data.linkId, link: url, name: title }));
+        dispatch(setSnackbar({ open: true, message: "Link added" }));
+        handleClose();
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -75,15 +93,7 @@ const AddLink = ({ handleClose }) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button
-          onClick={() => {
-            dispatch(addLink({ link: url, name: title }));
-            dispatch(setSnackbar({ open: true, message: "Link added" }));
-            handleClose();
-          }}
-        >
-          Done
-        </Button>
+        <Button onClick={handleAddingURL}>Done</Button>
       </DialogActions>
     </>
   );

@@ -2,17 +2,23 @@ import EditLink from "../Layers/EditLink";
 import { memo, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { updateList } from "../../redux/reducers/link";
+import { addInitialLinks, updateList } from "../../redux/reducers/link";
 import { Box, Button, Card, Grid, Typography } from "@mui/material";
 import SocialLayer from "../Layers/SocialLayer";
 import layerTypes from "../../constants/layerTypes";
 import TextLayer from "../Layers/TextLayer";
+import { getAllLinks } from "../../services/links";
 
 const LinksView = memo(function LinksView() {
   const style = {};
   const link = useSelector((state) => state.link);
   const app = useSelector((state) => state.app);
   const dispatch = useDispatch();
+  useEffect(() => {
+    getAllLinks({ userId: localStorage.getItem("userId") })
+      .then((res) => dispatch(addInitialLinks(res.data)))
+      .catch((err) => console.log(err));
+  }, []);
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -39,15 +45,14 @@ const LinksView = memo(function LinksView() {
         <Droppable droppableId="links">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {console.log(link.list)}
-              {link.list.map((item, index) => switchLayer(item, index))}
+              {link && link.list.map((item, index) => switchLayer(item, index))}
 
               {provided.placeholder}
             </div>
           )}
         </Droppable>
       </DragDropContext>
-      {link.list.length == 0 ? (
+      {link && link.list.length == 0 ? (
         <Grid
           container
           justifyContent="center"

@@ -44,8 +44,7 @@ const Login = () => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
 
-  const handleSigninAndSignup = () => {
-    console.log(credentials);
+  const handleSignin = () => {
     login(credentials)
       .then((res) => {
         if (res.status === 200) {
@@ -99,7 +98,7 @@ const Login = () => {
 
             <Button
               className="blue-cta"
-              onClick={handleSigninAndSignup}
+              onClick={handleSignin}
               style={{
                 color: "white",
                 backgroundColor: "#1ac0ff",

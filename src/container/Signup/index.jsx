@@ -26,17 +26,37 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import { useSelector } from "react-redux";
+import { signup } from "../../services/auth";
 
 const Signup = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
-  const desktop = useMediaQuery("(min-width:600px)");
   const app = useSelector((state) => state.app);
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [credentials, setCredentials] = React.useState({
+    username: app.handleText,
+  });
+  const desktop = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const handleCredentials = (event) => {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value });
+  };
+
+  const handleSignup = () => {
+    signup(credentials)
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res);
+          localStorage.setItem("userId", res.data._id);
+          navigate("/admin");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -65,9 +85,22 @@ const Signup = () => {
               Sign up. It's free!
             </Typography>
             <form>
-              <input placeholder="Username" value={app.handleText} />
-              <input placeholder="Email Address" />
-              <input placeholder="Choose a password" />
+              <input
+                name="username"
+                placeholder="Username"
+                defaultValue={app.handleText}
+                onChange={handleCredentials}
+              />
+              <input
+                onChange={handleCredentials}
+                name="email"
+                placeholder="Email Address"
+              />
+              <input
+                onChange={handleCredentials}
+                name="password"
+                placeholder="Choose a password"
+              />
             </form>
             <Typography color="#8f94a4" fontSize={13} py={3}>
               Estring is a safe, friendly place. Pages that break our terms will
@@ -76,7 +109,7 @@ const Signup = () => {
 
             <Button
               className="blue-cta"
-              onClick={() => navigate("/admin")}
+              onClick={handleSignup}
               style={{
                 color: "white",
                 backgroundColor: "#1ac0ff",

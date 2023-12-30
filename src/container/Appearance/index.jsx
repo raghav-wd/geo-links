@@ -75,6 +75,11 @@ const Appearance = () => {
                 imageIndex={6}
                 theme={themes.STARRYNIGHT}
               />
+              <ThemePreviewCard
+                title="Pattern"
+                imageIndex={7}
+                theme={themes.PATTERN}
+              />
             </Grid>
             <Typography my={3} variant="h6">
               Page Style

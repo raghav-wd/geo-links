@@ -8,6 +8,7 @@ import BarAnimation from "./Templates/Custom/BarAnimation";
 import React from "react";
 import Anxie from "./Templates/Custom/Anxie";
 import StarryNight from "./Templates/Custom/StarryNight";
+import Pattern from "./Templates/Custom/Pattern";
 
 export const Render = ({ emulated }) => {
   const style = useSelector((state) => state.style);
@@ -22,6 +23,8 @@ export const Render = ({ emulated }) => {
         return <StarryNight emulated={emulated} />;
       case themes.COVER:
         return <Cover emulated={emulated} />;
+      case themes.PATTERN:
+        return <Pattern emulated={emulated} />;
       case themes.GRADIENT:
         return <Gradient emulated={emulated} />;
       case themes.CUSTOM:

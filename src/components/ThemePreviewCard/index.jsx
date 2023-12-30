@@ -11,6 +11,7 @@ import bgStyle2 from "./assets/bg-style-2.png";
 import bgStyle3 from "./assets/bg-style-3.png";
 import bgStyle4 from "./assets/bg-style-4.png";
 import barAnime from "./assets/templates/barAnime.png";
+import starryNight from "./assets/templates/starryNight.png";
 
 const ThemePreviewCard = ({ title, imageIndex, theme }) => {
   const bgStyle = [
@@ -20,6 +21,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     bgStyle3,
     bgStyle4,
     barAnime,
+    starryNight,
   ];
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();
@@ -33,7 +35,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
       >
         <Card
           style={{
-            width: "120px",
+            width: "110px",
             height: "200px",
             backgroundImage: `url(${bgStyle[imageIndex]})`,
             backgroundPosition: "center center",

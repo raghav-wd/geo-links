@@ -30,7 +30,7 @@ const Solid = ({ emulated }) => {
   };
   return (
     <div
-      id="estring"
+      className="estring"
       style={{
         width: "inherit",
         height: emulated ? "100%" : "100vh",

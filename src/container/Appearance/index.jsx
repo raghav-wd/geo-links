@@ -60,10 +60,15 @@ const Appearance = () => {
               Choose Design
             </Typography>
             <Grid container>
-              <ThemePreviewCard
+              {/* <ThemePreviewCard
                 title="Custom"
-                image="customization.jpg"
+                imageIndex={0}
                 theme={themes.CUSTOM}
+              /> */}
+              <ThemePreviewCard
+                title="Bars"
+                imageIndex={5}
+                theme={themes.BARANIME}
               />
             </Grid>
             <Typography my={3} variant="h6">
@@ -90,22 +95,22 @@ const Appearance = () => {
             <Grid container>
               <ThemePreviewCard
                 title="Solid Color"
-                image="./bg-style-1.png"
+                imageIndex={1}
                 theme={themes.SOLID}
               />
               <ThemePreviewCard
                 title="Cover Photo"
-                image="./bg-style-2.png"
+                imageIndex={2}
                 theme={themes.COVER}
               />
               <ThemePreviewCard
                 title="Background Photo"
-                image="./bg-style-3.png"
+                imageIndex={3}
                 theme={themes.PHOTO}
               />
               <ThemePreviewCard
                 title="Gradient"
-                image="./bg-style-4.png"
+                imageIndex={4}
                 theme={themes.GRADIENT}
               />
             </Grid>

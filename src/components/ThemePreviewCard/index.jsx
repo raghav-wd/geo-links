@@ -5,8 +5,22 @@ import { useSelector } from "react-redux";
 import { themeType } from "../../constants/themes";
 import { useDispatch } from "react-redux";
 import { setTheme } from "../../redux/reducers/style";
+import customization from "./assets/customization.jpg";
+import bgStyle1 from "./assets/bg-style-1.png";
+import bgStyle2 from "./assets/bg-style-2.png";
+import bgStyle3 from "./assets/bg-style-3.png";
+import bgStyle4 from "./assets/bg-style-4.png";
+import barAnime from "./assets/templates/barAnime.png";
 
-const ThemePreviewCard = ({ title, image, theme }) => {
+const ThemePreviewCard = ({ title, imageIndex, theme }) => {
+  const bgStyle = [
+    customization,
+    bgStyle1,
+    bgStyle2,
+    bgStyle3,
+    bgStyle4,
+    barAnime,
+  ];
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();
   const ThemePreview = () => {
@@ -21,7 +35,7 @@ const ThemePreviewCard = ({ title, image, theme }) => {
           style={{
             width: "120px",
             height: "200px",
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${bgStyle[imageIndex]})`,
             backgroundPosition: "center center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

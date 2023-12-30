@@ -47,10 +47,10 @@ import TopNav from "./components/TopNav";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setSnackbar } from "./redux/reducers/app";
-import Anxie from "./container/Render/Templates/Custom/Anxie";
 import getCities from "./utils/getCities";
 import Landing from "./container/Landing";
 import Signup from "./container/Signup";
+import { Suspense } from "react";
 
 export default function App() {
   const navigate = useNavigate();
@@ -152,25 +152,31 @@ export default function App() {
       </>
     );
   };
+
+  const Anxie = React.lazy(() =>
+    import("./container/Render/Templates/Custom/Anxie")
+  );
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <Box>
-          <Routes>
-            <Route path="/">
-              <Route index element={<Landing />} />
-              <Route path="signup" element={<Signup />} />
-              <Route path="login" element={<Login />} />
-              <Route path="render" element={<Render />} />
-              <Route path="anxie" element={<Anxie emulated={false} />} />
-            </Route>
-            <Route path="/admin/" element={<Dashboard />}>
-              <Route index element={<Links />} />
-              <Route path="appearance" element={<Appearance />} />
-              <Route path="insights" element={<Insights />} />
-              <Route path="more" element={<More />} />
-            </Route>
-          </Routes>
+          <Suspense fallback={<div></div>}>
+            <Routes>
+              <Route path="/">
+                <Route index element={<Landing />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="login" element={<Login />} />
+                <Route path="render" element={<Render />} />
+                <Route path="anxie" element={<Anxie emulated={false} />} />
+              </Route>
+              <Route path="/admin/" element={<Dashboard />}>
+                <Route index element={<Links />} />
+                <Route path="appearance" element={<Appearance />} />
+                <Route path="insights" element={<Insights />} />
+                <Route path="more" element={<More />} />
+              </Route>
+            </Routes>
+          </Suspense>
         </Box>
       </ThemeProvider>
     </Provider>

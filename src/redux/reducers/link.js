@@ -6,7 +6,15 @@ import layerTypes from "../../constants/layerTypes";
 const counterSlice = createSlice({
   name: "link",
   initialState: {
-    list: [],
+    list: [
+      {
+        id: "fsldjfsldkjf",
+        type: layerTypes.LINK,
+        name: "Google",
+        link: "https://google.com",
+        hidden: false,
+      },
+    ],
     socials: {
       instagram: { selected: 0, url: "" },
       facebook: { selected: 0, url: "" },

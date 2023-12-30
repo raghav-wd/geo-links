@@ -33,7 +33,7 @@ const Model = () => {
   };
   return (
     <div
-      id="estring"
+      className="estring"
       style={{
         width: "inherit",
         borderRadius: "20px",
@@ -69,8 +69,8 @@ const Model = () => {
             alignItems="center"
             container
             style={{
-              position: "absolute",
               top: "100px",
+              position: "absolute",
               left: "50%",
               transform: "translate(-50%, -50%)",
             }}

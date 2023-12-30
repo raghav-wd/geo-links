@@ -1,5 +1,5 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import "./styles.css";
+import styles from "./styles.module.css";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import whySrc from "./assets/why.png";
 import statsSrc from "./assets/stats.png";
@@ -19,33 +19,31 @@ const Landing = () => {
     <Box>
       <nav>
         <Button
-          className="sign-up-free"
+          className={styles.roundButton}
           variant="outlined"
           onClick={() => navigate("/login")}
           style={{
             color: "black",
-            textTransform: "none",
             margin: "0 8px",
           }}
         >
           Log in
         </Button>
         <Button
-          className="sign-up-free"
+          className={styles.roundButton}
           onClick={() => navigate("/signup")}
           style={{
             color: "white",
             backgroundColor: "#1ac0ff",
-            textTransform: "none",
           }}
         >
           Sign up free
         </Button>
       </nav>
-      <Box className="header-container">
-        <Box className="header" sx={{ width: { xs: "90%", md: "70%" } }}>
+      <Box className={styles.headerContainer}>
+        <Box className={styles.header} sx={{ width: { xs: "90%", md: "70%" } }}>
           <Typography
-            className="heading"
+            className={styles.heading}
             p={2}
             maxWidth={750}
             sx={{
@@ -62,7 +60,7 @@ const Landing = () => {
             Creators who organise shows in multiple cities, shouldn't miss out!
           </Typography>
           <Box mt={2}>
-            <form className="claim-form">
+            <form className={styles.claimForm}>
               <span>estring.in/</span>
               <input
                 type="text"
@@ -78,9 +76,9 @@ const Landing = () => {
             </form>
           </Box>
         </Box>
-        <Box className="hero-container"></Box>
+        <Box className={styles.heroImage}></Box>
       </Box>
-      <Box className="why-block">
+      <Box className={styles.whyBlock}>
         <Grid container alignItems="center">
           <Grid md={6}>
             <Typography

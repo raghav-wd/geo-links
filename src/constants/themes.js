@@ -11,6 +11,7 @@ const themes = {
   PHOTO: { name: "photo", type: themeType.BASIC },
   GRADIENT: { name: "gradient", type: themeType.BASIC },
   COVER: { name: "cover", type: themeType.BASIC },
+  BARANIME: { name: "bar anime", type: themeType.BASIC },
 };
 
 export { themeType, themes };

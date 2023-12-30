@@ -18,8 +18,9 @@ export const Link = ({ title, link, hidden }) => {
 
   if (hidden) return;
   return (
-    <div className="r-link">
+    <eslink className="r-link">
       <Card
+        className="es-link"
         sx={{
           marginBottom: "12px",
           width: "100%",
@@ -47,6 +48,6 @@ export const Link = ({ title, link, hidden }) => {
           </Typography>
         </CardContent>
       </Card>
-    </div>
+    </eslink>
   );
 };

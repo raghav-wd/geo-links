@@ -14,6 +14,13 @@ const counterSlice = createSlice({
         link: "https://google.com",
         hidden: false,
       },
+      {
+        id: "fsldjfsldkjf",
+        type: layerTypes.LINK,
+        name: "Facebook",
+        link: "https://google.com",
+        hidden: false,
+      },
     ],
     socials: {
       instagram: { selected: 0, url: "" },

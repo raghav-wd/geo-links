@@ -3,9 +3,18 @@
   overflow: hidden;
 }
 
-/* .estring eslink {
-  
-} */
+.estring eslink > div {
+  border: none;
+  border: 2px solid black;
+  border-radius: 8px;
+
+  background-color: white;
+}
+
+.estring eslink > div p {
+  color: rgb(107 114 128) !important;
+  font-weight: 600;
+}
 
 .homeAnim {
   position: absolute;

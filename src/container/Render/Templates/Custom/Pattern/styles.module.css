@@ -1,0 +1,28 @@
+.estring {
+  position: relative;
+  overflow: hidden;
+}
+
+.estring eslink > div {
+  border: none;
+  border: 2px dotted black;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.estring eslink > div p {
+  color: black !important;
+  font-weight: 600;
+}
+
+.estring svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  fill: #e1e1e1;
+}

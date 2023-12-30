@@ -40,6 +40,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { deleteLink, toggleHideLink } from "../../../redux/reducers/link";
 import { setSnackbar } from "../../../redux/reducers/app";
+import { deleteLinks } from "../../../services/links";
 
 const Android12Switch = styled(Switch)(({ theme }) => ({
   padding: 8,
@@ -91,8 +92,12 @@ const CardBlock = ({ data }) => {
     // if(isEdit)
   };
   const deleteLinkHandle = () => {
-    dispatch(deleteLink(data.id));
-    dispatch(setSnackbar({ open: true, message: "Link deleted" }));
+    deleteLinks({ linkId: data.id })
+      .then((res) => {
+        dispatch(deleteLink(data.id));
+        dispatch(setSnackbar({ open: true, message: "Link deleted" }));
+      })
+      .catch((err) => console.log(err));
   };
   const toggleHideHandle = (e) => {
     dispatch(toggleHideLink({ id: data.id, visible: e.target.checked }));

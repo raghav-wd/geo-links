@@ -6,36 +6,7 @@ import layerTypes from "../../constants/layerTypes";
 const counterSlice = createSlice({
   name: "link",
   initialState: {
-    list: [
-      {
-        id: "fsldjfsldkjf",
-        type: layerTypes.LINK,
-        name: "Perth | 24th August",
-        link: "https://google.com",
-        hidden: false,
-      },
-      {
-        id: "fsldjfsldkjf",
-        type: layerTypes.LINK,
-        name: "Sydney | 27th August",
-        link: "https://google.com",
-        hidden: false,
-      },
-      {
-        id: "fsldjfsldkjf",
-        type: layerTypes.LINK,
-        name: "Canberra | 31th August",
-        link: "https://google.com",
-        hidden: false,
-      },
-      {
-        id: "fsldjfsldkjf",
-        type: layerTypes.LINK,
-        name: "Melbourne | 3th September",
-        link: "https://google.com",
-        hidden: false,
-      },
-    ],
+    list: [],
     socials: {
       instagram: { selected: 0, url: "" },
       facebook: { selected: 0, url: "" },
@@ -46,6 +17,9 @@ const counterSlice = createSlice({
     },
   },
   reducers: {
+    addInitialLinks(state, action) {
+      state.list = action.payload;
+    },
     addLink(state, action) {
       state.list.push({
         id: action.payload.linkId,
@@ -70,7 +44,6 @@ const counterSlice = createSlice({
         text: action.payload.text,
         color: action.payload.color,
       });
-      console.log(state.list);
     },
     updateList(state, action) {
       state.list = action.payload;
@@ -99,6 +72,7 @@ const counterSlice = createSlice({
 });
 
 export const {
+  addInitialLinks,
   addLink,
   deleteLink,
   toggleHideLink,

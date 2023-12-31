@@ -13,6 +13,7 @@ import bgStyle4 from "./assets/bg-style-4.png";
 import barAnime from "./assets/templates/barAnime.png";
 import starryNight from "./assets/templates/starryNight.png";
 import pattern from "./assets/templates/pattern.png";
+import clouds from "./assets/templates/clouds.png";
 
 const ThemePreviewCard = ({ title, imageIndex, theme }) => {
   const bgStyle = [
@@ -24,6 +25,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     barAnime,
     starryNight,
     pattern,
+    clouds,
   ];
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();

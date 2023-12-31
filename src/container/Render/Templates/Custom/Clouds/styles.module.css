@@ -1,0 +1,53 @@
+.estring {
+  position: relative;
+}
+
+.estring eslink > div {
+  border: none;
+  border-radius: 8px;
+  border: 1px solid #e4e4e4;
+  background: linear-gradient(180deg, white 52.6%, #f0f0f0);
+}
+
+.estring eslink > div p {
+  color: black !important;
+  font-weight: 600;
+}
+.cloudsBackgroundContainer {
+  background-color: #b0faff;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.cloudsBackground {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: flex-start;
+  left: 0;
+  overflow-x: hidden;
+  pointer-events: none;
+  top: 0;
+  width: 100vw;
+}
+.cloudsBackground img {
+  width: auto;
+  height: 100%;
+  animation: cloudAnimate 15s linear infinite;
+}
+
+@keyframes cloudAnimate {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  100% {
+    -webkit-transform: translate3D(-100%, 0, 0);
+    transform: translate3D(-100%, 0, 0);
+  }
+}

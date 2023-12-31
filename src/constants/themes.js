@@ -14,6 +14,7 @@ const themes = {
   BARANIME: { name: "bar anime", type: themeType.BASIC },
   STARRYNIGHT: { name: "starry night", type: themeType.BASIC },
   PATTERN: { name: "pattern", type: themeType.BASIC },
+  CLOUDS: { name: "clouds", type: themeType.BASIC },
 };
 
 export { themeType, themes };

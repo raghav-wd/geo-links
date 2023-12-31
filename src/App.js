@@ -51,6 +51,7 @@ import getCities from "./utils/getCities";
 import Landing from "./container/Landing";
 import Signup from "./container/Signup";
 import { Suspense } from "react";
+import Estring from "./container/Estring";
 
 export default function App() {
   const navigate = useNavigate();
@@ -168,6 +169,7 @@ export default function App() {
                 <Route path="login" element={<Login />} />
                 <Route path="render" element={<Render />} />
                 <Route path="anxie" element={<Anxie emulated={false} />} />
+                <Route path="/:estring" element={<Estring />} />
               </Route>
               <Route path="/admin/" element={<Dashboard />}>
                 <Route index element={<Links />} />

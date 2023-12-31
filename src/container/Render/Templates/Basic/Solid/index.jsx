@@ -12,11 +12,28 @@ import { ProfilePictureCard } from "../../../../../components/Render/ProfilePict
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
 
-const Solid = ({ emulated }) => {
+const Solid = ({ emulated, estring }) => {
   const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
+  const fetchedLinks = [
+    {
+      id: "sjdlkfj",
+      type: layerTypes.LINK,
+      name: "raghv",
+      link: "",
+      hidden: false,
+    },
+  ];
+  const fetchedUser = {
+    username: estring,
+    first_name: estring,
+    last_name: estring,
+    bio: estring,
+  };
+  const list = useSelector((state) =>
+    estring ? fetchedLinks : state.link.list
+  );
   const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => (estring ? fetchedUser : state.user));
   const dispatch = useDispatch();
 
   const renderList = (item) => {
@@ -95,7 +112,7 @@ const Solid = ({ emulated }) => {
           </div>
         </div>
         <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-          {link.list.map((item) => renderList(item))}
+          {list.map((item) => renderList(item))}
           <Typography
             my={1}
             style={{

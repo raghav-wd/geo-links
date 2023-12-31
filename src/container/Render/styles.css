@@ -1,5 +1,6 @@
 .estring {
   overflow-x: hidden;
+  min-height: 100% !important;
 }
 
 eslink {

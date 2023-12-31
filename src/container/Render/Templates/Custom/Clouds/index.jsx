@@ -12,7 +12,7 @@ import { ProfilePictureCard } from "../../../../../components/Render/ProfilePict
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
 
-const Grainy = ({ emulated }) => {
+const Clouds = ({ emulated, estring }) => {
   const navigate = useNavigate();
   const link = useSelector((state) => state.link);
   const style = useSelector((state) => state.style);
@@ -31,11 +31,10 @@ const Grainy = ({ emulated }) => {
   };
   return (
     <div
-      className={styles.estring}
+      className={styles.estring + " estring"}
       style={{
         width: "inherit",
         height: emulated ? "100%" : "100vh",
-        // backgroundColor: "white",
         backgroundImage: "none",
       }}
     >
@@ -93,7 +92,7 @@ const Grainy = ({ emulated }) => {
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
         {link.list.map((item) => renderList(item))}
         <Typography
-          my={1}
+          py={4}
           style={{
             position: "relative",
             top: "20vh",
@@ -106,9 +105,29 @@ const Grainy = ({ emulated }) => {
         >
           Powered by <i>Estring</i>
         </Typography>
+        <div class={styles.cloudsBackgroundContainer}>
+          <div class={styles.cloudsBackground}>
+            <img
+              class="cloud-animate"
+              src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
+              alt="Decorative clouds"
+              height="1032"
+              width="1437"
+              loading="lazy"
+            />
+            <img
+              class="cloud-animate"
+              src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
+              alt="Decorative clouds"
+              height="1032"
+              width="1437"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </Box>
     </div>
   );
 };
 
-export default Grainy;
+export default Clouds;

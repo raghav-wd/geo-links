@@ -11,9 +11,11 @@ import {
   ContentCopyRounded,
   LinkRounded,
 } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 
 const TopNav = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const user = useSelector((state) => state.user);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -93,6 +95,7 @@ const TopNav = () => {
             <Box sx={{ padding: "4px 8px" }}>
               <Grid display="flex" flexDirection="column">
                 <Button
+                  // onClick={() => navigate("/" + user.username)}
                   onClick={() => navigate("/render")}
                   style={{ textTransform: "none" }}
                   endIcon={<ArrowOutwardRounded />}

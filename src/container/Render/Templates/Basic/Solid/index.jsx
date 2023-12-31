@@ -10,6 +10,7 @@ import TextLayer from "../../../Layers/TextLayer";
 import layerTypes from "../../../../../constants/layerTypes";
 import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
 import { themes } from "../../../../../constants/themes";
+import styles from "./styles.module.css";
 
 const Solid = ({ emulated }) => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Solid = ({ emulated }) => {
   };
   return (
     <div
-      className="estring"
+      className={styles.estring}
       style={{
         width: "inherit",
         height: emulated ? "100%" : "100vh",
@@ -38,70 +39,79 @@ const Solid = ({ emulated }) => {
         backgroundImage: "none",
       }}
     >
-      <Button
-        onClick={() => navigate(-1)}
-        sx={{
-          transform: "translateX(-13px)",
-          display: { xs: "block", md: "none" },
-        }}
-      >
-        <CloseRounded />
-      </Button>
-      <div
-        className="header"
-        style={{ height: "100px", position: "relative", marginBottom: "36px" }}
-      >
-        <div
-          className="bg"
-          style={{
-            width: "100%",
-            height: "100px",
-            position: "absolute",
+      <div style={style.page.grainy ? {} : { background: "none" }}>
+        <Button
+          onClick={() => navigate(-1)}
+          sx={{
+            transform: "translateX(-13px)",
+            display: { xs: "block", md: "none" },
           }}
         >
-          <Grid
-            className="avatar"
-            flexDirection="column"
-            alignItems="center"
-            container
+          <CloseRounded />
+        </Button>
+        <div
+          className="header"
+          style={{
+            height: "100px",
+            position: "relative",
+            marginBottom: "36px",
+          }}
+        >
+          <div
+            className="bg"
             style={{
+              width: "100%",
+              height: "100px",
               position: "absolute",
-              top: "100px",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
             }}
           >
-            <ProfilePictureCard />
-            <Typography textAlign="center" style={{ color: style.page.color }}>
-              @{user.username}
-            </Typography>
-            <Typography
-              textAlign="center"
-              style={{ color: style.page.color }}
-              fontSize={14}
+            <Grid
+              className="avatar"
+              flexDirection="column"
+              alignItems="center"
+              container
+              style={{
+                position: "absolute",
+                top: "100px",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
             >
-              {user.bio}
-            </Typography>
-          </Grid>
+              <ProfilePictureCard />
+              <Typography
+                textAlign="center"
+                style={{ color: style.page.color }}
+              >
+                @{user.username}
+              </Typography>
+              <Typography
+                textAlign="center"
+                style={{ color: style.page.color }}
+                fontSize={14}
+              >
+                {user.bio}
+              </Typography>
+            </Grid>
+          </div>
         </div>
+        <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
+          {link.list.map((item) => renderList(item))}
+          <Typography
+            my={1}
+            style={{
+              position: "relative",
+              top: "20vh",
+              fontFamily: "monospace",
+              textAlign: "center",
+              fontWeight: "bold",
+              userSelect: "none",
+              color: style.page.color,
+            }}
+          >
+            Powered by <i>Estring</i>
+          </Typography>
+        </Box>
       </div>
-      <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        {link.list.map((item) => renderList(item))}
-        <Typography
-          my={1}
-          style={{
-            position: "relative",
-            top: "20vh",
-            fontFamily: "monospace",
-            textAlign: "center",
-            fontWeight: "bold",
-            userSelect: "none",
-            color: style.page.color,
-          }}
-        >
-          Powered by <i>Estring</i>
-        </Typography>
-      </Box>
     </div>
   );
 };

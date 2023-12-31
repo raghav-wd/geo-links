@@ -9,6 +9,7 @@ import React from "react";
 import Anxie from "./Templates/Custom/Anxie";
 import StarryNight from "./Templates/Custom/StarryNight";
 import Pattern from "./Templates/Custom/Pattern";
+import Grainy from "./Templates/Custom/Grainy";
 
 export const Render = ({ emulated }) => {
   const style = useSelector((state) => state.style);

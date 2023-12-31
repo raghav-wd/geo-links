@@ -1,15 +1,24 @@
 import {
   AddPhotoAlternateOutlined,
   ColorizeRounded,
+  Grain,
 } from "@mui/icons-material";
 import {
   styleBackgroundColorPage,
   styleBackgroundImagePage,
+  styleGrainyPage,
 } from "../../../redux/reducers/style";
 import { themes } from "../../../constants/themes";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import styled from "styled-components";
-const { Box, Typography, Card, Button } = require("@mui/material");
+const {
+  Box,
+  Typography,
+  Card,
+  Button,
+  IconButton,
+  Switch,
+} = require("@mui/material");
 const { default: Grid } = require("@mui/material/Unstable_Grid2/Grid2");
 const { default: ColorPicker } = require("material-ui-color-picker");
 const { useSelector } = require("react-redux");
@@ -37,6 +46,11 @@ const SolidSettings = () => {
         />
         <ColorizeRounded />
       </Grid>
+      <Typography>Grainy</Typography>
+      <Switch
+        checked={style.page.grainy}
+        onChange={(e) => dispatch(styleGrainyPage(e.target.checked))}
+      />
     </Box>
   );
 };
@@ -115,6 +129,13 @@ const GradientSettings = () => {
           </Grid>
         ))}
       </Grid>
+      <Box py={2}>
+        <Typography>Grainy</Typography>
+        <Switch
+          checked={style.page.grainy}
+          onChange={(e) => dispatch(styleGrainyPage(e.target.checked))}
+        />
+      </Box>
     </>
   );
 };

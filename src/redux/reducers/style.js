@@ -17,12 +17,17 @@ const counterSlice = createSlice({
     },
     page: {
       color: "#515151",
+      grainy: false,
       backgroundColor: "orange",
       backgroundImage: "linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)",
+      grainy: false,
     },
-    theme: themes.GRADIENT,
+    theme: themes.BARANIME,
   },
   reducers: {
+    styleGrainyPage(state, action) {
+      state.page.grainy = action.payload;
+    },
     styleFillButton(state, action) {
       state.button.fill = action.payload;
     },
@@ -60,6 +65,7 @@ const counterSlice = createSlice({
 });
 
 export const {
+  styleGrainyPage,
   styleFillButton,
   styleShadowButton,
   styleBorderButton,

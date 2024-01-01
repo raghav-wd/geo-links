@@ -4,7 +4,7 @@
 
 .estring {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background: var(--starry-bg) center center/cover no-repeat !important;
 }
 

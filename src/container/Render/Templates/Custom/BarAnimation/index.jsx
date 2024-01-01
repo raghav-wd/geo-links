@@ -35,7 +35,7 @@ const BarAnimation = ({ emulated }) => {
       className={styles.estring}
       style={{
         width: "inherit",
-        height: emulated ? "100%" : "100vh",
+        minHeight: emulated ? "100%" : "100vh",
         // backgroundColor: "white",
         backgroundImage: "none",
       }}
@@ -88,13 +88,15 @@ const BarAnimation = ({ emulated }) => {
         </div>
       </div>
       <GlassyTopBar />
-      <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
+      <Box
+        sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }}
+        pt={6}
+        overflow="scroll"
+      >
         {link.list.map((item) => renderList(item))}
         <Typography
-          my={1}
+          py={8}
           style={{
-            position: "relative",
-            top: "20vh",
             fontFamily: "monospace",
             textAlign: "center",
             fontWeight: "bold",

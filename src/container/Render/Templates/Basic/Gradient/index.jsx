@@ -34,7 +34,7 @@ const Gradient = ({ emulated }) => {
       className={styles.estring}
       style={{
         width: "inherit",
-        height: emulated ? "100%" : "100vh",
+        minHeight: emulated ? "100%" : "100vh",
         backgroundImage: style.page.backgroundImage,
       }}
     >
@@ -97,10 +97,8 @@ const Gradient = ({ emulated }) => {
         <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
           {link.list.map((item) => renderList(item))}
           <Typography
-            my={1}
+            py={4}
             style={{
-              position: "relative",
-              top: "20vh",
               fontFamily: "monospace",
               textAlign: "center",
               fontWeight: "bold",

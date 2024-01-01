@@ -96,8 +96,6 @@ const Clouds = ({ emulated, estring }) => {
         <Typography
           py={4}
           style={{
-            position: "relative",
-            top: "20vh",
             fontFamily: "monospace",
             textAlign: "center",
             fontWeight: "bold",

@@ -12,31 +12,20 @@ import { ProfilePictureCard } from "../../../../../components/Render/ProfilePict
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
 import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
+import Footer from "../../../../../components/Estring/Footer";
+import List from "../../../../../components/Estring/List";
 
 const Pattern = ({ emulated }) => {
   const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
+  const list = useSelector((state) => state.link.list);
   const style = useSelector((state) => state.style);
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-
-  const renderList = (item) => {
-    switch (item.type) {
-      case layerTypes.LINK:
-        return <Link title={item.name} link={item.link} hidden={item.hidden} />;
-      case layerTypes.SOCIAL:
-        return <SocialIcons />;
-      case layerTypes.TEXT:
-        return <TextLayer text={item.text} color={item.color} />;
-    }
-  };
   return (
     <div
       className={styles.estring}
       style={{
         width: "inherit",
-        height: emulated ? "100%" : "100vh",
-        // backgroundColor: "white",
+        minHeight: emulated ? "100%" : "100vh",
         backgroundImage: "none",
       }}
     >
@@ -87,21 +76,10 @@ const Pattern = ({ emulated }) => {
           </Grid>
         </div>
       </div>
-      <GlassyTopBar />
+      <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        {link.list.map((item) => renderList(item))}
-        <Typography
-          py={4}
-          style={{
-            fontFamily: "monospace",
-            textAlign: "center",
-            fontWeight: "bold",
-            userSelect: "none",
-            color: style.page.color,
-          }}
-        >
-          Powered by <i>Estring</i>
-        </Typography>
+        <List list={list} />
+        <Footer style={style} />
       </Box>
       <svg
         id="pattern"

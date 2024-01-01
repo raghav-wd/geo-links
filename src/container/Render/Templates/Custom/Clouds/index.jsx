@@ -12,10 +12,12 @@ import { ProfilePictureCard } from "../../../../../components/Render/ProfilePict
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
 import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
+import Footer from "../../../../../components/Estring/Footer";
+import List from "../../../../../components/Estring/List";
 
 const Clouds = ({ emulated, estring }) => {
   const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
+  const list = useSelector((state) => state.link.list);
   const style = useSelector((state) => state.style);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const Clouds = ({ emulated, estring }) => {
       className={styles.estring + " estring"}
       style={{
         width: "inherit",
-        height: emulated ? "100%" : "100vh",
+        minHeight: emulated ? "100%" : "100vh",
         backgroundImage: "none",
       }}
     >
@@ -90,42 +92,31 @@ const Clouds = ({ emulated, estring }) => {
           </Grid>
         </div>
       </div>
-      <GlassyTopBar />
+      <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        {link.list.map((item) => renderList(item))}
-        <Typography
-          py={4}
-          style={{
-            fontFamily: "monospace",
-            textAlign: "center",
-            fontWeight: "bold",
-            userSelect: "none",
-            color: style.page.color,
-          }}
-        >
-          Powered by <i>Estring</i>
-        </Typography>
-        <div class={styles.cloudsBackgroundContainer}>
-          <div class={styles.cloudsBackground}>
-            <img
-              class="cloud-animate"
-              src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
-              alt="Decorative clouds"
-              height="1032"
-              width="1437"
-              loading="lazy"
-            />
-            <img
-              class="cloud-animate"
-              src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
-              alt="Decorative clouds"
-              height="1032"
-              width="1437"
-              loading="lazy"
-            />
-          </div>
-        </div>
+        <List list={list} />
+        <Footer style={style} />
       </Box>
+      <div class={styles.cloudsBackgroundContainer}>
+        <div class={styles.cloudsBackground}>
+          <img
+            class="cloud-animate"
+            src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
+            alt="Decorative clouds"
+            height="1032"
+            width="1437"
+            loading="lazy"
+          />
+          <img
+            class="cloud-animate"
+            src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
+            alt="Decorative clouds"
+            height="1032"
+            width="1437"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </div>
   );
 };

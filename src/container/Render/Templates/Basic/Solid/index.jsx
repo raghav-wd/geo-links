@@ -13,6 +13,8 @@ import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
+import Footer from "../../../../../components/Estring/Footer";
+import List from "../../../../../components/Estring/List";
 
 const Solid = ({ emulated, estring }) => {
   const navigate = useNavigate();
@@ -36,18 +38,6 @@ const Solid = ({ emulated, estring }) => {
   );
   const style = useSelector((state) => state.style);
   const user = useSelector((state) => (estring ? fetchedUser : state.user));
-  const dispatch = useDispatch();
-
-  const renderList = (item) => {
-    switch (item.type) {
-      case layerTypes.LINK:
-        return <Link title={item.name} link={item.link} hidden={item.hidden} />;
-      case layerTypes.SOCIAL:
-        return <SocialIcons />;
-      case layerTypes.TEXT:
-        return <TextLayer text={item.text} color={item.color} />;
-    }
-  };
 
   return (
     <div
@@ -122,23 +112,12 @@ const Solid = ({ emulated, estring }) => {
             >
               <Share />
             </IconButton>
-            <GlassyTopBar />
           </div>
         </div>
+        <GlassyTopBar emulated={emulated} />
         <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-          {list.map((item) => renderList(item))}
-          <Typography
-            py={4}
-            style={{
-              fontFamily: "monospace",
-              textAlign: "center",
-              fontWeight: "bold",
-              userSelect: "none",
-              color: style.page.color,
-            }}
-          >
-            Powered by <i>Estring</i>
-          </Typography>
+          <List list={list} />
+          <Footer style={style} />
         </Box>
       </div>
     </div>

@@ -12,10 +12,12 @@ import { ProfilePictureCard } from "../../../../../components/Render/ProfilePict
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
 import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
+import List from "../../../../../components/Estring/List";
+import Footer from "../../../../../components/Estring/Footer";
 
 const BarAnimation = ({ emulated }) => {
   const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
+  const list = useSelector((state) => state.link.list);
   const style = useSelector((state) => state.style);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -87,25 +89,10 @@ const BarAnimation = ({ emulated }) => {
           </Grid>
         </div>
       </div>
-      <GlassyTopBar />
-      <Box
-        sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }}
-        pt={6}
-        overflow="scroll"
-      >
-        {link.list.map((item) => renderList(item))}
-        <Typography
-          py={8}
-          style={{
-            fontFamily: "monospace",
-            textAlign: "center",
-            fontWeight: "bold",
-            userSelect: "none",
-            color: style.page.color,
-          }}
-        >
-          Powered by <i>Estring</i>
-        </Typography>
+      <GlassyTopBar emulated={emulated} />
+      <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
+        <List list={list} />
+        <Footer style={style} />
       </Box>
       <svg
         version="1.1"

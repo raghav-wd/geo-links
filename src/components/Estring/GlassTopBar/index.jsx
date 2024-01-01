@@ -30,6 +30,7 @@ const GlassyTopBar = ({ emulated, estring }) => {
         width: "100%",
         position: "fixed",
         top: "40px",
+        zIndex: 99,
         transform: `translate(0%, -${posY}%)`,
         transition: "all 0.2s ease-in-out",
         display: emulated ? "none" : "",

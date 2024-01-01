@@ -10,6 +10,7 @@ const themes = {
   SOLID: { name: "solid", type: themeType.BASIC },
   PHOTO: { name: "photo", type: themeType.BASIC },
   GRADIENT: { name: "gradient", type: themeType.BASIC },
+  BACKGROUND: { name: "background", type: themeType.BASIC },
   COVER: { name: "cover", type: themeType.BASIC },
   BARANIME: { name: "bar anime", type: themeType.BASIC },
   STARRYNIGHT: { name: "starry night", type: themeType.BASIC },

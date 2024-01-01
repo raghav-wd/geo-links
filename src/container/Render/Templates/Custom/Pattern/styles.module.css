@@ -15,7 +15,7 @@
   font-weight: 600;
 }
 
-.estring svg {
+.estring svg[id="pattern"] {
   position: absolute;
   top: 0;
   left: 0;

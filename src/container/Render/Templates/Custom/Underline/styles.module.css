@@ -1,0 +1,30 @@
+.estring > div {
+  height: 100%;
+}
+
+.estring eslink > div {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.estring eslink > div p {
+  font-size: 22px;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  color: black !important;
+}
+
+.estring eslink > div p:after {
+  content: "";
+  padding: 0 8px;
+  display: block;
+  position: relative;
+  top: -12px;
+  left: -8px;
+  z-index: -1;
+  width: 100%;
+  height: 10px;
+  background-color: #c1f3fe;
+}

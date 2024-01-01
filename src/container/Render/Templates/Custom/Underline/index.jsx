@@ -9,14 +9,31 @@ import SocialIcons from "../../../Layers/SocialIcons";
 import TextLayer from "../../../Layers/TextLayer";
 import layerTypes from "../../../../../constants/layerTypes";
 import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
+import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
-import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 
-const Gradient = ({ emulated }) => {
+const Underline = ({ emulated, estring }) => {
   const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
+  const fetchedLinks = [
+    {
+      id: "sjdlkfj",
+      type: layerTypes.LINK,
+      name: "raghv",
+      link: "",
+      hidden: false,
+    },
+  ];
+  const fetchedUser = {
+    username: estring,
+    first_name: estring,
+    last_name: estring,
+    bio: estring,
+  };
+  const list = useSelector((state) =>
+    estring ? fetchedLinks : state.link.list
+  );
   const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => (estring ? fetchedUser : state.user));
   const dispatch = useDispatch();
 
   const renderList = (item) => {
@@ -35,7 +52,7 @@ const Gradient = ({ emulated }) => {
       style={{
         width: "inherit",
         height: emulated ? "100%" : "100vh",
-        backgroundImage: style.page.backgroundImage,
+        backgroundImage: "none",
       }}
     >
       <div style={style.page.grainy ? {} : { background: "none" }}>
@@ -93,9 +110,8 @@ const Gradient = ({ emulated }) => {
             </Grid>
           </div>
         </div>
-        <GlassyTopBar />
         <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-          {link.list.map((item) => renderList(item))}
+          {list.map((item) => renderList(item))}
           <Typography
             my={1}
             style={{
@@ -116,4 +132,4 @@ const Gradient = ({ emulated }) => {
   );
 };
 
-export default Gradient;
+export default Underline;

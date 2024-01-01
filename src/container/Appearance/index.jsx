@@ -121,7 +121,7 @@ const Appearance = () => {
               <ThemePreviewCard
                 title="Background Photo"
                 imageIndex={3}
-                theme={themes.PHOTO}
+                theme={themes.BACKGROUND}
               />
               <ThemePreviewCard
                 title="Gradient"

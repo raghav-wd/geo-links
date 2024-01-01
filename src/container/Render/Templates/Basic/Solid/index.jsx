@@ -1,5 +1,5 @@
-import { Box, Button, Typography } from "@mui/material";
-import { CloseRounded } from "@mui/icons-material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
+import { CloseRounded, Share, ShareOutlined } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -11,6 +11,8 @@ import layerTypes from "../../../../../constants/layerTypes";
 import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
+import { useEffect, useState } from "react";
+import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 
 const Solid = ({ emulated, estring }) => {
   const navigate = useNavigate();
@@ -46,6 +48,7 @@ const Solid = ({ emulated, estring }) => {
         return <TextLayer text={item.text} color={item.color} />;
     }
   };
+
   return (
     <div
       className={styles.estring}
@@ -109,6 +112,17 @@ const Solid = ({ emulated, estring }) => {
                 {user.bio}
               </Typography>
             </Grid>
+            <IconButton
+              style={{
+                position: "absolute",
+                top: "90px",
+                left: "80%",
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <Share />
+            </IconButton>
+            <GlassyTopBar />
           </div>
         </div>
         <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>

@@ -1,5 +1,5 @@
-import { Box, Button, Typography } from "@mui/material";
-import { CloseRounded } from "@mui/icons-material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
+import { CloseRounded, Share } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -11,13 +11,29 @@ import layerTypes from "../../../../../constants/layerTypes";
 import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
-import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 
-const Clouds = ({ emulated, estring }) => {
+const Background = ({ emulated, estring }) => {
   const navigate = useNavigate();
-  const link = useSelector((state) => state.link);
+  const fetchedLinks = [
+    {
+      id: "sjdlkfj",
+      type: layerTypes.LINK,
+      name: "raghv",
+      link: "",
+      hidden: false,
+    },
+  ];
+  const fetchedUser = {
+    username: estring,
+    first_name: estring,
+    last_name: estring,
+    bio: estring,
+  };
+  const list = useSelector((state) =>
+    estring ? fetchedLinks : state.link.list
+  );
   const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => (estring ? fetchedUser : state.user));
   const dispatch = useDispatch();
 
   const renderList = (item) => {
@@ -32,13 +48,24 @@ const Clouds = ({ emulated, estring }) => {
   };
   return (
     <div
-      className={styles.estring + " estring"}
+      className={styles.estring}
       style={{
         width: "inherit",
+        position: "relative",
         height: emulated ? "100%" : "100vh",
-        backgroundImage: "none",
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          width: "inherit",
+          height: "inherit",
+          zIndex: -1,
+          backgroundImage:
+            "url(https://weareskribbl.com/wp-content/uploads/2023/05/Header-Back-2-min-1-with-colour-1.png)",
+          backgroundSize: "cover",
+        }}
+      ></div>
       <Button
         onClick={() => navigate(-1)}
         sx={{
@@ -70,8 +97,8 @@ const Clouds = ({ emulated, estring }) => {
             alignItems="center"
             container
             style={{
-              top: "100px",
               position: "absolute",
+              top: "100px",
               left: "50%",
               transform: "translate(-50%, -50%)",
             }}
@@ -90,11 +117,10 @@ const Clouds = ({ emulated, estring }) => {
           </Grid>
         </div>
       </div>
-      <GlassyTopBar />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        {link.list.map((item) => renderList(item))}
+        {list.map((item) => renderList(item))}
         <Typography
-          py={4}
+          my={1}
           style={{
             position: "relative",
             top: "20vh",
@@ -107,29 +133,9 @@ const Clouds = ({ emulated, estring }) => {
         >
           Powered by <i>Estring</i>
         </Typography>
-        <div class={styles.cloudsBackgroundContainer}>
-          <div class={styles.cloudsBackground}>
-            <img
-              class="cloud-animate"
-              src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
-              alt="Decorative clouds"
-              height="1032"
-              width="1437"
-              loading="lazy"
-            />
-            <img
-              class="cloud-animate"
-              src="https://www.datocms-assets.com/75134/1658040524-clouds-horizontal.png?auto=enhance%2Cformat&amp;q=100&amp;w=1280"
-              alt="Decorative clouds"
-              height="1032"
-              width="1437"
-              loading="lazy"
-            />
-          </div>
-        </div>
       </Box>
     </div>
   );
 };
 
-export default Clouds;
+export default Background;

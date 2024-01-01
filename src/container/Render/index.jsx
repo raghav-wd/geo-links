@@ -9,6 +9,8 @@ import StarryNight from "./Templates/Custom/StarryNight";
 import Pattern from "./Templates/Custom/Pattern";
 import Clouds from "./Templates/Custom/Clouds";
 import BarAnimation from "./Templates/Custom/BarAnimation";
+import Background from "./Templates/Basic/Background";
+import Underline from "./Templates/Custom/Underline";
 
 export const Render = ({ emulated, estring }) => {
   const fetchedTheme = themes.CLOUDS;
@@ -32,6 +34,8 @@ export const Render = ({ emulated, estring }) => {
         return <Pattern emulated={emulated} />;
       case themes.GRADIENT:
         return <Gradient emulated={emulated} />;
+      case themes.BACKGROUND:
+        return <Underline emulated={emulated} />;
       case themes.CUSTOM:
         return <Anxie emulated={emulated} />;
       default:

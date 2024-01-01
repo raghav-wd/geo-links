@@ -11,6 +11,7 @@ import layerTypes from "../../../../../constants/layerTypes";
 import { ProfilePictureCard } from "../../../../../components/Render/ProfilePictureCard";
 import { themes } from "../../../../../constants/themes";
 import styles from "./styles.module.css";
+import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 
 const BarAnimation = ({ emulated }) => {
   const navigate = useNavigate();
@@ -86,6 +87,7 @@ const BarAnimation = ({ emulated }) => {
           </Grid>
         </div>
       </div>
+      <GlassyTopBar />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
         {link.list.map((item) => renderList(item))}
         <Typography

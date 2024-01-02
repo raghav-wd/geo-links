@@ -16,6 +16,7 @@ const themes = {
   STARRYNIGHT: { name: "starry night", type: themeType.BASIC },
   PATTERN: { name: "pattern", type: themeType.BASIC },
   CLOUDS: { name: "clouds", type: themeType.BASIC },
+  NEUMORPHIC: { name: "neumorphic", type: themeType.BASIC },
 };
 
 export { themeType, themes };

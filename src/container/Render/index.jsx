@@ -11,6 +11,7 @@ import Clouds from "./Templates/Custom/Clouds";
 import BarAnimation from "./Templates/Custom/BarAnimation";
 import Underline from "./Templates/Custom/Underline";
 import layerTypes from "../../constants/layerTypes";
+import Neumorphic from "./Templates/Custom/Neumorphic";
 
 export const Render = ({ emulated, estring }) => {
   const fetchedTheme = themes.SOLID;
@@ -81,6 +82,17 @@ export const Render = ({ emulated, estring }) => {
       case themes.CLOUDS:
         return (
           <Clouds
+            emulated={emulated}
+            estring={estring}
+            app={app}
+            link={link}
+            style={style}
+            user={user}
+          />
+        );
+      case themes.NEUMORPHIC:
+        return (
+          <Neumorphic
             emulated={emulated}
             estring={estring}
             app={app}

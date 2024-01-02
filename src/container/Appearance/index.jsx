@@ -85,6 +85,11 @@ const Appearance = () => {
                 imageIndex={8}
                 theme={themes.CLOUDS}
               />
+              <ThemePreviewCard
+                title="Neumorphic"
+                imageIndex={9}
+                theme={themes.NEUMORPHIC}
+              />
             </Grid>
             <Typography my={3} variant="h6">
               Page Style

@@ -9,7 +9,7 @@ const counterSlice = createSlice({
       shadow: false,
       border: "none",
       transparency: 0,
-      color: "#FFD580",
+      color: "#CFCFF2",
     },
     text: {
       fontFamily: "helvetica",
@@ -18,7 +18,7 @@ const counterSlice = createSlice({
     page: {
       color: "#515151",
       grainy: false,
-      backgroundColor: "orange",
+      backgroundColor: "#F1F6FC",
       backgroundImage: "linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)",
       grainy: false,
     },

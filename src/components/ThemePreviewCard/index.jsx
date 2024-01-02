@@ -14,6 +14,7 @@ import barAnime from "./assets/templates/barAnime.png";
 import starryNight from "./assets/templates/starryNight.png";
 import pattern from "./assets/templates/pattern.png";
 import clouds from "./assets/templates/clouds.png";
+import neumorphic from "./assets/templates/neumorphic.png";
 
 const ThemePreviewCard = ({ title, imageIndex, theme }) => {
   const bgStyle = [
@@ -26,6 +27,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     starryNight,
     pattern,
     clouds,
+    neumorphic,
   ];
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();

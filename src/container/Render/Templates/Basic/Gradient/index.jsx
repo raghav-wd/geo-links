@@ -14,11 +14,11 @@ import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 import List from "../../../../../components/Estring/List";
 import Footer from "../../../../../components/Estring/Footer";
 
-const Gradient = ({ emulated }) => {
+const Gradient = ({ emulated, estring, app, link, style, user }) => {
   const navigate = useNavigate();
-  const list = useSelector((state) => state.link.list);
-  const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
+  // const list = useSelector((state) => state.link.list);
+  // const style = useSelector((state) => state.style);
+  // const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const renderList = (item) => {
@@ -107,7 +107,7 @@ const Gradient = ({ emulated }) => {
       </div>
       <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        <List list={list} />
+        <List list={link} />
         <Footer style={style} />
       </Box>
     </div>

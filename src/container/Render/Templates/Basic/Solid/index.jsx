@@ -16,28 +16,8 @@ import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 import Footer from "../../../../../components/Estring/Footer";
 import List from "../../../../../components/Estring/List";
 
-const Solid = ({ emulated, estring }) => {
+const Solid = ({ emulated, estring, app, link, style, user }) => {
   const navigate = useNavigate();
-  const fetchedLinks = [
-    {
-      id: "sjdlkfj",
-      type: layerTypes.LINK,
-      name: "raghv",
-      link: "",
-      hidden: false,
-    },
-  ];
-  const fetchedUser = {
-    username: estring,
-    first_name: estring,
-    last_name: estring,
-    bio: estring,
-  };
-  const list = useSelector((state) =>
-    estring ? fetchedLinks : state.link.list
-  );
-  const style = useSelector((state) => state.style);
-  const user = useSelector((state) => (estring ? fetchedUser : state.user));
 
   return (
     <div
@@ -126,7 +106,7 @@ const Solid = ({ emulated, estring }) => {
       </div>
       <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        <List list={list} />
+        <List list={link} />
         <Footer style={style} />
       </Box>
     </div>

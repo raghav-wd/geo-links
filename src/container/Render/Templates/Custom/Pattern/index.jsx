@@ -15,11 +15,9 @@ import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 import Footer from "../../../../../components/Estring/Footer";
 import List from "../../../../../components/Estring/List";
 
-const Pattern = ({ emulated }) => {
+const Pattern = ({ emulated, estring, app, link, style, user }) => {
   const navigate = useNavigate();
-  const list = useSelector((state) => state.link.list);
-  const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
+
   return (
     <div
       className={styles.estring}
@@ -78,7 +76,7 @@ const Pattern = ({ emulated }) => {
       </div>
       <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        <List list={list} />
+        <List list={link} />
         <Footer style={style} />
       </Box>
       <svg

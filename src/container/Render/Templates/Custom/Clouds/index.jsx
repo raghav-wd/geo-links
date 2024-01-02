@@ -15,23 +15,9 @@ import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 import Footer from "../../../../../components/Estring/Footer";
 import List from "../../../../../components/Estring/List";
 
-const Clouds = ({ emulated, estring }) => {
+const Clouds = ({ emulated, estring, app, link, style, user }) => {
   const navigate = useNavigate();
-  const list = useSelector((state) => state.link.list);
-  const style = useSelector((state) => state.style);
-  const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
 
-  const renderList = (item) => {
-    switch (item.type) {
-      case layerTypes.LINK:
-        return <Link title={item.name} link={item.link} hidden={item.hidden} />;
-      case layerTypes.SOCIAL:
-        return <SocialIcons />;
-      case layerTypes.TEXT:
-        return <TextLayer text={item.text} color={item.color} />;
-    }
-  };
   return (
     <div
       className={styles.estring + " estring"}
@@ -94,7 +80,7 @@ const Clouds = ({ emulated, estring }) => {
       </div>
       <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-        <List list={list} />
+        <List list={link} />
         <Footer style={style} />
       </Box>
       <div class={styles.cloudsBackgroundContainer}>

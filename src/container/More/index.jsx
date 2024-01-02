@@ -11,6 +11,16 @@ const More = () => {
           <CardContent>
             <Typography display="flex">
               {/* <LogoutOutlined />{" "} */}
+              <Typography>Contact Us</Typography>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Box>
+      <Box my={1}>
+        <Card variant="outlined">
+          <CardContent>
+            <Typography display="flex">
+              {/* <LogoutOutlined />{" "} */}
               <Typography>Purchases and membership</Typography>
             </Typography>
           </CardContent>

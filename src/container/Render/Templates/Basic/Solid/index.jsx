@@ -43,83 +43,92 @@ const Solid = ({ emulated, estring }) => {
     <div
       className={styles.estring}
       style={{
+        position: "relative",
         width: "inherit",
         minHeight: emulated ? "100%" : "100vh",
         backgroundColor: style.page.backgroundColor,
         backgroundImage: "none",
       }}
     >
-      <div style={style.page.grainy ? {} : { background: "none" }}>
-        <Button
-          onClick={() => navigate(-1)}
-          sx={{
-            transform: "translateX(-13px)",
-            display: { xs: "block", md: "none" },
-          }}
-        >
-          <CloseRounded />
-        </Button>
+      <div
+        style={
+          style.page.grainy
+            ? {
+                bottom: 0,
+                top: 0,
+                width: "100%",
+                minHeight: emulated ? "100%" : "100vh",
+                position: "absolute",
+              }
+            : { background: "none" }
+        }
+      ></div>
+      <Button
+        onClick={() => navigate(-1)}
+        sx={{
+          transform: "translateX(-13px)",
+          display: { xs: "block", md: "none" },
+        }}
+      >
+        <CloseRounded />
+      </Button>
+      <div
+        className="header"
+        style={{
+          height: "100px",
+          position: "relative",
+          marginBottom: "36px",
+        }}
+      >
         <div
-          className="header"
+          className="bg"
           style={{
+            width: "100%",
             height: "100px",
-            position: "relative",
-            marginBottom: "36px",
+            position: "absolute",
           }}
         >
-          <div
-            className="bg"
+          <Grid
+            className="avatar"
+            flexDirection="column"
+            alignItems="center"
+            container
             style={{
-              width: "100%",
-              height: "100px",
               position: "absolute",
+              top: "100px",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
             }}
           >
-            <Grid
-              className="avatar"
-              flexDirection="column"
-              alignItems="center"
-              container
-              style={{
-                position: "absolute",
-                top: "100px",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
+            <ProfilePictureCard />
+            <Typography textAlign="center" style={{ color: style.page.color }}>
+              @{user.username}
+            </Typography>
+            <Typography
+              textAlign="center"
+              style={{ color: style.page.color }}
+              fontSize={14}
             >
-              <ProfilePictureCard />
-              <Typography
-                textAlign="center"
-                style={{ color: style.page.color }}
-              >
-                @{user.username}
-              </Typography>
-              <Typography
-                textAlign="center"
-                style={{ color: style.page.color }}
-                fontSize={14}
-              >
-                {user.bio}
-              </Typography>
-            </Grid>
-            <IconButton
-              style={{
-                position: "absolute",
-                top: "90px",
-                left: "80%",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <Share />
-            </IconButton>
-          </div>
+              {user.bio}
+            </Typography>
+          </Grid>
+          <IconButton
+            style={{
+              position: "absolute",
+              top: "90px",
+              left: "80%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <Share />
+          </IconButton>
         </div>
-        <GlassyTopBar emulated={emulated} />
-        <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
-          <List list={list} />
-          <Footer style={style} />
-        </Box>
       </div>
+      <GlassyTopBar emulated={emulated} />
+      <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
+        <List list={list} />
+        <Footer style={style} />
+      </Box>
     </div>
   );
 };

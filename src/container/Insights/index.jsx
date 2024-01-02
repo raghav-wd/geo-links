@@ -3,10 +3,12 @@ import ImpressionGraph from "./ImpressionGraph";
 import InsightTopBar from "./InsightTopBar";
 import TopPerformers from "./TopPerformers";
 import { Socials } from "./Socials";
+import Devices from "./Devices";
+import Demographs from "./Demographs";
 
 const Insights = () => {
   return (
-    <Box px={2} style={{ overflowY: "scroll", height: "100vh" }}>
+    <Box px={2} style={{ overflowY: "scroll", height: "100vh" }} mb={4}>
       <InsightTopBar />
       <Typography my={2} variant="h6">
         Activity
@@ -20,6 +22,8 @@ const Insights = () => {
         Socials
       </Typography>
       <Socials />
+      <Devices />
+      <Demographs />
     </Box>
   );
 };

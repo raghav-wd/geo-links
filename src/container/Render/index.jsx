@@ -4,7 +4,7 @@ import Gradient from "./Templates/Basic/Gradient";
 import Solid from "./Templates/Basic/Solid";
 import { themes } from "../../constants/themes";
 import "./styles.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StarryNight from "./Templates/Custom/StarryNight";
 import Pattern from "./Templates/Custom/Pattern";
 import Clouds from "./Templates/Custom/Clouds";
@@ -18,11 +18,43 @@ export const Render = ({ emulated, estring }) => {
   const fetchedLinks = {
     list: [
       {
-        id: "sjdlkfj",
+        id: "fksl",
         type: layerTypes.LINK,
-        name: "raghv",
+        name: "Kanpur",
         link: "",
         hidden: false,
+        city: "kanpur",
+        province: "",
+        country: "",
+        lat: 0,
+        lon: 0,
+        afar: -99,
+      },
+      {
+        id: "fkssl",
+        type: layerTypes.LINK,
+        name: "Lucknow",
+        link: "",
+        hidden: false,
+        city: "lucknow",
+        province: "",
+        country: "",
+        lat: 0,
+        lon: 0,
+        afar: 100,
+      },
+      {
+        id: "sfksl",
+        type: layerTypes.LINK,
+        name: "banglore",
+        link: "",
+        hidden: false,
+        city: "banglore",
+        province: "",
+        country: "",
+        lat: 0,
+        lon: 0,
+        afar: 1,
       },
     ],
     socials: {
@@ -34,16 +66,27 @@ export const Render = ({ emulated, estring }) => {
       count: 0,
     },
   };
+  const geoLink = true;
+  const sortLinks = () => {
+    fetchedLinks.list.map((item) => {
+      if (item.city == "kanpur") return (item.afar = 99);
+    });
+    if (geoLink)
+      return fetchedLinks.list.sort(({ afar: a }, { afar: b }) => b - a);
+    return fetchedLinks.list;
+  };
   const theme = useSelector((state) =>
     estring ? fetchedTheme : state.style.theme
   );
   const app = useSelector((state) => state.app);
+
   const link = useSelector((state) =>
-    estring ? fetchedLinks.list : state.link.list
+    estring ? sortLinks() : state.link.list
   );
   const style = useSelector((state) => state.style);
   const user = useSelector((state) => state.user);
   const Anxie = React.lazy(() => import("./Templates/Custom/Anxie"));
+
   const switchTheme = () => {
     switch (theme) {
       case themes.SOLID:

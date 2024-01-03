@@ -52,6 +52,7 @@ import Landing from "./container/Landing";
 import Signup from "./container/Signup";
 import { Suspense } from "react";
 import Estring from "./container/Estring";
+import useGetCityCoordinates from "./utils/getCityCoordinates";
 
 export default function App() {
   const navigate = useNavigate();
@@ -157,9 +158,11 @@ export default function App() {
   const Anxie = React.lazy(() =>
     import("./container/Render/Templates/Custom/Anxie")
   );
+  const city = useGetCityCoordinates("bharatpur", "rajasthan");
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+        {console.log(city)}
         <Box>
           <Suspense fallback={<div></div>}>
             <Routes>

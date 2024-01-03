@@ -13,6 +13,9 @@ const counterSlice = createSlice({
         name: "Melbourne",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fkssl",
@@ -20,6 +23,9 @@ const counterSlice = createSlice({
         name: "Sydney",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "sfksl",
@@ -27,6 +33,9 @@ const counterSlice = createSlice({
         name: "Canberra",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fksl2",
@@ -34,6 +43,9 @@ const counterSlice = createSlice({
         name: "Perth",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fksl5",
@@ -41,6 +53,9 @@ const counterSlice = createSlice({
         name: "Yup",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fk3sl",
@@ -48,6 +63,9 @@ const counterSlice = createSlice({
         name: "Darwin",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fk0sl",
@@ -55,6 +73,9 @@ const counterSlice = createSlice({
         name: "Adelaide",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "Hobart",
@@ -62,6 +83,9 @@ const counterSlice = createSlice({
         name: "Yup",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fksl2",
@@ -69,6 +93,9 @@ const counterSlice = createSlice({
         name: "Perth",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fksl5",
@@ -76,6 +103,9 @@ const counterSlice = createSlice({
         name: "Yup",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fk3sl",
@@ -83,6 +113,9 @@ const counterSlice = createSlice({
         name: "Darwin",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fk0sl",
@@ -90,6 +123,9 @@ const counterSlice = createSlice({
         name: "Adelaide",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fksl2",
@@ -97,6 +133,9 @@ const counterSlice = createSlice({
         name: "Perth",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fksl5",
@@ -104,6 +143,9 @@ const counterSlice = createSlice({
         name: "Yup",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fk3sl",
@@ -111,6 +153,9 @@ const counterSlice = createSlice({
         name: "Darwin",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
       {
         id: "fk0sl",
@@ -118,6 +163,9 @@ const counterSlice = createSlice({
         name: "Adelaide",
         link: "",
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       },
     ],
     socials: {
@@ -140,6 +188,9 @@ const counterSlice = createSlice({
         name: action.payload.name,
         link: action.payload.link,
         hidden: false,
+        city: "",
+        province: "",
+        country: "",
       });
     },
     deleteLink(state, action) {

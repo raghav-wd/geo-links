@@ -1,0 +1,131 @@
+.estring > div:first-child {
+  height: 100%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* *,
+*:after,
+*:before {
+  box-sizing: border-box;
+} */
+
+:root {
+  --c-gray-100: #fbf8f2;
+  --c-gray-200: #fcfdfe;
+  --c-gray-300: #e9ebec;
+  --c-gray-400: #e3e4ea;
+  --c-gray-500: #5f5f5f;
+  --c-gray-900: #1d1d1d;
+  --c-blue-300: #a8dee2;
+  --c-blue-500: #2ab3c0;
+  --c-green-500: #80b895;
+  --c-green-300: #bad5ca;
+  --c-red-500: #ea605e;
+  --c-yellow-300: #f8e0b1;
+  --c-yellow-500: #f9bc73;
+  --rotation: -3deg;
+}
+
+.card-profile {
+  width: calc(100% - 40px);
+  transform: rotate(var(--rotation));
+  transition: 0.15s ease-out;
+}
+.card {
+  width: calc(100% - 40px);
+  transform: rotate(var(--rotation));
+  transition: 0.15s ease-out;
+  margin-bottom: 2rem;
+}
+.card.horizontal {
+  /* width: 100%; */
+  transform: rotate(3deg);
+}
+.card.horizontal .card-inner:after {
+  background-color: var(--c-green-500);
+}
+
+.card-inner {
+  border: 2px solid var(--c-gray-900);
+  border-radius: 20px;
+  padding: 0.5rem;
+  background-color: #fff;
+  position: relative;
+}
+.card-image {
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.card-image img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-inner:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 95%;
+  height: 100%;
+  bottom: -9px;
+  left: calc(50% - 47.5%);
+  border-radius: 20px;
+  border: 2px solid var(--c-gray-900);
+  background-color: var(--c-yellow-300);
+}
+
+.card-pin {
+  width: 10px;
+  height: 10px;
+  background-color: var(--c-gray-900);
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 6px);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--c-gray-900);
+  transform: rotate(3deg);
+  z-index: 1;
+}
+.card-pin:before,
+.card-pin:after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  transition: 0.15s ease-out;
+}
+.card-pin:before {
+  width: 10px;
+  height: 10px;
+  background-color: var(--c-gray-900);
+  border-radius: 50%;
+  left: calc(50% - 6px);
+  top: -38px;
+}
+.card-pin:after {
+  width: 4px;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 99em;
+  height: 40px;
+  left: calc(50% - 3px);
+  bottom: 3px;
+}
+.card-pin.simple {
+  box-shadow: none;
+}
+.card-pin.simple:nth-of-type(odd) {
+  left: 10px;
+  top: 10px;
+  transform: rotate(-45deg);
+}
+.card-pin.simple:nth-of-type(even) {
+  left: calc(100% - 20px);
+  top: calc(100% - 20px);
+  transform: rotate(120deg);
+}

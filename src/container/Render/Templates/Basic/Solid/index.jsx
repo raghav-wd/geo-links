@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 import Footer from "../../../../../components/Estring/Footer";
 import List from "../../../../../components/Estring/List";
+import Header from "../../../../../components/Estring/Header";
 
 const Solid = ({ emulated, estring, app, link, style, user }) => {
   const navigate = useNavigate();
@@ -24,7 +25,6 @@ const Solid = ({ emulated, estring, app, link, style, user }) => {
       className={styles.estring}
       style={{
         position: "relative",
-        width: "inherit",
         minHeight: emulated ? "100%" : "100vh",
         backgroundColor: style.page.backgroundColor,
         backgroundImage: "none",
@@ -52,58 +52,7 @@ const Solid = ({ emulated, estring, app, link, style, user }) => {
       >
         <CloseRounded />
       </Button>
-      <div
-        className="header"
-        style={{
-          height: "100px",
-          position: "relative",
-          marginBottom: "36px",
-        }}
-      >
-        <div
-          className="bg"
-          style={{
-            width: "100%",
-            height: "100px",
-            position: "absolute",
-          }}
-        >
-          <Grid
-            className="avatar"
-            flexDirection="column"
-            alignItems="center"
-            container
-            style={{
-              position: "absolute",
-              top: "100px",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <ProfilePictureCard />
-            <Typography textAlign="center" style={{ color: style.page.color }}>
-              @{user.username}
-            </Typography>
-            <Typography
-              textAlign="center"
-              style={{ color: style.page.color }}
-              fontSize={14}
-            >
-              {user.bio}
-            </Typography>
-          </Grid>
-          <IconButton
-            style={{
-              position: "absolute",
-              top: "90px",
-              left: "80%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <Share />
-          </IconButton>
-        </div>
-      </div>
+      <Header style={style} user={user} />
       <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
         <List list={link} />

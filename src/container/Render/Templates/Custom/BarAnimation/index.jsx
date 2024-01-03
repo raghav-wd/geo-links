@@ -14,6 +14,7 @@ import styles from "./styles.module.css";
 import GlassyTopBar from "../../../../../components/Estring/GlassTopBar";
 import List from "../../../../../components/Estring/List";
 import Footer from "../../../../../components/Estring/Footer";
+import Header from "../../../../../components/Estring/Header";
 
 const BarAnimation = ({ emulated, estring, app, link, style, user }) => {
   const navigate = useNavigate();
@@ -21,7 +22,6 @@ const BarAnimation = ({ emulated, estring, app, link, style, user }) => {
     <div
       className={styles.estring}
       style={{
-        width: "inherit",
         minHeight: emulated ? "100%" : "100vh",
         // backgroundColor: "white",
         backgroundImage: "none",
@@ -36,44 +36,7 @@ const BarAnimation = ({ emulated, estring, app, link, style, user }) => {
       >
         <CloseRounded />
       </Button>
-      <div
-        className="header"
-        style={{ height: "100px", position: "relative", marginBottom: "36px" }}
-      >
-        <div
-          className="bg"
-          style={{
-            width: "100%",
-            height: "100px",
-            position: "absolute",
-          }}
-        >
-          <Grid
-            className="avatar"
-            flexDirection="column"
-            alignItems="center"
-            container
-            style={{
-              top: "100px",
-              position: "absolute",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <ProfilePictureCard />
-            <Typography textAlign="center" style={{ color: style.page.color }}>
-              @{user.username}
-            </Typography>
-            <Typography
-              textAlign="center"
-              style={{ color: style.page.color }}
-              fontSize={14}
-            >
-              {user.bio}
-            </Typography>
-          </Grid>
-        </div>
-      </div>
+      <Header style={style} user={user} />
       <GlassyTopBar emulated={emulated} />
       <Box sx={{ px: { md: emulated ? 1.5 : 40, xs: 1.5 } }} pt={6}>
         <List list={link} />

@@ -160,7 +160,6 @@ export default function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        {console.log(city)}
         <Box>
           <Suspense fallback={<div></div>}>
             <Routes>

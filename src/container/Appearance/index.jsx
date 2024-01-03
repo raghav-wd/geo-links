@@ -90,6 +90,11 @@ const Appearance = () => {
                 imageIndex={9}
                 theme={themes.NEUMORPHIC}
               />
+              <ThemePreviewCard
+                title="Pin Board"
+                imageIndex={10}
+                theme={themes.PINBOARD}
+              />
             </Grid>
             <Typography my={3} variant="h6">
               Page Style

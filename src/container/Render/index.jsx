@@ -12,6 +12,7 @@ import BarAnimation from "./Templates/Custom/BarAnimation";
 import Underline from "./Templates/Custom/Underline";
 import layerTypes from "../../constants/layerTypes";
 import Neumorphic from "./Templates/Custom/Neumorphic";
+import PinBoard from "./Templates/Custom/PinBoard";
 
 export const Render = ({ emulated, estring }) => {
   const fetchedTheme = themes.SOLID;
@@ -180,6 +181,17 @@ export const Render = ({ emulated, estring }) => {
       case themes.BACKGROUND:
         return (
           <Underline
+            emulated={emulated}
+            estring={estring}
+            app={app}
+            link={link}
+            style={style}
+            user={user}
+          />
+        );
+      case themes.PINBOARD:
+        return (
+          <PinBoard
             emulated={emulated}
             estring={estring}
             app={app}

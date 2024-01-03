@@ -1,4 +1,4 @@
-import { StarPurple500 } from "@mui/icons-material";
+import { Animation, StarPurple500 } from "@mui/icons-material";
 import { Badge, Box, Card, CardContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useSelector } from "react-redux";
@@ -15,6 +15,7 @@ import starryNight from "./assets/templates/starryNight.png";
 import pattern from "./assets/templates/pattern.png";
 import clouds from "./assets/templates/clouds.png";
 import neumorphic from "./assets/templates/neumorphic.png";
+import pinboard from "./assets/templates/pinboard.png";
 
 const ThemePreviewCard = ({ title, imageIndex, theme }) => {
   const bgStyle = [
@@ -28,6 +29,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     pattern,
     clouds,
     neumorphic,
+    pinboard,
   ];
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();
@@ -44,7 +46,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
             width: "110px",
             height: "200px",
             backgroundImage: `url(${bgStyle[imageIndex]})`,
-            backgroundPosition: "center center",
+            backgroundPosition: "top center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
@@ -58,6 +60,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
       flexDirection="column"
       alignItems="center"
       width={160}
+      my={2}
       onClick={() => dispatch(setTheme(theme))}
     >
       {theme.type == themeType.PRO ? (
@@ -70,7 +73,10 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
       ) : (
         <ThemePreview />
       )}
-      <Typography>{title}</Typography>
+      <Grid container alignItems="center">
+        <Typography pr={0.2}>{title}</Typography>
+        {theme.animation ? <Animation fontSize="small" /> : null}
+      </Grid>
     </Grid>
   );
 };

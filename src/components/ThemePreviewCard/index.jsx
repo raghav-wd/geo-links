@@ -2,9 +2,13 @@ import { Animation, StarPurple500 } from "@mui/icons-material";
 import { Badge, Box, Card, CardContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useSelector } from "react-redux";
-import { themeType } from "../../constants/themes";
+import { themeType, themes } from "../../constants/themes";
 import { useDispatch } from "react-redux";
-import { setTheme } from "../../redux/reducers/style";
+import {
+  setTheme,
+  styleColorButton,
+  styleFillButton,
+} from "../../redux/reducers/style";
 import customization from "./assets/customization.jpg";
 import bgStyle1 from "./assets/bg-style-1.png";
 import bgStyle2 from "./assets/bg-style-2.png";
@@ -16,6 +20,8 @@ import pattern from "./assets/templates/pattern.png";
 import clouds from "./assets/templates/clouds.png";
 import neumorphic from "./assets/templates/neumorphic.png";
 import pinboard from "./assets/templates/pinboard.png";
+import doodle from "./assets/templates/doodle.png";
+import { useEffect } from "react";
 
 const ThemePreviewCard = ({ title, imageIndex, theme }) => {
   const bgStyle = [
@@ -30,6 +36,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     clouds,
     neumorphic,
     pinboard,
+    doodle,
   ];
   const style = useSelector((state) => state.style);
   const dispatch = useDispatch();
@@ -54,6 +61,9 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
       </Box>
     );
   };
+  useEffect(() => {
+    if (theme == themes.BARANIME) dispatch(styleColorButton("#FEF5EB"));
+  }, theme);
   return (
     <Grid
       container

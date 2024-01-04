@@ -10,7 +10,7 @@ const counterSlice = createSlice({
       {
         id: "fksl",
         type: layerTypes.LINK,
-        name: "Delhi Show | 1st April",
+        name: "Fyodor Dostoevsky",
         link: "",
         hidden: false,
         city: "",
@@ -20,7 +20,7 @@ const counterSlice = createSlice({
       {
         id: "fkssl",
         type: layerTypes.LINK,
-        name: "Banglore Show | 24th May",
+        name: "Osamu Dazai",
         link: "",
         hidden: false,
         city: "",
@@ -30,7 +30,7 @@ const counterSlice = createSlice({
       {
         id: "sfksl",
         type: layerTypes.LINK,
-        name: "Ahemdabad Show | 2nd June",
+        name: "Mori Ougai",
         link: "",
         hidden: false,
         city: "",

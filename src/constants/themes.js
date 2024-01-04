@@ -18,6 +18,7 @@ const themes = {
   CLOUDS: { name: "clouds", type: themeType.BASIC, animation: true },
   NEUMORPHIC: { name: "neumorphic", type: themeType.BASIC, animation: false },
   PINBOARD: { name: "pinboard", type: themeType.BASIC, animation: false },
+  DOODLE: { name: "doodle", type: themeType.BASIC, animation: false },
 };
 
 export { themeType, themes };

@@ -13,6 +13,7 @@ import Underline from "./Templates/Custom/Underline";
 import layerTypes from "../../constants/layerTypes";
 import Neumorphic from "./Templates/Custom/Neumorphic";
 import PinBoard from "./Templates/Custom/PinBoard";
+import Doodle from "./Templates/Custom/Doodle";
 
 export const Render = ({ emulated, estring }) => {
   const fetchedTheme = themes.SOLID;
@@ -93,6 +94,17 @@ export const Render = ({ emulated, estring }) => {
       case themes.SOLID:
         return (
           <Solid
+            emulated={emulated}
+            estring={estring}
+            app={app}
+            link={link}
+            style={style}
+            user={user}
+          />
+        );
+      case themes.DOODLE:
+        return (
+          <Doodle
             emulated={emulated}
             estring={estring}
             app={app}

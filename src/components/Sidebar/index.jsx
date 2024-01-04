@@ -26,11 +26,16 @@ import { StaticRouter } from "react-router-dom/server";
 import Button from "@mui/material/Button";
 import { ESLink, Logo } from "./styles";
 import { CloseRounded } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import pages from "../../constants/pages";
+import { setCurrentPage } from "../../redux/reducers/app";
+import { useDispatch } from "react-redux";
+import Highlighter from "./Highligher";
+import styles from "./styles.module.css";
 
 const LinkBehavior = React.forwardRef((props, ref) => (
   <RouterLink ref={ref} to="/" {...props} role={undefined} />
 ));
-
 function Router(props) {
   const { children } = props;
   if (typeof window === "undefined") {
@@ -46,13 +51,22 @@ Router.propTypes = {
 
 const Sidebar = ({ setTopBar }) => {
   const desktop = useMediaQuery("(min-width:600px)");
+  const app = useSelector((state) => state.app);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   if (desktop)
   return (
-    <Box style={{ position: "fixed", height: "100vh", width: "inherit" }}>
+    <Box
+      className={styles.sidebar}
+      p={1}
+      style={{
+        position: "fixed",
+        height: "100vh",
+        width: "inherit",
+      }}
+    >
       <Grid container display="flex" flexDirection="column">
         {desktop ? (
-          <Box mt={1.2} ml={3}>
+          <Box my={1.2} ml={3}>
             <Typography
               style={{
                 fontFamily: "monospace",
@@ -98,43 +112,87 @@ const Sidebar = ({ setTopBar }) => {
             </Grid>
           </Grid>
         ) : null}
+        <Highlighter />
         <Button
-          component={RouterLink}
-          to="/admin"
+          // component={RouterLink}
+          // to="/admin"
           variant="primary"
-          onClick={() => setTopBar(false)}
-          startIcon={<AddLink style={{ fontSize: "24px" }} />}
-          style={{ justifyContent: "left", fontFamily: "" }}
+          onClick={() => {
+            setTopBar(false);
+            dispatch(setCurrentPage(pages.LINKS));
+            setTimeout(() => navigate("/admin"), 150);
+          }}
+          disableRipple
+          startIcon={
+            <AddLink style={{ fontSize: "24px", color: "rgb(107 114 128)" }} />
+          }
+          style={{
+            justifyContent: "left",
+            fontFamily: "",
+            // color: app.page == pages.LINKS ? "white" : "black",
+          }}
         >
           Home
         </Button>
         <Button
-          component={RouterLink}
-          to="/admin/appearance"
+          // component={RouterLink}
+          // to="/admin/appearance"
           variant="primary"
-          onClick={() => setTopBar(false)}
-          startIcon={<Palette style={{ fontSize: "24px" }} />}
-          style={{ justifyContent: "left", fontFamily: "" }}
+          onClick={() => {
+            setTopBar(false);
+            dispatch(setCurrentPage(pages.APPEARANCE));
+            setTimeout(() => navigate("/admin/appearance"), 150);
+          }}
+          disableRipple
+          startIcon={
+            <Palette style={{ fontSize: "24px", color: "rgb(107 114 128)" }} />
+          }
+          style={{
+            justifyContent: "left",
+            fontFamily: "",
+          }}
         >
           Appearance
         </Button>
         <Button
-          component={RouterLink}
-          to="/admin/insights"
+          // component={RouterLink}
+          // to="/admin/insights"
           variant="primary"
-          onClick={() => setTopBar(false)}
-          startIcon={<Insights style={{ fontSize: "24px" }} />}
-          style={{ justifyContent: "left", fontFamily: "" }}
+          onClick={() => {
+            setTopBar(false);
+            dispatch(setCurrentPage(pages.INSIGHTS));
+            setTimeout(() => navigate("/admin/insights"), 150);
+          }}
+          disableRipple
+          startIcon={
+            <Insights style={{ fontSize: "24px", color: "rgb(107 114 128)" }} />
+          }
+          style={{
+            justifyContent: "left",
+            fontFamily: "",
+          }}
         >
           Insights
         </Button>
         <Button
-          component={RouterLink}
-          to="/admin/more"
+          // component={RouterLink}
+          // to="/admin/more"
           variant="primary"
-          onClick={() => setTopBar(false)}
-          startIcon={<MoreHoriz style={{ fontSize: "24px" }} />}
-          style={{ justifyContent: "left", fontFamily: "" }}
+          onClick={() => {
+            setTopBar(false);
+            dispatch(setCurrentPage(pages.MORE));
+            setTimeout(() => navigate("/admin/more"), 150);
+          }}
+          disableRipple
+          startIcon={
+            <MoreHoriz
+              style={{ fontSize: "24px", color: "rgb(107 114 128)" }}
+            />
+          }
+          style={{
+            justifyContent: "left",
+            fontFamily: "",
+          }}
         >
           More
         </Button>

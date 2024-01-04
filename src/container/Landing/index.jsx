@@ -16,7 +16,7 @@ const Landing = () => {
   const dispatch = useDispatch();
   const app = useSelector((state) => state.app);
   return (
-    <Box>
+    <Box className={styles["landing-page"]}>
       <nav>
         <Button
           className={styles.roundButton}

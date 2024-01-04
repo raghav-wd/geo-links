@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import {
   setTheme,
   styleColorButton,
+  styleColorPage,
   styleFillButton,
 } from "../../redux/reducers/style";
 import customization from "./assets/customization.jpg";
@@ -62,7 +63,10 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     );
   };
   useEffect(() => {
-    if (theme == themes.BARANIME) dispatch(styleColorButton("#FEF5EB"));
+    if (theme == themes.BARANIME) {
+      dispatch(styleColorButton("#FEF5EB"));
+      dispatch(styleColorPage("#FEF5EB"));
+    }
   }, theme);
   return (
     <Grid

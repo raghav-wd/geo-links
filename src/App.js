@@ -86,7 +86,7 @@ export default function App() {
     const app = useSelector((state) => state.app);
     const dispatch = useDispatch();
     return (
-      <>
+      <Box className="dashboard">
         <Grid container>
           <Grid xs={12} sx={{ display: { md: "none" } }}>
             {!desktop ? <Topbar setTopBar={setTopBar} /> : null}
@@ -150,7 +150,7 @@ export default function App() {
             {app.snackbar.message}
           </Alert>
         </Snackbar>
-      </>
+      </Box>
     );
   };
 

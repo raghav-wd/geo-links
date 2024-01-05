@@ -314,6 +314,7 @@ const Landing = () => {
               About Estring
             </Typography>
             <Typography py={0.4}>About Estring</Typography>
+            <Typography py={0.4}>Career</Typography>
             <Typography py={0.4}>Terms</Typography>
             <Typography py={0.4}>Privacy</Typography>
           </Grid>

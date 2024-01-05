@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap");
+.pricing-page h4 {
+  padding: 12px 0;
+  font-family: system-ui;
+}
+.pricing-page ul {
+  list-style-type: none;
+  padding: 0;
+}
+.pricing-page ul li {
+  display: flex;
+  padding: 6px 0;
+}
+.plan-hero,
+.plan-hero-recommended {
+  padding: 12px 24px !important;
+}
+.plan-hero-recommended {
+  border-radius: 12px;
+  box-shadow: 0 0 4px 4px whitesmoke;
+}
+footer {
+  padding: 48px 16px 0 16px;
+  background-color: white;
+  color: hsla(217.5, 13.79%, 22.75%, 0.6);
+}

@@ -52,6 +52,7 @@ import Landing from "./container/Landing";
 import Signup from "./container/Signup";
 import { Suspense } from "react";
 import Estring from "./container/Estring";
+import Pricing from "./container/Pricing";
 
 export default function App() {
   const navigate = useNavigate();
@@ -167,6 +168,7 @@ export default function App() {
                 <Route index element={<Landing />} />
                 <Route path="signup" element={<Signup />} />
                 <Route path="login" element={<Login />} />
+                <Route path="pricing" element={<Pricing />} />
                 <Route path="render" element={<Render />} />
                 <Route path="anxie" element={<Anxie emulated={false} />} />
                 <Route path="/:estring" element={<Estring />} />

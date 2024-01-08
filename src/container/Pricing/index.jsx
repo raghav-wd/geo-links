@@ -14,6 +14,10 @@ const Pricing = () => {
   const app = useSelector((state) => state.app);
   return (
     <Box className={styles["pricing-page"]}>
+      <Typography lineHeight="18px">
+        E<span style={{ fontWeight: "bold" }}>·</span>
+        string
+      </Typography>
       <Typography variant="h3" textAlign="center" py={10}>
         Choose the plan
         <br />
@@ -41,7 +45,22 @@ const Pricing = () => {
             ₹0/-<Typography fontSize={10}>free, forever</Typography>
           </Typography>
           <ul>
-            <li></li>
+            <li>
+              <Check />
+              Unlimited links
+            </li>
+            <li>
+              <Check />
+              Access to basic template library
+            </li>
+            <li>
+              <Check />
+              Page analytics
+            </li>
+            {/* <li>
+              <Check />
+              In-app customization
+            </li> */}
           </ul>
         </Grid>
         <Grid
@@ -70,10 +89,6 @@ const Pricing = () => {
               <li>
                 <Check />
                 Custom & animated templates
-              </li>
-              <li>
-                <Check />
-                Professionally designed page templates
               </li>
               <li>
                 <Check />

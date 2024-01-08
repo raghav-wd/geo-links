@@ -5,7 +5,7 @@ import pages from "../../constants/pages";
 const counterSlice = createSlice({
   name: "user",
   initialState: {
-    username: "kafka_asagiri",
+    username: "Anubhav Singh Bassi",
     first_name: "raghav",
     last_name: "gupta",
     bio: "",

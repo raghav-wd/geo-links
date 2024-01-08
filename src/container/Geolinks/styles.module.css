@@ -1,0 +1,84 @@
+.traditional {
+  position: relative;
+  top: 0;
+}
+.geolink {
+  position: relative;
+  top: 0;
+}
+.traditional .highlighter {
+  width: 100px;
+  height: 400px;
+  position: absolute;
+  border: 4px dashed plum;
+  z-index: 2;
+  border-right: none;
+  bottom: -10px;
+  left: -30px;
+}
+
+.traditional img {
+  filter: grayscale(100%);
+}
+
+.traditional .text {
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: -400px;
+}
+
+.geolink .highlighter {
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border: 4px dashed plum;
+  z-index: 2;
+  border-right: none;
+  top: 170px;
+  left: -30px;
+}
+.geolink .text {
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: -400px;
+}
+
+.geolink .highlighter1 {
+  width: 70px;
+  height: 200px;
+  position: absolute;
+  border: 4px dashed darkcyan;
+  z-index: 2;
+  border-left: none;
+  top: 180px;
+  left: 300px;
+}
+.geolink .text1 {
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 80px;
+}
+
+.geolink .highlighter2 {
+  width: 70px;
+  height: 200px;
+  position: absolute;
+  border: 4px dashed chartreuse;
+  z-index: 2;
+  border-left: none;
+  bottom: 20px;
+  left: 300px;
+}
+.geolink .text2 {
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 80px;
+}

@@ -53,6 +53,7 @@ import Signup from "./container/Signup";
 import { Suspense } from "react";
 import Estring from "./container/Estring";
 import Pricing from "./container/Pricing";
+import Geolinks from "./container/Geolinks";
 
 export default function App() {
   const navigate = useNavigate();
@@ -169,6 +170,7 @@ export default function App() {
                 <Route path="signup" element={<Signup />} />
                 <Route path="login" element={<Login />} />
                 <Route path="pricing" element={<Pricing />} />
+                <Route path="geolinks" element={<Geolinks />} />
                 <Route path="render" element={<Render />} />
                 <Route path="anxie" element={<Anxie emulated={false} />} />
                 <Route path="/:estring" element={<Estring />} />

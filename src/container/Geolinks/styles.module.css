@@ -1,3 +1,6 @@
+.landing-page {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
 .traditional {
   position: relative;
   top: 0;
@@ -16,17 +19,24 @@
   bottom: -10px;
   left: -30px;
 }
-
+.traditional .character {
+  position: absolute;
+  width: 200px;
+  top: 80px;
+  transform: translate(0, -50%);
+  left: -200px;
+  filter: none;
+}
 .traditional img {
   filter: grayscale(100%);
 }
 
 .traditional .text {
   position: absolute;
-  width: 400px;
+  width: 200px;
   top: 50%;
   transform: translate(0, -50%);
-  left: -400px;
+  left: -200px;
 }
 
 .geolink .highlighter {
@@ -41,10 +51,19 @@
 }
 .geolink .text {
   position: absolute;
-  width: 400px;
-  top: 50%;
+  width: 200px;
+  top: 160px;
+
   transform: translate(0, -50%);
-  left: -400px;
+  left: -250px;
+}
+
+.geolink .character {
+  position: absolute;
+  width: 140px;
+  transform: translate(0, -50%);
+  left: -250px;
+  top: 50%;
 }
 
 .geolink .highlighter1 {
@@ -59,7 +78,7 @@
 }
 .geolink .text1 {
   position: absolute;
-  width: 300px;
+  width: 200px;
   top: 50%;
   transform: translate(0, -50%);
   left: 80px;
@@ -77,8 +96,46 @@
 }
 .geolink .text2 {
   position: absolute;
-  width: 300px;
+  width: 200px;
   top: 50%;
   transform: translate(0, -50%);
   left: 80px;
+}
+
+.geolink .sparkle,
+.geolink .sparkle2,
+.geolink .sparkle3 {
+  position: absolute;
+  top: 2%;
+  left: 280px;
+  transform: translateY(-50%);
+  animation: sparkle 2s infinite;
+}
+
+.geolink .sparkle2 {
+  top: 18%;
+  left: 10px;
+}
+.geolink .sparkle3 {
+  top: 80%;
+  left: 290px;
+}
+
+@keyframes sparkle {
+  0% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
+    transform: translate3D(-50%, -50%, 0) scale(0);
+  }
+  20% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(1);
+    transform: translate3D(-50%, -50%, 0) scale(1);
+  }
+  40% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
+    transform: translate3D(-50%, -50%, 0) scale(0);
+  }
+  100% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
+    transform: translate3D(-50%, -50%, 0) scale(0);
+  }
 }

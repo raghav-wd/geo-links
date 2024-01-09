@@ -8,6 +8,8 @@ import { setHandle } from "../../redux/reducers/app";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import geolinkSrc from "./assets/geolink.png";
+import personExcitedSrc from "./assets/person_excited.png";
+import personConfusedSrc from "./assets/person_confused.png";
 import Slide from "@mui/material/Slide";
 import traditionalSrc from "./assets/traditional.png";
 import { useState } from "react";
@@ -19,26 +21,41 @@ const Geolinks = () => {
   const [geolink, setGeolink] = useState(true);
   return (
     <Box className={styles["landing-page"]}>
-      <Grid container py={4}>
+      <Typography variant="h4" p={2} fontWeight={900}>
+        How does Estring help?
+      </Typography>
+      <Grid container py={8}>
         <Grid md={4} xs={12}>
-          <Typography variant="h4" textAlign="center" py={2}>
-            How it works?
-          </Typography>
-          <Box textAlign="center">
-            <Switch
-              value={geolink}
-              onChange={(e) => setGeolink((state) => !state)}
-            />
-          </Box>
-          <Typography textAlign="center" p={1}>
-            {geolink ? `Let's switch to Estring` : `Ahhh! Don't go back`}
-          </Typography>
-          <Typography p={2}>
-            {geolink
-              ? `This is what your link-in-bio looks like today. If you're relying on
+          <Grid mt={8} px={3}>
+            <Typography variant="h4" textAlign="center" py={2}>
+              The Problem
+            </Typography>
+            {/* <Typography>
+            Linktree falls short in assisting influencers to increase ticket
+            sales by neglecting the opportunity to showcase events occurring in
+            their audience's specific city.
+          </Typography> */}
+            <Box textAlign="center">
+              <Switch
+                value={geolink}
+                onChange={(e) => setGeolink((state) => !state)}
+              />
+            </Box>
+            <Typography
+              textAlign="center"
+              p={1}
+              fontWeight={900}
+              color="#212121"
+            >
+              {geolink ? `Let's switch to Estring` : `Ahhh! Don't go back`}
+            </Typography>
+            <Typography p={2} variant="h6">
+              {geolink
+                ? `This is what your link-in-bio looks like today. If you're relying on
             linktree alone, yourre leaving bunch of money on the table.`
-              : `With Wunderkind, we help you identify known and unknown website visitors so you can unlock a new revenue channel. It's like turning the lights on your website.`}
-          </Typography>
+                : `With Estring, we assist you in recognizing unidentified visitors, enabling you to unlock increased ticket sales.`}
+            </Typography>
+          </Grid>
         </Grid>
         <Grid md={8} xs={12}>
           <Box display="flex" justifyContent="center">
@@ -46,22 +63,53 @@ const Geolinks = () => {
               <Box position="absolute">
                 <Box className={styles.traditional}>
                   <div className={styles.highlighter}>
+                    <img src={personConfusedSrc} className={styles.character} />
                     <Typography variant="h6" className={styles.text}>
-                      I'm from Mumbai, oh I see a lot of links with different
-                      cities
+                      Kay! This guy is on a tour... that's good.
                     </Typography>
                   </div>
-                  <img src={traditionalSrc} height="600px" />
+                  <img src={traditionalSrc} height="600px" />̀
                 </Box>
               </Box>
             </Slide>
             <Slide in={!geolink} direction="left">
               <Box className={styles.geolink}>
                 <div className={styles.highlighter}>
-                  <Typography variant="h6" className={styles.text}>
-                    Wohoo! He's having a show next week I must go
+                  <Typography className={styles.text}>
+                    <span style={{ fontSize: "24px", color: "#C88481" }}>
+                      Wohoo!
+                    </span>
+                    <br />{" "}
+                    <span style={{ color: "#C88481" }}>
+                      He's coming next week in my city.
+                    </span>
                   </Typography>
+                  <img src={personExcitedSrc} className={styles.character} />
                 </div>
+                <img
+                  className={styles.sparkle}
+                  src="https://www.datocms-assets.com/75134/1658226536-sparkle.png?auto=enhance%2Cformat&amp;q=100&amp;w=360"
+                  alt="decorative sparkle"
+                  width="160"
+                  height="160"
+                  loading="lazy"
+                />
+                <img
+                  className={styles.sparkle2}
+                  src="https://www.datocms-assets.com/75134/1658226536-sparkle.png?auto=enhance%2Cformat&amp;q=100&amp;w=360"
+                  alt="decorative sparkle"
+                  width="60"
+                  height="60"
+                  loading="lazy"
+                />
+                <img
+                  className={styles.sparkle3}
+                  src="https://www.datocms-assets.com/75134/1658226536-sparkle.png?auto=enhance%2Cformat&amp;q=100&amp;w=360"
+                  alt="decorative sparkle"
+                  width="100"
+                  height="100"
+                  loading="lazy"
+                />
                 <div className={styles.highlighter1}>
                   <Typography variant="h6" className={styles.text1}>
                     South India cities shows are listed first based on visitors

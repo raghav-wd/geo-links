@@ -1,5 +1,6 @@
 .landing-page {
-  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  padding-top: 60px;
+  /* background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
 }
 .traditional {
   position: relative;
@@ -24,11 +25,17 @@
   width: 200px;
   top: 80px;
   transform: translate(0, -50%);
-  left: -200px;
+  left: -220px;
   filter: none;
 }
-.traditional img {
+.traditional .showcase {
   filter: grayscale(100%);
+  border-radius: 8px;
+  box-shadow: 0 0 4px 4px rgb(228, 228, 228);
+}
+.geolink .showcase {
+  border-radius: 8px;
+  box-shadow: 0 0 4px 4px rgb(228, 228, 228);
 }
 
 .traditional .text {
@@ -36,7 +43,7 @@
   width: 200px;
   top: 50%;
   transform: translate(0, -50%);
-  left: -200px;
+  left: -220px;
 }
 
 .geolink .highlighter {
@@ -138,4 +145,20 @@
     -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
     transform: translate3D(-50%, -50%, 0) scale(0);
   }
+}
+
+.heading {
+  font-family: Nunito !important;
+  font-weight: 900 !important;
+  background: -webkit-linear-gradient(135deg, #5b8dfe 0%, #ff5f5f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.roundButton {
+  font-size: 16px !important;
+  font-family: Nunito !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  text-transform: none !important;
 }

@@ -13,6 +13,7 @@ import personConfusedSrc from "./assets/person_confused.png";
 import Slide from "@mui/material/Slide";
 import traditionalSrc from "./assets/traditional.png";
 import { useState } from "react";
+import Topbar from "../../components/Landing/Topbar";
 
 const Geolinks = () => {
   const navigate = useNavigate();
@@ -21,15 +22,24 @@ const Geolinks = () => {
   const [geolink, setGeolink] = useState(true);
   return (
     <Box className={styles["landing-page"]}>
-      <Typography variant="h4" p={2} fontWeight={900}>
+      <Topbar />
+      <Typography
+        className={styles.heading}
+        p={2}
+        maxWidth={750}
+        sx={{
+          textAlign: { xs: "left", md: "center" },
+          fontSize: { xs: "200%", md: "260%" },
+        }}
+      >
         How does Estring help?
       </Typography>
-      <Grid container py={8}>
+      <Grid container py={8} style={{ backgroundColor: "#fbe8c929" }}>
         <Grid md={4} xs={12}>
           <Grid mt={8} px={3}>
-            <Typography variant="h4" textAlign="center" py={2}>
+            {/* <Typography variant="h4" textAlign="center" py={2}>
               The Problem
-            </Typography>
+            </Typography> */}
             {/* <Typography>
             Linktree falls short in assisting influencers to increase ticket
             sales by neglecting the opportunity to showcase events occurring in
@@ -49,12 +59,33 @@ const Geolinks = () => {
             >
               {geolink ? `Let's switch to Estring` : `Ahhh! Don't go back`}
             </Typography>
-            <Typography p={2} variant="h6">
+            <Typography p={2} variant="h6" color="#434b57">
               {geolink
                 ? `This is what your link-in-bio looks like today. If you're relying on
             linktree alone, yourre leaving bunch of money on the table.`
                 : `With Estring, we assist you in recognizing unidentified visitors, enabling you to unlock increased ticket sales.`}
             </Typography>
+            {!geolink ? (
+              <Box textAlign="center">
+                <Button
+                  className={styles.roundButton}
+                  variant="outlined"
+                  onClick={() =>
+                    openPage(
+                      "https://wa.me/6387658003?text=I%27m%20interested%20in%20Estring"
+                    )
+                  }
+                  style={{
+                    color: "black",
+                    border: "none",
+                    color: "white",
+                    backgroundColor: "#ff5f5f",
+                  }}
+                >
+                  Get Started
+                </Button>
+              </Box>
+            ) : null}
           </Grid>
         </Grid>
         <Grid md={8} xs={12}>
@@ -68,7 +99,12 @@ const Geolinks = () => {
                       Kay! This guy is on a tour... that's good.
                     </Typography>
                   </div>
-                  <img src={traditionalSrc} height="600px" />̀
+                  <img
+                    src={traditionalSrc}
+                    height="600px"
+                    className={styles.showcase}
+                  />
+                  ̀
                 </Box>
               </Box>
             </Slide>
@@ -122,7 +158,11 @@ const Geolinks = () => {
                     to farthest from the visitor
                   </Typography>
                 </div>
-                <img src={geolinkSrc} height="600px" />
+                <img
+                  src={geolinkSrc}
+                  height="600px"
+                  className={styles.showcase}
+                />
               </Box>
             </Slide>
           </Box>

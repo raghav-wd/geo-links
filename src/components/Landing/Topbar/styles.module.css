@@ -1,0 +1,17 @@
+.topbar {
+  min-height: 60px;
+  width: 100%;
+  padding: 0px 12px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: white;
+}
+
+.roundButton {
+  font-size: 16px !important;
+  font-family: Nunito !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  text-transform: none !important;
+}

@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { setHandle } from "../../redux/reducers/app";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Topbar from "../../components/Landing/Topbar";
+import Footer from "../../components/Landing/Footer";
 
 const Pricing = () => {
   const navigate = useNavigate();
@@ -14,10 +16,7 @@ const Pricing = () => {
   const app = useSelector((state) => state.app);
   return (
     <Box className={styles["pricing-page"]}>
-      <Typography lineHeight="18px">
-        E<span style={{ fontWeight: "bold" }}>·</span>
-        string
-      </Typography>
+      <Topbar />
       <Typography variant="h3" textAlign="center" py={10}>
         Choose the plan
         <br />
@@ -135,47 +134,7 @@ const Pricing = () => {
           <Typography>Here's why this plan is best for you...</Typography>
         </Box>
       </Grid>
-      <footer>
-        <Grid container spacing={2}>
-          <Grid xs={6} md={3}></Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              Features
-            </Typography>
-            <Typography py={0.4}>Plans</Typography>
-          </Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              Help & Support
-            </Typography>
-            <Typography py={0.4}>Contact</Typography>
-            <Typography py={0.4}>Help</Typography>
-            <Typography>+91 522-4044971</Typography>
-          </Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              About Estring
-            </Typography>
-            <Typography py={0.4}>About Estring</Typography>
-            <Typography py={0.4}>Career</Typography>
-            <Typography py={0.4}>Terms</Typography>
-            <Typography py={0.4}>Privacy</Typography>
-          </Grid>
-          <Grid xs={6}>
-            <Typography px={2}>
-              Estring &copy;{new Date().getFullYear()}
-            </Typography>
-          </Grid>
-          <Grid xs={6} textAlign="right" pr={2}>
-            <IconButton>
-              <Instagram px={1} />
-            </IconButton>
-            <IconButton px={1}>
-              <Mail />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </footer>
+      <Footer />
     </Box>
   );
 };

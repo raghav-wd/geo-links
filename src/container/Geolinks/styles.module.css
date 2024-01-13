@@ -28,6 +28,13 @@
   left: -220px;
   filter: none;
 }
+.traditional .text {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: -220px;
+}
 .traditional .showcase {
   filter: grayscale(100%);
   border-radius: 8px;
@@ -36,14 +43,6 @@
 .geolink .showcase {
   border-radius: 8px;
   box-shadow: 0 0 4px 4px rgb(228, 228, 228);
-}
-
-.traditional .text {
-  position: absolute;
-  width: 200px;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: -220px;
 }
 
 .geolink .highlighter {
@@ -161,4 +160,41 @@
   padding: 8px 16px !important;
   border-radius: 100px !important;
   text-transform: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .landing-page {
+    padding-top: 0px;
+  }
+  .traditional .highlighter {
+    height: 350px;
+  }
+  .geolink .highlighter {
+    top: 140px;
+  }
+  .traditional .character,
+  .geolink .character {
+    position: absolute;
+    width: 135px;
+    top: -140px;
+    z-index: 999;
+    transform: translate(0, -50%);
+    left: -100px;
+    filter: none;
+  }
+  .geolink .text {
+    font-size: 16px;
+    top: -200px;
+    left: 30px;
+  }
+  .traditional .text {
+    font-size: 16px;
+    top: -210px;
+    left: 30px;
+  }
+  .geolink .showcase,
+  .traditional .showcase {
+    margin-right: 22px;
+    height: 500px;
+  }
 }

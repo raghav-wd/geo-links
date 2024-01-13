@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 import { useSelector } from "react-redux";
 import { signup } from "../../services/auth";
+import Topbar from "../../components/Landing/Topbar";
 
 const Signup = () => {
   const app = useSelector((state) => state.app);
@@ -67,6 +68,7 @@ const Signup = () => {
       }}
       className="signup"
     >
+      <Topbar />
       <Grid container alignItems="center" flexDirection="column">
         <Grid md={12}>
           <Typography textAlign="center" variant="h5" p={2}>

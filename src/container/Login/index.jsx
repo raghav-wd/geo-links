@@ -26,6 +26,7 @@ import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import { login } from "../../services/auth";
+import Topbar from "../../components/Landing/Topbar";
 
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -63,6 +64,7 @@ const Login = () => {
       }}
       className="signup"
     >
+      <Topbar />
       <Grid container alignItems="center" flexDirection="column">
         <Grid md={12}>
           <Typography textAlign="center" variant="h5" p={2}>

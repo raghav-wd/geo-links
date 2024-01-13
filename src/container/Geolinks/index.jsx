@@ -1,4 +1,11 @@
-import { Box, Button, IconButton, Switch, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Switch,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import styles from "./styles.module.css";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { ElectricBolt, Instagram, Mail } from "@mui/icons-material";
@@ -14,27 +21,22 @@ import Slide from "@mui/material/Slide";
 import traditionalSrc from "./assets/traditional.png";
 import { useState } from "react";
 import Topbar from "../../components/Landing/Topbar";
+import Footer from "../../components/Landing/Footer";
 
 const Geolinks = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const app = useSelector((state) => state.app);
+  const desktop = useMediaQuery("(min-width:600px)");
   const [geolink, setGeolink] = useState(true);
   return (
     <Box className={styles["landing-page"]}>
       <Topbar />
-      <Typography
-        className={styles.heading}
-        p={2}
-        maxWidth={750}
-        sx={{
-          textAlign: { xs: "left", md: "center" },
-          fontSize: { xs: "200%", md: "260%" },
-        }}
+      <Grid
+        container
+        py={desktop ? 8 : 2}
+        style={{ backgroundColor: "#fbe8c929" }}
       >
-        How does Estring help?
-      </Typography>
-      <Grid container py={8} style={{ backgroundColor: "#fbe8c929" }}>
         <Grid md={4} xs={12}>
           <Grid mt={8} px={3}>
             {/* <Typography variant="h4" textAlign="center" py={2}>
@@ -45,6 +47,15 @@ const Geolinks = () => {
             sales by neglecting the opportunity to showcase events occurring in
             their audience's specific city.
           </Typography> */}
+            <Typography
+              className={styles.heading}
+              sx={{
+                textAlign: { xs: "left", md: "center" },
+                fontSize: { xs: "240%", md: "280%" },
+              }}
+            >
+              How does Estring help?
+            </Typography>
             <Box textAlign="center">
               <Switch
                 value={geolink}
@@ -65,7 +76,7 @@ const Geolinks = () => {
             linktree alone, yourre leaving bunch of money on the table.`
                 : `With Estring, we assist you in recognizing unidentified visitors, enabling you to unlock increased ticket sales.`}
             </Typography>
-            {!geolink ? (
+            {!geolink && desktop ? (
               <Box textAlign="center">
                 <Button
                   className={styles.roundButton}
@@ -89,22 +100,27 @@ const Geolinks = () => {
           </Grid>
         </Grid>
         <Grid md={8} xs={12}>
-          <Box display="flex" justifyContent="center">
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent={desktop ? "center" : "right"}
+            style={{ overflowX: "hidden" }}
+            pt={14}
+          >
             <Slide in={geolink} direction="right">
               <Box position="absolute">
                 <Box className={styles.traditional}>
                   <div className={styles.highlighter}>
                     <img src={personConfusedSrc} className={styles.character} />
                     <Typography variant="h6" className={styles.text}>
-                      Kay! This guy is on a tour... that's good.
+                      Let's see is he coming to my city anytime soon...
                     </Typography>
                   </div>
                   <img
                     src={traditionalSrc}
-                    height="600px"
+                    height="500px"
                     className={styles.showcase}
                   />
-                  ̀
                 </Box>
               </Box>
             </Slide>
@@ -167,48 +183,31 @@ const Geolinks = () => {
             </Slide>
           </Box>
         </Grid>
-      </Grid>
-      <footer>
-        <Grid container spacing={2}>
-          <Grid xs={6} md={3}></Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              Features
-            </Typography>
-            <Typography py={0.4}>Plans</Typography>
-          </Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              Help & Support
-            </Typography>
-            <Typography py={0.4}>Contact</Typography>
-            <Typography py={0.4}>Help</Typography>
-            <Typography>+91 522-4044971</Typography>
-          </Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              About Estring
-            </Typography>
-            <Typography py={0.4}>About Estring</Typography>
-            <Typography py={0.4}>Career</Typography>
-            <Typography py={0.4}>Terms</Typography>
-            <Typography py={0.4}>Privacy</Typography>
-          </Grid>
-          <Grid xs={6}>
-            <Typography px={2}>
-              Estring &copy;{new Date().getFullYear()}
-            </Typography>
-          </Grid>
-          <Grid xs={6} textAlign="right" pr={2}>
-            <IconButton>
-              <Instagram px={1} />
-            </IconButton>
-            <IconButton px={1}>
-              <Mail />
-            </IconButton>
-          </Grid>
+        <Grid xs={12}>
+          {!geolink && !desktop ? (
+            <Box textAlign="center" pt={8} pb={4}>
+              <Button
+                className={styles.roundButton}
+                variant="outlined"
+                onClick={() =>
+                  openPage(
+                    "https://wa.me/6387658003?text=I%27m%20interested%20in%20Estring"
+                  )
+                }
+                style={{
+                  color: "black",
+                  border: "none",
+                  color: "white",
+                  backgroundColor: "#ff5f5f",
+                }}
+              >
+                Get Started
+              </Button>
+            </Box>
+          ) : null}
         </Grid>
-      </footer>
+      </Grid>
+      <Footer />
     </Box>
   );
 };

@@ -10,14 +10,17 @@ import { useNavigate } from "react-router-dom";
 import { setHandle } from "../../redux/reducers/app";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Footer from "../../components/Landing/Footer";
+import Topbar from "../../components/Landing/Topbar";
 
 const Landing = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const app = useSelector((state) => state.app);
   return (
-    <Box className={styles["landing-page"]}>
-      <nav>
+    <Box className={styles["landing-page"]} pt={4}>
+      <Topbar />
+      {/* <nav>
         <Button
           className={styles.roundButton}
           variant="outlined"
@@ -39,7 +42,7 @@ const Landing = () => {
         >
           Sign up free
         </Button>
-      </nav>
+      </nav> */}
       <Box className={styles.headerContainer}>
         <Box className={styles.header} sx={{ width: { xs: "90%", md: "70%" } }}>
           <Typography
@@ -291,6 +294,7 @@ const Landing = () => {
           </defs>
         </svg>
       </Box>
+      <Footer />
     </Box>
   );
 };

@@ -20,7 +20,7 @@
 
 .expandable {
   background-color: white;
-  border-top: 3px solid rgba(0, 0, 0, 0.05);
+  border-top: 2px solid rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   left: 0;
   right: 0;

@@ -54,6 +54,7 @@ import { Suspense } from "react";
 import Estring from "./container/Estring";
 import Pricing from "./container/Pricing";
 import Geolinks from "./container/Geolinks";
+import ScrollToTop from "./utils/ScrollToTop";
 
 export default function App() {
   const navigate = useNavigate();
@@ -164,6 +165,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <Box>
           <Suspense fallback={<div></div>}>
+            <ScrollToTop />
             <Routes>
               <Route path="/">
                 <Route index element={<Landing />} />

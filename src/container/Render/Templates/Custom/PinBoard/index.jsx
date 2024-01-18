@@ -56,7 +56,7 @@ const PinBoard = ({ emulated, estring, app, link, style, user }) => {
     if (hidden) return;
     return (
       <article
-        className={styles.card + " " + styles.horizontal}
+        className={styles.card + " " + styles.horizontal + " es-link"}
         onClick={() => openInNewTab(link)}
       >
         <div className={styles["card-inner"]}>

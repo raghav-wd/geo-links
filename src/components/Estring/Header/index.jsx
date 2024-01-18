@@ -8,9 +8,9 @@ const Header = ({ style, user, design }) => {
     <div
       className="header"
       style={{
-        height: "100px",
+        height: "110px",
         position: "relative",
-        marginBottom: "36px",
+        marginBottom: "42px",
       }}
     >
       <div
@@ -37,13 +37,19 @@ const Header = ({ style, user, design }) => {
             className={design && design.class && design.class.profilePicture}
             style={design && design.style && design.style.profilePicture}
           />
-          <Typography textAlign="center" style={{ color: style.page.color }}>
+          <Typography
+            textAlign="center"
+            style={{ color: style.page.color }}
+            py={0.4}
+          >
             @{user.username}
           </Typography>
           <Typography
             textAlign="center"
             style={{ color: style.page.color }}
             fontSize={14}
+            minWidth="260px"
+            py={0.4}
           >
             {user.bio}
           </Typography>

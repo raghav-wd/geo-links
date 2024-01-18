@@ -21,7 +21,6 @@ export const Link = ({ title, link, hidden }) => {
       <Card
         className="es-link"
         sx={{
-          marginBottom: "12px",
           width: "100%",
           borderRadius,
           border: `1px solid ${style.button.color}`,

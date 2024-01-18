@@ -1,0 +1,200 @@
+.landing-page {
+  padding-top: 60px;
+  /* background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
+}
+.traditional {
+  position: relative;
+  top: 0;
+}
+.geolink {
+  position: relative;
+  top: 0;
+}
+.traditional .highlighter {
+  width: 100px;
+  height: 400px;
+  position: absolute;
+  border: 4px dashed plum;
+  z-index: 2;
+  border-right: none;
+  bottom: -10px;
+  left: -30px;
+}
+.traditional .character {
+  position: absolute;
+  width: 200px;
+  top: 80px;
+  transform: translate(0, -50%);
+  left: -220px;
+  filter: none;
+}
+.traditional .text {
+  position: absolute;
+  width: 200px;
+  top: 55%;
+  transform: translate(0, -50%);
+  left: -200px;
+}
+.traditional .showcase {
+  filter: grayscale(100%);
+  border-radius: 8px;
+  box-shadow: 0 0 4px 4px rgb(228, 228, 228);
+}
+.geolink .showcase {
+  border-radius: 8px;
+  box-shadow: 0 0 4px 4px rgb(228, 228, 228);
+}
+
+.geolink .highlighter {
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border: 4px dashed plum;
+  z-index: 2;
+  border-right: none;
+  top: 170px;
+  left: -30px;
+}
+.geolink .text {
+  position: absolute;
+  width: 200px;
+  top: 160px;
+
+  transform: translate(0, -50%);
+  left: -250px;
+}
+
+.geolink .character {
+  position: absolute;
+  width: 140px;
+  transform: translate(0, -50%);
+  left: -250px;
+  top: 50%;
+}
+
+.geolink .highlighter1 {
+  width: 70px;
+  height: 200px;
+  position: absolute;
+  border: 4px dashed darkcyan;
+  z-index: 2;
+  border-left: none;
+  top: 180px;
+  left: 300px;
+}
+.geolink .text1 {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 80px;
+}
+
+.geolink .highlighter2 {
+  width: 70px;
+  height: 200px;
+  position: absolute;
+  border: 4px dashed chartreuse;
+  z-index: 2;
+  border-left: none;
+  bottom: 20px;
+  left: 300px;
+}
+.geolink .text2 {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 80px;
+}
+
+.geolink .sparkle,
+.geolink .sparkle2,
+.geolink .sparkle3 {
+  position: absolute;
+  top: 2%;
+  left: 280px;
+  transform: translateY(-50%);
+  animation: sparkle 2s infinite;
+}
+
+.geolink .sparkle2 {
+  top: 18%;
+  left: 10px;
+}
+.geolink .sparkle3 {
+  top: 80%;
+  left: 290px;
+}
+
+@keyframes sparkle {
+  0% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
+    transform: translate3D(-50%, -50%, 0) scale(0);
+  }
+  20% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(1);
+    transform: translate3D(-50%, -50%, 0) scale(1);
+  }
+  40% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
+    transform: translate3D(-50%, -50%, 0) scale(0);
+  }
+  100% {
+    -webkit-transform: translate3D(-50%, -50%, 0) scale(0);
+    transform: translate3D(-50%, -50%, 0) scale(0);
+  }
+}
+
+.heading {
+  font-family: Nunito !important;
+  font-weight: 900 !important;
+  background: -webkit-linear-gradient(135deg, #5b8dfe 0%, #ff5f5f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.roundButton {
+  font-size: 16px !important;
+  font-family: Nunito !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  text-transform: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .landing-page {
+    padding-top: 0px;
+  }
+  .traditional .highlighter {
+    height: 350px;
+  }
+  .geolink .highlighter {
+    top: 140px;
+  }
+  .traditional .character,
+  .geolink .character {
+    position: absolute;
+    width: 135px;
+    top: -140px;
+    z-index: 999;
+    transform: translate(0, -50%);
+    left: -100px;
+    filter: none;
+  }
+  .geolink .text {
+    font-size: 16px;
+    top: -200px;
+    left: 30px;
+  }
+  .traditional .text {
+    font-size: 16px;
+    top: -210px;
+    left: 30px;
+  }
+  .geolink .showcase,
+  .traditional .showcase {
+    margin-right: 22px;
+    height: 500px;
+  }
+}

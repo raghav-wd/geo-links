@@ -15,6 +15,9 @@ const counterSlice = createSlice({
     },
   },
   reducers: {
+    setCurrentPage(state, action) {
+      state.page = action.payload;
+    },
     setHandle(state, action) {
       state.handleText = action.payload;
     },
@@ -30,6 +33,11 @@ const counterSlice = createSlice({
   },
 });
 
-export const { setHandle, addLayerScreen, addModalHandler, setSnackbar } =
-  counterSlice.actions;
+export const {
+  setCurrentPage,
+  setHandle,
+  addLayerScreen,
+  addModalHandler,
+  setSnackbar,
+} = counterSlice.actions;
 export default counterSlice.reducer;

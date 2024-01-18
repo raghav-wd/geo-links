@@ -1,5 +1,6 @@
 .estring {
   position: relative;
+  background-color: transparent !important;
 }
 
 .estring eslink > div {

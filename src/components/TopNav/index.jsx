@@ -31,7 +31,7 @@ const TopNav = () => {
   const location = useLocation();
   let head = "";
   switch (location.pathname) {
-    case "/":
+    case "/admin":
       head = (
         <Grid container alignItems="center">
           <Typography style={{ opacity: 0.6 }}>Home</Typography>
@@ -40,7 +40,7 @@ const TopNav = () => {
         </Grid>
       );
       break;
-    case "/appearance":
+    case "/admin/appearance":
       head = (
         <Grid container alignItems="center">
           <Typography style={{ opacity: 0.6 }}>Appearance</Typography>
@@ -49,7 +49,7 @@ const TopNav = () => {
         </Grid>
       );
       break;
-    case "/insights":
+    case "/admin/insights":
       head = (
         <Grid container alignItems="center">
           <Typography style={{ opacity: 0.6 }}>Insights</Typography>
@@ -58,7 +58,7 @@ const TopNav = () => {
         </Grid>
       );
       break;
-    case "/more":
+    case "/admin/more":
       head = (
         <Grid container alignItems="center">
           <Typography style={{ opacity: 0.6 }}>More</Typography>

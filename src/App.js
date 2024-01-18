@@ -54,6 +54,9 @@ import { Suspense } from "react";
 import Estring from "./container/Estring";
 import { addInitialStyles, fetchData } from "./redux/reducers/style";
 import { userStyles } from "./services/styles";
+import Pricing from "./container/Pricing";
+import Geolinks from "./container/Geolinks";
+import ScrollToTop from "./utils/ScrollToTop";
 
 export default function App() {
   const navigate = useNavigate();
@@ -99,7 +102,7 @@ export default function App() {
       }
     }, [style]);
     return (
-      <>
+      <Box className="dashboard">
         <Grid container>
           <Grid xs={12} sx={{ display: { md: "none" } }}>
             {!desktop ? <Topbar setTopBar={setTopBar} /> : null}
@@ -163,7 +166,7 @@ export default function App() {
             {app.snackbar.message}
           </Alert>
         </Snackbar>
-      </>
+      </Box>
     );
   };
 
@@ -175,11 +178,14 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <Box>
           <Suspense fallback={<div></div>}>
+            <ScrollToTop />
             <Routes>
               <Route path="/">
                 <Route index element={<Landing />} />
                 <Route path="signup" element={<Signup />} />
                 <Route path="login" element={<Login />} />
+                <Route path="pricing" element={<Pricing />} />
+                <Route path="geolinks" element={<Geolinks />} />
                 <Route path="render" element={<Render />} />
                 <Route path="anxie" element={<Anxie emulated={false} />} />
                 <Route path="/:estring" element={<Estring />} />

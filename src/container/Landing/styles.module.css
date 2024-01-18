@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap");
-body {
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap");
+.landing-page {
   background-color: white;
 }
 .heroImage {
   position: absolute;
   top: 100px;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   height: 100%;
   background-size: cover;

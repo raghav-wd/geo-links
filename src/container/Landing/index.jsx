@@ -10,14 +10,17 @@ import { useNavigate } from "react-router-dom";
 import { setHandle } from "../../redux/reducers/app";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Footer from "../../components/Landing/Footer";
+import Topbar from "../../components/Landing/Topbar";
 
 const Landing = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const app = useSelector((state) => state.app);
   return (
-    <Box>
-      <nav>
+    <Box className={styles["landing-page"]} pt={4}>
+      <Topbar />
+      {/* <nav>
         <Button
           className={styles.roundButton}
           variant="outlined"
@@ -39,7 +42,7 @@ const Landing = () => {
         >
           Sign up free
         </Button>
-      </nav>
+      </nav> */}
       <Box className={styles.headerContainer}>
         <Box className={styles.header} sx={{ width: { xs: "90%", md: "70%" } }}>
           <Typography
@@ -51,7 +54,7 @@ const Landing = () => {
               fontSize: { xs: "200%", md: "260%" },
             }}
           >
-            Everything you need to make money doing what you love
+            Help your followers reach you in best way on your link-in-bio.
           </Typography>
           <Typography color="#434b57" variant="h6">
             <ElectricBolt
@@ -90,12 +93,11 @@ const Landing = () => {
             >
               Why is Estring the best?
             </Typography>
-            <Typography p={2} textAlign="center">
+            <Typography p={2} textAlign="center" variant="h6">
               With our robust customization options and powerful block types,
-              your profile will stand out from the noise. We're also more
-              affordable than the competition, and a great choice for teams.
+              your profile will stand out from the noise.
             </Typography>
-            <Typography p={2} textAlign="center">
+            <Typography p={2} textAlign="center" variant="h6">
               We are best suited for the creators who organise shows in
               different cities, as we have our own model for increasing sales.
             </Typography>
@@ -292,46 +294,7 @@ const Landing = () => {
           </defs>
         </svg>
       </Box>
-      <footer>
-        <Grid container spacing={2}>
-          <Grid xs={6} md={3}></Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              Features
-            </Typography>
-            <Typography py={0.4}>Plans</Typography>
-          </Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              Help & Support
-            </Typography>
-            <Typography py={0.4}>Contact</Typography>
-            <Typography py={0.4}>Help</Typography>
-            <Typography>+91 522-4044971</Typography>
-          </Grid>
-          <Grid xs={6} md={3}>
-            <Typography py={0.4} fontWeight={600} color="black">
-              About Estring
-            </Typography>
-            <Typography py={0.4}>About Estring</Typography>
-            <Typography py={0.4}>Terms</Typography>
-            <Typography py={0.4}>Privacy</Typography>
-          </Grid>
-          <Grid xs={6}>
-            <Typography px={2}>
-              Estring &copy;{new Date().getFullYear()}
-            </Typography>
-          </Grid>
-          <Grid xs={6} textAlign="right" pr={2}>
-            <IconButton>
-              <Instagram px={1} />
-            </IconButton>
-            <IconButton px={1}>
-              <Mail />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </footer>
+      <Footer />
     </Box>
   );
 };

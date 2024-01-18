@@ -17,6 +17,7 @@ import { getAllLinks } from "../../services/links";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../../redux/reducers/style";
 import { userStyles } from "../../services/styles";
+import Doodle from "./Templates/Custom/Doodle";
 
 export const Render = ({ emulated, estring }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -70,6 +71,17 @@ export const Render = ({ emulated, estring }) => {
       case themes.SOLID:
         return (
           <Solid
+            emulated={emulated}
+            estring={estring}
+            app={app}
+            link={link}
+            style={style}
+            user={user}
+          />
+        );
+      case themes.DOODLE:
+        return (
+          <Doodle
             emulated={emulated}
             estring={estring}
             app={app}

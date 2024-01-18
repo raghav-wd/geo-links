@@ -57,8 +57,9 @@ const Appearance = () => {
             </Typography>
             <EditProfile />
             <Typography my={3} variant="h6">
-              Choose Design
+              Choose a design
             </Typography>
+            <Typography my={3}>Custom Styles</Typography>
             <Grid container>
               {/* <ThemePreviewCard
                 title="Custom"
@@ -95,28 +96,13 @@ const Appearance = () => {
                 imageIndex={10}
                 theme={themes.PINBOARD}
               />
-            </Grid>
-            <Typography my={3} variant="h6">
-              Page Style
-            </Typography>
-            <Typography my={1}>Text Color</Typography>
-            <Grid container alignItems="center" mb={1}>
-              <ColorPicker
-                onChange={(color) =>
-                  color ? dispatch(styleColorPage(color)) : null
-                }
-                className="clr-picker"
-                style={{
-                  backgroundColor: style.page.color,
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "100%",
-                  border: "none",
-                }}
+              <ThemePreviewCard
+                title="Doodle"
+                imageIndex={11}
+                theme={themes.DOODLE}
               />
-              <ColorizeRounded />
             </Grid>
-            <Typography my={1}>Text</Typography>
+            <Typography my={3}>Basic Styles</Typography>
             <Grid container>
               <ThemePreviewCard
                 title="Solid Color"
@@ -140,10 +126,39 @@ const Appearance = () => {
               />
             </Grid>
             <BasicThemeSettings />
+            <Grid container alignItems="center" mb={1}>
+              <ColorPicker
+                onChange={(color) =>
+                  color ? dispatch(styleColorPage(color)) : null
+                }
+                className="clr-picker"
+                style={{
+                  backgroundColor: style.page.color,
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "100%",
+                  border: "none",
+                }}
+              />
+              <ColorizeRounded />
+            </Grid>
+            <Typography my={1}>Text</Typography>
             <Typography mt={3} variant="h6">
               Button Style
             </Typography>
             <Typography my={1}>Color</Typography>
+            <ButtonStylePreview
+              fill={true}
+              active={style.button.fill && !style.button.shadow}
+            />
+            <ButtonStylePreview
+              active={!style.button.fill && !style.button.shadow}
+            />
+            <ButtonStylePreview
+              shadow={true}
+              active={style.button.shadow && !style.button.fill}
+            />
+            <Typography my={1}>Text Color</Typography>
             <Grid container alignItems="center">
               <ColorPicker
                 onChange={(color) =>
@@ -160,18 +175,6 @@ const Appearance = () => {
               />
               <ColorizeRounded />
             </Grid>
-            <ButtonStylePreview
-              fill={true}
-              active={style.button.fill && !style.button.shadow}
-            />
-            <ButtonStylePreview
-              active={!style.button.fill && !style.button.shadow}
-            />
-            <ButtonStylePreview
-              shadow={true}
-              active={style.button.shadow && !style.button.fill}
-            />
-
             <Typography my={3} variant="h6">
               Button Transparency
             </Typography>

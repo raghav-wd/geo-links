@@ -23,7 +23,10 @@ const Pattern = ({ emulated, estring, app, link, style, user }) => {
     <div
       className={styles.estring}
       style={{
+        position: "relative",
+        zIndex: -2,
         minHeight: emulated ? "100%" : "100vh",
+        backgroundColor: "white",
         backgroundImage: "none",
       }}
     >

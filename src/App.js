@@ -52,6 +52,8 @@ import Landing from "./container/Landing";
 import Signup from "./container/Signup";
 import { Suspense } from "react";
 import Estring from "./container/Estring";
+import { addInitialStyles, fetchData } from "./redux/reducers/style";
+import { userStyles } from "./services/styles";
 import Pricing from "./container/Pricing";
 import Geolinks from "./container/Geolinks";
 import ScrollToTop from "./utils/ScrollToTop";
@@ -82,12 +84,23 @@ export default function App() {
   const location = useLocation();
   const structure = useShouldStructure();
   const [topBar, setTopBar] = React.useState(false);
+  const [stylesLoaded, setStylesLoaded] = React.useState(false);
+
   React.useEffect(() => {
     getCities();
   }, []);
   const Dashboard = () => {
     const app = useSelector((state) => state.app);
+    const style = useSelector((state) => state.style);
     const dispatch = useDispatch();
+    React.useEffect(() => {
+      dispatch(fetchData());
+    }, []);
+    React.useEffect(() => {
+      if (style.status === "succeeded") {
+        setStylesLoaded(true);
+      }
+    }, [style]);
     return (
       <Box className="dashboard">
         <Grid container>
@@ -178,10 +191,14 @@ export default function App() {
                 <Route path="/:estring" element={<Estring />} />
               </Route>
               <Route path="/admin/" element={<Dashboard />}>
-                <Route index element={<Links />} />
-                <Route path="appearance" element={<Appearance />} />
-                <Route path="insights" element={<Insights />} />
-                <Route path="more" element={<More />} />
+                {stylesLoaded && (
+                  <>
+                    <Route index element={<Links />} />
+                    <Route path="appearance" element={<Appearance />} />
+                    <Route path="insights" element={<Insights />} />
+                    <Route path="more" element={<More />} />
+                  </>
+                )}
               </Route>
             </Routes>
           </Suspense>

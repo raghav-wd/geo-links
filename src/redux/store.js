@@ -11,4 +11,5 @@ export default configureStore({
     link: linkReducer,
     user: userReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { styleFontFamily } from "../../redux/reducers/style";
 
 const FontPreviewCard = ({ title, font = title }) => {
-  const fontFamilyState = useSelector((state) => state.style.text.fontFamily);
+  const fontFamilyState = useSelector(
+    (state) => state.style.data.text.fontFamily
+  );
   const dispatch = useDispatch();
   return (
     <Button

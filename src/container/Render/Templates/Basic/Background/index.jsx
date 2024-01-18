@@ -32,7 +32,7 @@ const Background = ({ emulated, estring }) => {
   const list = useSelector((state) =>
     estring ? fetchedLinks : state.link.list
   );
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const user = useSelector((state) => (estring ? fetchedUser : state.user));
   const dispatch = useDispatch();
 

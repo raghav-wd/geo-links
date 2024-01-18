@@ -39,7 +39,7 @@ const ThemePreviewCard = ({ title, imageIndex, theme }) => {
     pinboard,
     doodle,
   ];
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const dispatch = useDispatch();
   const ThemePreview = () => {
     return (

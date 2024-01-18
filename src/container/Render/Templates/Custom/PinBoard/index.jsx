@@ -41,7 +41,7 @@ const PinBoard = ({ emulated, estring, app, link, style, user }) => {
     return list.map((item) => renderList(item));
   };
   const Link = ({ title, link, hidden }) => {
-    const style = useSelector((state) => state.style);
+    const style = useSelector((state) => state.style.data);
     const dispatch = useDispatch();
     let opacity = 0;
     if (style.button.transparency == 0) opacity = "FF";

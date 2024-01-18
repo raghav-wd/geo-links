@@ -6,6 +6,9 @@ import { Box, Typography, useMediaQuery } from "@mui/material";
 import { AddLinkButton } from "./AddLinkButton";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Render } from "../Render";
+import { useSelector } from "react-redux";
+import { updateUserStyles } from "../../services/styles";
+import { themeType } from "../../constants/themes";
 
 const Links = () => {
   const desktop = useMediaQuery("(min-width:600px)");

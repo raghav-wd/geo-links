@@ -13,7 +13,7 @@ const ButtonStylePreview = ({ fill = false, shadow = false, active }) => {
   let heading = "Outline";
   if (fill) heading = "Fill";
   if (shadow) heading = "Shadow";
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const dispatch = useDispatch();
   return (
     <Box>

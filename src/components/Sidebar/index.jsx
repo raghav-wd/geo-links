@@ -26,6 +26,8 @@ import { StaticRouter } from "react-router-dom/server";
 import Button from "@mui/material/Button";
 import { ESLink, Logo } from "./styles";
 import { CloseRounded } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { updateUserStyles } from "../../services/styles";
 
 const LinkBehavior = React.forwardRef((props, ref) => (
   <RouterLink ref={ref} to="/" {...props} role={undefined} />
@@ -45,6 +47,16 @@ Router.propTypes = {
 };
 
 const Sidebar = ({ setTopBar }) => {
+  const style = useSelector((state) => state.style.data);
+
+  const handleUpdateUserStyles = () => {
+    console.log(style);
+    updateUserStyles({
+      ...style,
+      theme: style.theme.name,
+      userId: "bbd54f70-2ce7-4db6-8a14-5f9f67ed3470",
+    });
+  };
   const desktop = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
   //   if (desktop)
@@ -139,6 +151,7 @@ const Sidebar = ({ setTopBar }) => {
           More
         </Button>
       </Grid>
+      <button onClick={handleUpdateUserStyles}>Update</button>
       {desktop ? (
         <Box style={{ position: "absolute", bottom: 0 }} p={1}>
           <Grid container spacing={2}>

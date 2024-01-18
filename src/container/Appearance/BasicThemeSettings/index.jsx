@@ -25,7 +25,7 @@ const { useSelector } = require("react-redux");
 const { useDispatch } = require("react-redux");
 
 const SolidSettings = () => {
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const dispatch = useDispatch();
   return (
     <Box>
@@ -66,7 +66,7 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 const BackgroundPhotoSettings = () => {
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const dispatch = useDispatch();
   const handlerImageUpload = (e) => {
     e.preventDefault();
@@ -94,7 +94,7 @@ const BackgroundPhotoSettings = () => {
   );
 };
 const GradientSettings = () => {
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const dispatch = useDispatch();
   const shades = [
     "linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)",
@@ -141,7 +141,7 @@ const GradientSettings = () => {
   );
 };
 const BasicThemeSettings = () => {
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   return (
     <Box py={1}>
       {style.theme == themes.SOLID ? <SolidSettings /> : null}

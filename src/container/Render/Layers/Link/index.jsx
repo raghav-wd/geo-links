@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import openInNewTab from "../../../../utils/openInNewTab";
 
 export const Link = ({ title, link, hidden }) => {
-  const style = useSelector((state) => state.style);
-  const dispatch = useDispatch();
+  const style = useSelector((state) => state.style.data);
   let opacity = 0;
   if (style.button.transparency == 0) opacity = "FF";
   else if (style.button.transparency == 20) opacity = "50";

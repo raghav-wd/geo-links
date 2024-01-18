@@ -13,51 +13,15 @@ import Underline from "./Templates/Custom/Underline";
 import layerTypes from "../../constants/layerTypes";
 import Neumorphic from "./Templates/Custom/Neumorphic";
 import PinBoard from "./Templates/Custom/PinBoard";
+import { getAllLinks } from "../../services/links";
+import { useDispatch } from "react-redux";
+import { fetchData } from "../../redux/reducers/style";
+import { userStyles } from "../../services/styles";
 
 export const Render = ({ emulated, estring }) => {
-  const fetchedTheme = themes.SOLID;
-  const fetchedLinks = {
-    list: [
-      {
-        id: "fksl",
-        type: layerTypes.LINK,
-        name: "Kanpur",
-        link: "",
-        hidden: false,
-        city: "kanpur",
-        province: "",
-        country: "",
-        lat: 0,
-        lon: 0,
-        afar: -99,
-      },
-      {
-        id: "fkssl",
-        type: layerTypes.LINK,
-        name: "Lucknow",
-        link: "",
-        hidden: false,
-        city: "lucknow",
-        province: "",
-        country: "",
-        lat: 0,
-        lon: 0,
-        afar: 100,
-      },
-      {
-        id: "sfksl",
-        type: layerTypes.LINK,
-        name: "banglore",
-        link: "",
-        hidden: false,
-        city: "banglore",
-        province: "",
-        country: "",
-        lat: 0,
-        lon: 0,
-        afar: 1,
-      },
-    ],
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [fetchedLinks, setFetchedLinks] = useState({
+    list: [],
     socials: {
       instagram: { selected: 0, url: "" },
       facebook: { selected: 0, url: "" },
@@ -66,7 +30,21 @@ export const Render = ({ emulated, estring }) => {
       email: { selected: 0, url: "" },
       count: 0,
     },
-  };
+  });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+    getAllLinks({ userId: "8c2e73c4-cebd-4b91-933f-46ae4379ef6d" })
+      .then((res) => {
+        fetchedLinks.list = res.data;
+        setFetchedLinks(fetchedLinks);
+        setIsLoaded(true);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const geoLink = true;
   const sortLinks = () => {
     fetchedLinks.list.map((item) => {
@@ -76,20 +54,19 @@ export const Render = ({ emulated, estring }) => {
       return fetchedLinks.list.sort(({ afar: a }, { afar: b }) => b - a);
     return fetchedLinks.list;
   };
-  const theme = useSelector((state) =>
-    estring ? fetchedTheme : state.style.theme
-  );
+  const theme = useSelector((state) => state.style.data);
   const app = useSelector((state) => state.app);
 
   const link = useSelector((state) =>
     estring ? sortLinks() : state.link.list
   );
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
+  console.log(style);
   const user = useSelector((state) => state.user);
   const Anxie = React.lazy(() => import("./Templates/Custom/Anxie"));
-
+  console.log(theme, style);
   const switchTheme = () => {
-    switch (theme) {
+    switch (theme.theme) {
       case themes.SOLID:
         return (
           <Solid
@@ -213,7 +190,7 @@ export const Render = ({ emulated, estring }) => {
         );
       default:
         return (
-          <Solid
+          <BarAnimation
             emulated={emulated}
             estring={estring}
             app={app}
@@ -224,5 +201,6 @@ export const Render = ({ emulated, estring }) => {
         );
     }
   };
-  return switchTheme();
+
+  return theme && isLoaded ? switchTheme() : <h1>Loading</h1>;
 };

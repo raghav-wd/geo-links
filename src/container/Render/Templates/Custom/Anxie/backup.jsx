@@ -256,7 +256,7 @@ const Design = () => {
 const Anxie = ({ emulated }) => {
   const navigate = useNavigate();
   const link = useSelector((state) => state.link);
-  const style = useSelector((state) => state.style);
+  const style = useSelector((state) => state.style.data);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 

@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { fetchData } from "../../redux/reducers/style";
 import { userStyles } from "../../services/styles";
 import Doodle from "./Templates/Custom/Doodle";
+import Background from "./Templates/Basic/Background";
 
 export const Render = ({ emulated, estring }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -167,9 +168,9 @@ export const Render = ({ emulated, estring }) => {
             user={user}
           />
         );
-      case themes.BACKGROUND:
+      case themes.PHOTO:
         return (
-          <Underline
+          <Background
             emulated={emulated}
             estring={estring}
             app={app}

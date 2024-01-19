@@ -6,7 +6,11 @@ import FontPreviewCard from "../../components/FontPreviewCard";
 import ButtonStylePreview from "../../components/ButtonStylePreview";
 import "./styles.css";
 import ColorPicker from "material-ui-color-picker";
-import { ColorizeRounded } from "@mui/icons-material";
+import {
+  ArrowOutwardRounded,
+  ColorizeRounded,
+  DoneRounded,
+} from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   styleBackgroundColorPage,
@@ -20,6 +24,8 @@ import { useEffect } from "react";
 import { Render } from "../Render";
 import { themes } from "../../constants/themes";
 import BasicThemeSettings from "./BasicThemeSettings";
+import { updateUserStyles } from "../../services/styles";
+import EmulatorTopBar from "../../components/EmulatorTopBar";
 
 const Appearance = () => {
   const style = useSelector((state) => state.style.data);
@@ -117,7 +123,7 @@ const Appearance = () => {
               <ThemePreviewCard
                 title="Background Photo"
                 imageIndex={3}
-                theme={themes.BACKGROUND}
+                theme={themes.PHOTO}
               />
               <ThemePreviewCard
                 title="Gradient"
@@ -142,11 +148,10 @@ const Appearance = () => {
               />
               <ColorizeRounded />
             </Grid>
-            <Typography my={1}>Text</Typography>
+            <Typography my={1}>Page Text</Typography>
             <Typography mt={3} variant="h6">
               Button Style
             </Typography>
-            <Typography my={1}>Color</Typography>
             <ButtonStylePreview
               fill={true}
               active={style.button.fill && !style.button.shadow}
@@ -158,7 +163,7 @@ const Appearance = () => {
               shadow={true}
               active={style.button.shadow && !style.button.fill}
             />
-            <Typography my={1}>Text Color</Typography>
+            <Typography my={1}>Button Color</Typography>
             <Grid container alignItems="center">
               <ColorPicker
                 onChange={(color) =>
@@ -275,6 +280,7 @@ const Appearance = () => {
             height: "100vh",
           }}
         >
+          <EmulatorTopBar />
           {desktop ? (
             <Box
               style={{

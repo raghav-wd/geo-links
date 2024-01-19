@@ -1,14 +1,20 @@
-import { Add } from "@mui/icons-material";
+import {
+  Add,
+  ArrowOutwardRounded,
+  DoneOutlineRounded,
+  DoneRounded,
+} from "@mui/icons-material";
 import LinksView from "../../components/LinksView";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import { AddLinkButton } from "./AddLinkButton";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Render } from "../Render";
 import { useSelector } from "react-redux";
 import { updateUserStyles } from "../../services/styles";
 import { themeType } from "../../constants/themes";
+import EmulatorTopBar from "../../components/EmulatorTopBar";
 
 const Links = () => {
   const desktop = useMediaQuery("(min-width:600px)");
@@ -28,10 +34,12 @@ const Links = () => {
           container
           justifyContent="center"
           alignContent="center"
+          flexDirection="column"
           style={{
             height: "100vh",
           }}
         >
+          <EmulatorTopBar />
           {desktop ? (
             <Box
               style={{

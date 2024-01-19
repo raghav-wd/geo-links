@@ -39,3 +39,10 @@ body {
 a {
   text-decoration: none;
 }
+
+/* will animate the angle prop 1 full turn */
+@keyframes hue-cycle {
+  to {
+    --hue: 1turn;
+  }
+}

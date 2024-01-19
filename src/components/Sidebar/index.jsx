@@ -52,15 +52,6 @@ Router.propTypes = {
 
 const Sidebar = ({ setTopBar }) => {
   const style = useSelector((state) => state.style.data);
-
-  const handleUpdateUserStyles = () => {
-    console.log(style);
-    updateUserStyles({
-      ...style,
-      theme: style.theme.name,
-      userId: "bbd54f70-2ce7-4db6-8a14-5f9f67ed3470",
-    });
-  };
   const desktop = useMediaQuery("(min-width:600px)");
   const app = useSelector((state) => state.app);
   const dispatch = useDispatch();
@@ -208,7 +199,6 @@ const Sidebar = ({ setTopBar }) => {
           More
         </Button>
       </Grid>
-      <button onClick={handleUpdateUserStyles}>Update</button>
       {desktop ? (
         <Box style={{ position: "absolute", bottom: 0 }} p={1}>
           <Grid container spacing={2}>

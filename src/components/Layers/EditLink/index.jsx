@@ -41,6 +41,7 @@ import { useDispatch } from "react-redux";
 import { deleteLink, toggleHideLink } from "../../../redux/reducers/link";
 import { setSnackbar } from "../../../redux/reducers/app";
 import { deleteLinks } from "../../../services/links";
+import { getCityCoordinates } from "../../../utils/useGetCityCoordinates";
 
 const Android12Switch = styled(Switch)(({ theme }) => ({
   padding: 8,
@@ -286,11 +287,18 @@ function CountrySelect() {
   React.useEffect(() => {
     console.log(cities);
   }, [cities]);
+  const geoCityHandler = (e) => {
+    const city = e.target.innerText.split(" - ")[0];
+    const province = e.target.innerText.split(" - ")[1];
+    const data = getCityCoordinates(city, province);
+    data.then((res) => console.log(res));
+  };
   return (
     <Autocomplete
       id="country-customized-option-demo"
       options={JSON.parse(sessionStorage.getItem("cities"))}
       disableCloseOnSelect
+      onChange={geoCityHandler}
       getOptionLabel={(option) => `${option.name} - ${option.state}`}
       renderInput={(params) => <TextField {...params} label="Choose a city" />}
     />

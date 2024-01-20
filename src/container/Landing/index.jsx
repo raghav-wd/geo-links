@@ -127,10 +127,9 @@ const Landing = () => {
               Keep track of everything, only for your eyes
             </Typography>
             <Typography p={2} mb={4} textAlign="center">
-              Customise to your heart's content! Still want more?
+              Monitor your audience engagement and revenue trends over time.
               <br />
-              We have our own design team to help you with your own custom
-              template
+              Implement informed updates on the fly.
             </Typography>
           </Grid>
         </Grid>

@@ -13,3 +13,7 @@ eslink {
 .es-link {
   margin-bottom: 1.4rem;
 }
+/* 
+.estring::-webkit-scrollbar {
+  display: none;
+} */

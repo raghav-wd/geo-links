@@ -192,6 +192,8 @@ const counterSlice = createSlice({
         city: "",
         province: "",
         country: "",
+        lat: 0,
+        long: 0,
       });
     },
     deleteLink(state, action) {

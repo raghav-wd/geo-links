@@ -2,7 +2,7 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import styles from "./styles.module.css";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
 import { useState } from "react";
 
 const Topbar = () => {
@@ -14,17 +14,24 @@ const Topbar = () => {
     <nav>
       <Box className={styles.topbar}>
         <Grid container alignItems="center" height="60px">
-          <Box sx={{ paddingLeft: { md: "64px", sx: "32px" } }}>
-            <img src={logo} width={38} />
-          </Box>
-          <Typography
-            variant="h5"
-            fontFamily="Nunito"
-            fontWeight={700}
-            onClick={() => navigate("/")}
+          <Box
+            sx={{
+              paddingLeft: { md: "64px", xs: "8px" },
+              paddingRight: "8px",
+            }}
           >
-            Estring
-          </Typography>
+            <img src={logo} width={32} />
+          </Box>
+          {desktop ? (
+            <Typography
+              variant="h5"
+              fontFamily="Nunito"
+              fontWeight={700}
+              onClick={() => navigate("/")}
+            >
+              Estring
+            </Typography>
+          ) : null}
           <Box ml="auto">
             {desktop ? (
               <Button

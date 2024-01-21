@@ -3,6 +3,9 @@ import styles from "./styles.module.css";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import whySrc from "./assets/why.png";
 import statsSrc from "./assets/stats.png";
+import growArrowSrc from "./assets/graph-arrow.svg";
+import pillarSrc from "./assets/lines.svg";
+import dollarSignSrc from "./assets/dollar-sign.svg";
 import directStandoutSrc from "./assets/direct-standout.png";
 import { ElectricBolt, Instagram, Mail } from "@mui/icons-material";
 import openPage from "../../utils/openPage";
@@ -51,18 +54,12 @@ const Landing = () => {
             maxWidth={750}
             sx={{
               textAlign: { xs: "left", md: "center" },
-              fontSize: { xs: "200%", md: "260%" },
+              fontSize: { xs: "200%", md: "240%" },
             }}
           >
-            Help your followers reach you in best way on your link-in-bio.
+            Laugh Louder, Reach Farther The Ultimate Link in Bio for Comedians!
           </Typography>
-          <Typography color="#434b57" variant="h6">
-            <ElectricBolt
-              style={{ color: "gold", transform: "translateY(25%)" }}
-            />
-            Creators who organise shows in multiple cities, shouldn't miss out!
-          </Typography>
-          <Box mt={2}>
+          <Box my={2}>
             <form className={styles.claimForm}>
               <span>estring.in/</span>
               <input
@@ -78,36 +75,58 @@ const Landing = () => {
               />
             </form>
           </Box>
+          <Typography color="#434b57">
+            <ElectricBolt
+              style={{ color: "gold", transform: "translateY(25%)" }}
+            />
+            Creators who organise shows in multiple cities, shouldn't miss out!
+          </Typography>
         </Box>
         <Box className={styles.heroImage}></Box>
       </Box>
       <Box className={styles.whyBlock}>
-        <Grid container alignItems="center">
-          <Grid md={6}>
-            <Typography
-              variant="h3"
-              fontFamily="Nunito"
-              fontWeight={900}
-              p={2}
-              textAlign="center"
-            >
-              Why is Estring the best?
-            </Typography>
-            <Typography p={2} textAlign="center" variant="h6">
-              With our robust customization options and powerful block types,
-              your profile will stand out from the noise.
-            </Typography>
-            <Typography p={2} textAlign="center" variant="h6">
-              We are best suited for the creators who organise shows in
-              different cities, as we have our own model for increasing sales.
-            </Typography>
+        <Grid container alignItems="center" height={600}>
+          <Grid md={6} mb={4} container justifyContent="center">
+            <Box width={600}>
+              <Typography
+                variant="h3"
+                fontFamily="Nunito"
+                fontWeight={900}
+                py={0}
+                textAlign="center"
+                position="relative"
+                zIndex={1}
+              >
+                Boost your Ticket Sales
+              </Typography>
+              <Typography
+                p={2}
+                textAlign="center"
+                variant="h6"
+                style={{ color: "#488eeb" }}
+              >
+                We boost the sales of your tickets through link-in-bio
+                enhancement using our Geo-location model.
+              </Typography>
+            </Box>
           </Grid>
           <Grid md={6}>
-            <img
+            <div className={styles.boostContainer}>
+              <img className={styles.pillars} src={pillarSrc} />
+              <img class={styles.arrow} src={growArrowSrc} />
+              <div className={styles.dollarSigns}>
+                <img class="image-arrow" src={dollarSignSrc} />
+                <img class="image-arrow" src={dollarSignSrc} />
+                <img class="image-arrow" src={dollarSignSrc} />
+                <img class="image-arrow" src={dollarSignSrc} />
+                <img class="image-arrow" src={dollarSignSrc} />
+              </div>
+            </div>
+            {/* <img
               src={whySrc}
               width="100%"
               style={{ border: "1px solid black" }}
-            />
+            /> */}
           </Grid>
         </Grid>
       </Box>
@@ -126,11 +145,11 @@ const Landing = () => {
             >
               Keep track of everything, only for your eyes
             </Typography>
-            <Typography p={2} mb={4} textAlign="center">
+            {/* <Typography p={2} mb={4} textAlign="center">
               Monitor your audience engagement and revenue trends over time.
               <br />
               Implement informed updates on the fly.
-            </Typography>
+            </Typography> */}
           </Grid>
         </Grid>
       </Box>
@@ -146,11 +165,16 @@ const Landing = () => {
             >
               Go Limitless!
             </Typography>
-            <Typography p={2} mb={6} textAlign="center">
-              Customise to your heart's content! Still want more?
+            <Typography
+              p={2}
+              mb={6}
+              textAlign="center"
+              variant="h6"
+              style={{ color: "#488eeb" }}
+            >
+              Customise to your heart's content!
               <br />
-              We have our own design team to help you with your own custom
-              template.
+              We match your brand with the link-in-bio design.
             </Typography>
           </Grid>
           <Grid md={6} p={4}>

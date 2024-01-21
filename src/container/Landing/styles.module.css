@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap");
 .landing-page {
   background-color: white;
+  /* overflow-x: hidden; */
 }
 .heroImage {
   position: absolute;
   top: 100px;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
+  height: 100%;
+  object-fit: cover;
+  background-position: 50% 50%;
   height: 100%;
   background-size: cover;
   object-fit: cover;
-  background-position: 50% 50%;
-  /* height: 48%; */
-  background-size: cover;
-  object-fit: cover;
   background-position: 92% 50%;
-  background-image: url(./assets/estring_heroimg.png);
+  background-image: url(./assets/comedian5.png);
 }
 .headerContainer {
   position: relative;
@@ -155,4 +155,100 @@ footer {
   padding: 48px 16px 0 16px;
   background-color: white;
   color: hsla(217.5, 13.79%, 22.75%, 0.6);
+}
+
+.boostContainer {
+  position: relative;
+  z-index: 0;
+  /* top: -100px; */
+}
+.pillars {
+  transform: translateY(-50%);
+  top: -100px;
+  position: absolute;
+  /* left: 0; */
+  right: 0px;
+  bottom: 0;
+}
+.arrow {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 0;
+  right: 90px;
+}
+.dollarSigns {
+  position: relative;
+  top: 300px;
+}
+.dollarSigns > img {
+  position: absolute;
+}
+.dollarSigns > img:nth-child(1) {
+  width: 64px;
+  bottom: 14rem;
+  right: 35.6rem;
+}
+.dollarSigns > img:nth-child(2) {
+  width: 36px;
+  bottom: 10rem;
+  right: 31rem;
+}
+.dollarSigns > img:nth-child(3) {
+  width: 49px;
+  bottom: 23rem;
+  right: 27rem;
+}
+.dollarSigns > img:nth-child(4) {
+  width: 77px;
+  right: 22rem;
+  bottom: 33rem;
+}
+.dollarSigns > img:nth-child(5) {
+  width: 40px;
+  bottom: 30rem;
+  right: 13.5rem;
+}
+
+@media (max-width: 768px) {
+  .pillars {
+    width: 35rem;
+    left: -13rem;
+  }
+  .arrow {
+    width: 23rem;
+    left: -3.625rem;
+    top: -60px;
+  }
+  .boostContainer {
+    top: 40px;
+  }
+
+  .dollarSigns {
+    top: 0;
+  }
+  .dollarSigns > img:nth-child(1) {
+    width: 34px;
+    left: 1.5rem;
+    top: -3rem;
+  }
+  .dollarSigns > img:nth-child(2) {
+    width: 19px;
+    top: 0rem;
+    left: 5rem;
+  }
+  .dollarSigns > img:nth-child(3) {
+    width: 26px;
+    top: -7rem;
+    left: 6.5rem;
+  }
+  .dollarSigns > img:nth-child(4) {
+    width: 41px;
+    top: -14rem;
+    left: 8.5rem;
+  }
+  .dollarSigns > img:nth-child(5) {
+    width: 21px;
+    top: -11rem;
+    left: 14rem;
+  }
 }

@@ -16,3 +16,9 @@ export const deleteLinks = (payload) => {
 export const getAllLinks = (payload) => {
   return axios.get(`${BASE_URL}/getAllLinks?user_id=${payload.userId}`);
 };
+
+export const getAllLinksByUsername = (payload) => {
+  return axios.get(
+    `${BASE_URL}/getAllLinksByUsername?username=${payload.username}`
+  );
+};

@@ -13,12 +13,13 @@ import Underline from "./Templates/Custom/Underline";
 import layerTypes from "../../constants/layerTypes";
 import Neumorphic from "./Templates/Custom/Neumorphic";
 import PinBoard from "./Templates/Custom/PinBoard";
-import { getAllLinks } from "../../services/links";
+import { getAllLinks, getAllLinksByUsername } from "../../services/links";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../../redux/reducers/style";
 import { userStyles } from "../../services/styles";
 import Doodle from "./Templates/Custom/Doodle";
 import Background from "./Templates/Basic/Background";
+import { useLocation, useParams } from "react-router-dom";
 
 export const Render = ({ emulated, estring }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,7 +39,7 @@ export const Render = ({ emulated, estring }) => {
 
   useEffect(() => {
     dispatch(fetchData());
-    getAllLinks({ userId: "8c2e73c4-cebd-4b91-933f-46ae4379ef6d" })
+    getAllLinksByUsername({ username: estring })
       .then((res) => {
         fetchedLinks.list = res.data;
         setFetchedLinks(fetchedLinks);

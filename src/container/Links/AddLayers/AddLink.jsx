@@ -37,7 +37,6 @@ const AddLink = ({ handleClose }) => {
 
   const handleAddingURL = () => {
     addLinks({
-      user_id: localStorage.getItem("userId"),
       url,
       url_title: title,
       url_type: layerTypes.LINK,

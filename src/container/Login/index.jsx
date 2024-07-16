@@ -49,8 +49,9 @@ const Login = () => {
     login(credentials)
       .then((res) => {
         if (res.status === 200) {
-          localStorage.setItem("userId", res.data._id);
-          navigate("/admin");
+          console.log(res);
+          localStorage.setItem("jwtToken", res.data);
+          setTimeout(() => navigate("/admin"), 1000);
         }
       })
       .catch((err) => console.log(err));

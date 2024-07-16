@@ -12,7 +12,6 @@ const EmulatorTopBar = () => {
     updateUserStyles({
       ...style,
       theme: style.theme.name,
-      userId: "bbd54f70-2ce7-4db6-8a14-5f9f67ed3470",
     });
   };
   if (desktop)

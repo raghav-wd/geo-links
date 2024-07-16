@@ -38,7 +38,7 @@ export const Render = ({ emulated, estring }) => {
 
   useEffect(() => {
     dispatch(fetchData());
-    getAllLinks({ userId: "8c2e73c4-cebd-4b91-933f-46ae4379ef6d" })
+    getAllLinks()
       .then((res) => {
         fetchedLinks.list = res.data;
         setFetchedLinks(fetchedLinks);
